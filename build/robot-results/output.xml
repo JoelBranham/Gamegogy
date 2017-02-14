@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.0 (Jython 2.7.0 on java1.8.0_112)" generated="20170213 20:32:11.626">
+<suite source="C:\Users\Steven\Documents\GitHub\Gamegogy\src\test\acceptancetest" name="Acceptancetest" id="s1">
+<suite source="C:\Users\Steven\Documents\GitHub\Gamegogy\src\test\acceptancetest\feature01.robot" name="Feature01" id="s1-s1">
+<test name="Test Gamegogy Load Student Data" id="s1-s1-t1">
+<kw name="Start Gamegogy CLI With Arguments">
+<arguments>
+<arg>student</arg>
+<arg>111128</arg>
+</arguments>
+<msg level="FAIL" timestamp="20170213 20:32:12.048">No keyword with name 'Start Gamegogy CLI With Arguments' found.</msg>
+<status endtime="20170213 20:32:12.064" starttime="20170213 20:32:12.048" status="FAIL"></status>
+</kw>
+<status critical="yes" endtime="20170213 20:32:12.064" starttime="20170213 20:32:12.033" status="FAIL">No keyword with name 'Start Gamegogy CLI With Arguments' found.</status>
+</test>
+<test name="Test Gamegogy Load Course Data" id="s1-s1-t2">
+<kw name="Start Gamegogy CLI With Arguments">
+<arguments>
+<arg>course</arg>
+<arg>99018</arg>
+</arguments>
+<msg level="FAIL" timestamp="20170213 20:32:12.126">No keyword with name 'Start Gamegogy CLI With Arguments' found.</msg>
+<status endtime="20170213 20:32:12.142" starttime="20170213 20:32:12.126" status="FAIL"></status>
+</kw>
+<status critical="yes" endtime="20170213 20:32:12.142" starttime="20170213 20:32:12.064" status="FAIL">No keyword with name 'Start Gamegogy CLI With Arguments' found.</status>
+</test>
+<test name="Test Gamegogy With No Arguments" id="s1-s1-t3">
+<kw name="Start Gamegogy CLI With Arguments">
+<msg level="FAIL" timestamp="20170213 20:32:12.158">No keyword with name 'Start Gamegogy CLI With Arguments' found.</msg>
+<status endtime="20170213 20:32:12.158" starttime="20170213 20:32:12.158" status="FAIL"></status>
+</kw>
+<status critical="yes" endtime="20170213 20:32:12.173" starttime="20170213 20:32:12.142" status="FAIL">No keyword with name 'Start Gamegogy CLI With Arguments' found.</status>
+</test>
+<status endtime="20170213 20:32:12.173" starttime="20170213 20:32:11.970" status="FAIL"></status>
+</suite>
+<status endtime="20170213 20:32:12.204" starttime="20170213 20:32:11.642" status="FAIL"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="3">Critical Tests</stat>
+<stat pass="0" fail="3">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="3" name="Acceptancetest" id="s1">Acceptancetest</stat>
+<stat pass="0" fail="3" name="Feature01" id="s1-s1">Acceptancetest.Feature01</stat>
+</suite>
+</statistics>
+<errors>
+<msg level="WARN" timestamp="20170213 20:32:12.017">Imported library 'keywords.GamegogyKeywords' contains no keywords.</msg>
+</errors>
+</robot>

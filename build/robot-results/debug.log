@@ -1,0 +1,33 @@
+==============================================================================
+20170213 20:32:11.970 - INFO - + START SUITE: Acceptancetest [ ]
+==============================================================================
+20170213 20:32:12.017 - INFO - +- START SUITE: Acceptancetest.Feature01 [ ]
+==============================================================================
+20170213 20:32:12.033 - INFO - +-- START TEST: Test Gamegogy Load Student Data [ ]
+------------------------------------------------------------------------------
+20170213 20:32:12.048 - INFO - +--- START KW: Start Gamegogy CLI With Arguments [ student | 111128 ]
+20170213 20:32:12.048 - FAIL - No keyword with name 'Start Gamegogy CLI With Arguments' found.
+20170213 20:32:12.064 - INFO - +--- END KW: Start Gamegogy CLI With Arguments (16)
+------------------------------------------------------------------------------
+20170213 20:32:12.064 - INFO - +-- END TEST: Test Gamegogy Load Student Data (31)
+------------------------------------------------------------------------------
+20170213 20:32:12.064 - INFO - +-- START TEST: Test Gamegogy Load Course Data [ ]
+------------------------------------------------------------------------------
+20170213 20:32:12.126 - INFO - +--- START KW: Start Gamegogy CLI With Arguments [ course | 99018 ]
+20170213 20:32:12.126 - FAIL - No keyword with name 'Start Gamegogy CLI With Arguments' found.
+20170213 20:32:12.142 - INFO - +--- END KW: Start Gamegogy CLI With Arguments (16)
+------------------------------------------------------------------------------
+20170213 20:32:12.142 - INFO - +-- END TEST: Test Gamegogy Load Course Data (78)
+------------------------------------------------------------------------------
+20170213 20:32:12.142 - INFO - +-- START TEST: Test Gamegogy With No Arguments [ ]
+------------------------------------------------------------------------------
+20170213 20:32:12.158 - INFO - +--- START KW: Start Gamegogy CLI With Arguments [ ]
+20170213 20:32:12.158 - FAIL - No keyword with name 'Start Gamegogy CLI With Arguments' found.
+20170213 20:32:12.173 - INFO - +--- END KW: Start Gamegogy CLI With Arguments (0)
+------------------------------------------------------------------------------
+20170213 20:32:12.173 - INFO - +-- END TEST: Test Gamegogy With No Arguments (31)
+------------------------------------------------------------------------------
+20170213 20:32:12.204 - INFO - +- END SUITE: Acceptancetest.Feature01 (203)
+==============================================================================
+20170213 20:32:12.204 - INFO - + END SUITE: Acceptancetest (562)
+==============================================================================
