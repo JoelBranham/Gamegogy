@@ -66,8 +66,6 @@ public class List{
     public List()
     {
         buildList();
-        printStudents();
-        //printCourses();
     }
     
     private void buildList()
@@ -80,7 +78,7 @@ public class List{
                 if (myline.split(",")[0].length()<8)
                     myline = in.readLine();
                Students student = new Students(
-                       Integer.parseInt(myline.split(",")[0].substring(1,5)),
+                       Integer.parseInt(myline.split(",")[0].substring(1,myline.split(",")[0].length()-1)),
                        myline.split(",")[1],myline.split(",")[2],myline.split(",")[3]);
                
                studentList.add(student);
@@ -142,5 +140,24 @@ public class List{
     public ArrayList<Courses> getCourseList()
     {
         return courseList;
+    }
+
+    public void retrieveStudent(int id)
+    {
+        for (int k=0;k<studentList.size();k++)
+            if (studentList.get(k).getId() == id)
+                System.out.println("[" +id+"] "+
+                        studentList.get(k).getFname()+"\t"+
+                        studentList.get(k).getLname()+"\t"+
+                        studentList.get(k).getEmail());
+    }
+    public void retrieveCourse(int id)
+    {
+        for (int k=0;k<courseList.size();k++)
+            if (courseList.get(k).getId() == id)
+                System.out.println("[" +id+"] "+
+                        courseList.get(k).getTerm()+" "+
+                        courseList.get(k).getYear()+" ("+
+                        courseList.get(k).getSize()+ " students)");
     }
 }

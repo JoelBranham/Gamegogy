@@ -9,16 +9,27 @@ import java.util.*;
 public class Main {
     
 
-    private static ArrayList<String> studentList;
+      
+ private static ArrayList<String> studentList;
     private static ArrayList<String> courseList;
     public static void main(String[] args) {
-     
-        
-        studentList = new ArrayList<>();
-        courseList = new ArrayList<>();
         List list = new List();
-        //list.printList("Students");
-        //System.out.println(studentList.get(0).split(",")[0]);
         
+                
+     /*
+     if (args.length>3)
+        {
+            if (args[0].equals("student"))
+            {
+                list.retrieveStudent(Integer.parseInt(args[1]));
+
+            }
+            else if (args[0].equals("course"))
+            {
+                list.retrieveCourse(Integer.parseInt(args[1]));
+            }
+        }   
+        
+        */
     }
 }
