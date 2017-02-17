@@ -6,16 +6,37 @@ import static org.junit.Assert.*;
 public class StudentTest{
 	
 	private Student student1;
+	private Student student2;
 	
 	@Before
-	public void setup(){
-		student1 = new Student(123, "first", "last", "first.last@email.com");
+	public void setup()
+	{
+		student1 = new Student(123, "First", "Last", "First.Last");
+		student2 = new Student(654321, "Jim", "Joe", "Jim.Joe");
 	}
 	
-	public void testStudentisInitalizedProperly(){
-		assertEquals(123, student1.getID();
-		assertEquals("first", student1.getFname());
-		assertEquals("last", student1.getLname());
-		assertEquals("first.last@email.com", student1.getEmail());
+	@Test
+	public void testStudentIsInitalizedProperly()
+	{
+		assertEquals(123, student1.getId());
+		assertEquals("First", student1.getFname());
+		assertEquals("Last", student1.getLname());
+		assertEquals("First.Last", student1.getEmail());
 	}
+	
+	@Test
+	public void testStudentIsInitializedProperly2(){
+		assertEquals(654321, student2.getId());
+		assertEquals("Jim", student2.getFname());
+		assertEquals("Joe", student2.getLname());
+		assertEquals("Jim.Joe", student2.getEmail());
+	}
+	
+	@Test
+	public void testToString()
+	{
+		assertEquals("[123] First Last First.Last@jsu.edu", student1.toString());
+		assertEquals("[654321] Jim Joe Jim.Joe@jsu.edu", student2.toString());
+	}
+	
 }
