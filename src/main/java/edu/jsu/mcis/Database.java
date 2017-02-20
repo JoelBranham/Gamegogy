@@ -2,11 +2,14 @@ package edu.jsu.mcis;
 
 import java.io.*;
 import java.util.*;
+
   
 public class Database{
     
 	Map<Integer, Course> courseMap;
 	Map<Integer, Student> studentMap; 
+	ArrayList <String> courseIds = new ArrayList<String>();
+	ArrayList <String> studentIds = new ArrayList<String>();
     
     public Database()
     {
@@ -48,6 +51,10 @@ public class Database{
 				int size = Integer.parseInt(course[3].substring(1,course[3].length()-1));
 				String term = course[1].substring(1, course[1].length()-1);
 				courseMap.put(id, new Course(id, year, size, term));
+				
+				String ids = String.valueOf(id);
+				courseIds.add(ids);
+				
             }
         }
         catch(IOException e) {e.printStackTrace();}
@@ -84,6 +91,9 @@ public class Database{
 				String last = student[2].substring(1, student[2].length() - 1);
 				String email = student[3].substring(1, student[3].length() - 1);
 				studentMap.put(id, new Student(id, first, last, email));
+				
+				String ids = String.valueOf(id);
+				studentIds.add(ids);
             }
         }
         catch(IOException e) {e.printStackTrace();}
@@ -105,5 +115,20 @@ public class Database{
 		}
 		throw new StudentException();
     }
-	
+	public String getCourseIds(){
+		String courses="";
+		for (int k=0; k<courseIds.size(); k++){
+			String course=(courseIds.get(k));
+			courses = courses+course +"\n";	
+		}
+		return courses;
+	}
+	public String getStudentIds(){
+		String students = "";
+		for (int h=0; h<studentIds.size(); h++){
+			String student=(studentIds.get(h));
+			students = students+student + "\n";	
+		}
+		return students;
+	}
 }
