@@ -16,6 +16,22 @@ public class AssignmentTest{
 	@Test
 	public void testAssignmentInitializedProperly(){
 		assertEquals("a",a.getName());
+		boolean thrown = false;
+		try{
+			a.getTopStudentID();
+		}
+		catch(AssignmentException a){
+			thrown = true;
+		}
+		assertTrue(thrown);
+		thrown = false;
+		try{
+			a.getTopScore();
+		}
+		catch(AssignmentException a){
+			thrown = true;
+		}
+		assertTrue(thrown);
 	}
 	
 	@Test
@@ -33,9 +49,5 @@ public class AssignmentTest{
 		assertEquals(a.getTopStudentID(), 1111);
 		assertEquals(a.getTopScore(), 100);
 	}
-	
-	//test when student and score empty (throw exception?)
-	
-	
-	
+
 }

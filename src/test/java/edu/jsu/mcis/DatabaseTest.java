@@ -98,6 +98,7 @@ public class DatabaseTest{
 		assertEquals("Fall", course2.getTerm());
 		assertEquals(1944, course2.getYear());
 		assertEquals(10, course2.getSize());
+		
 		Assignment total = course2.getAssignment("Total");
 		assertEquals(111143, total.getTopStudentID());
 		assertEquals(886, total.getTopScore());

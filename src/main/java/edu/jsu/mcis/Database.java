@@ -27,7 +27,6 @@ public class Database{
             myline = in.readLine();
             while ((myline = in.readLine())!=null)
             {
-		
 				String[] course = myline.split(",");
 				int id = Integer.parseInt(course[0].substring(1,course[0].length()-1));
 				int year = Integer.parseInt(course[2].substring(1,course[2].length()-1));

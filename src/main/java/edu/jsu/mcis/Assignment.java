@@ -39,14 +39,14 @@ public class Assignment{
 		if (studentIDs.size() > 0){
 			return studentIDs.get(0);
 		}
-		return -1;
+		throw new AssignmentException();
 	}
 	
 	public int getTopScore(){
 		if (scores.size() > 0){
 			return scores.get(0);
 		}
-		return -1;
+		throw new AssignmentException();
 	}
 	
 	public String getName(){
