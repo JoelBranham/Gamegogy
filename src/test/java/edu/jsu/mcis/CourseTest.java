@@ -44,42 +44,34 @@ public class CourseTest{
 	
 	@Test
 	public void testAddAssignment(){
-		Assignment a = new Assignment();
+		Assignment a = new Assignment("a");
 		a.addStudentAndScore(1111, 100);
 		a.addStudentAndScore(1234, 80);
 		a.addStudentAndScore(4321, 99);
 		course1.addAssignment(a);
-		ArrayList<Assignment> assignments = course1.getAssignments();
-		int id = assignments.get(0).getTopStudent();
+		int id = course1.getAssignment("a").getTopStudentID();
 		assertEquals(1111, id);
-		int score = assignments.get(0).getTopScore();
+		int score = course1.getAssignment("a").getTopScore();
 		assertEquals(100, score);
 	}
 	
 	@Test
 	public void testAssignmentsAreCorrectlyAddedToAssignmentList(){
-		Assignment a = new Assignment();
+		Assignment a = new Assignment("a");
 		a.addStudentAndScore(1234, 90);
-		Assignment b = new Assignment();
+		Assignment b = new Assignment("b");
 		b.addStudentAndScore(2222, 92);
-		Assignment c = new Assignment();
+		Assignment c = new Assignment("c");
 		c.addStudentAndScore(4321, 89);
 		course1.addAssignment(a);
 		course1.addAssignment(b);
 		course1.addAssignment(c);
-		Assignment aTest = course1.getAssignments().get(0);
-		Assignment bTest = course1.getAssignments().get(1);
-		Assignment cTest = course1.getAssignments().get(2);
-		assertEquals(1234, aTest.getTopStudent());
-		assertEquals(90, aTest.getTopScore());
-		assertEquals(2222, bTest.getTopStudent());
-		assertEquals(92, bTest.getTopScore());
-		assertEquals(4321, cTest.getTopStudent());
-		assertEquals(89, cTest.getTopScore());
+		Assignment aTest = course1.getAssignment("a");
+		Assignment bTest = course1.getAssignment("b");
+		Assignment cTest = course1.getAssignment("c");
+		assertEquals(1234, aTest.getTopStudentID());
+		assertEquals(2222, bTest.getTopStudentID());
+		assertEquals(4321, cTest.getTopStudentID());
 	}
 	
-	
-	
-	
-
 }

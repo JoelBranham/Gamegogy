@@ -64,4 +64,43 @@ public class DatabaseTest{
 		assertTrue(thrown);
 	}
 	
+	@Test
+	public void testAddCourseInfo1()
+	{
+		d.addCourseInfo("src\\test\\resources\\coursestest");
+		Course course1 = d.getCourse(99000);
+		assertEquals("Spring", course1.getTerm());
+		assertEquals(2013, course1.getYear());
+		assertEquals(11, course1.getSize());
+		
+		Assignment total = course1.getAssignment("Total");
+		assertEquals(111318, total.getTopStudentID());
+		assertEquals(925, total.getTopScore());
+		
+		Assignment assignment1 = course1.getAssignment("Assignment 1");
+		assertEquals(111318, assignment1.getTopStudentID());
+		assertEquals(65, assignment1.getTopScore());
+		
+		Assignment assignment2 = course1.getAssignment("Assignment 2");
+		assertEquals(111318, assignment2.getTopStudentID());
+		assertEquals(58, assignment2.getTopScore());
+		
+		Assignment assignment3 = course1.getAssignment("Assignment 3");
+		assertEquals(111383, assignment3.getTopStudentID());
+		assertEquals(59, assignment3.getTopScore());
+	}
+	
+	@Test
+	public void testAddCourseInfo2()
+	{
+		d.addCourseInfo("src\\test\\resources\\coursestest");
+		Course course2 = d.getCourse(99001);
+		assertEquals("Fall", course2.getTerm());
+		assertEquals(1944, course2.getYear());
+		assertEquals(10, course2.getSize());
+		Assignment total = course2.getAssignment("Total");
+		assertEquals(111143, total.getTopStudentID());
+		assertEquals(886, total.getTopScore());
+	}
+	
 }

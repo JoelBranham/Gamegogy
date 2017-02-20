@@ -6,10 +6,12 @@ public class Assignment{
 	
 	private ArrayList<Integer> studentIDs;
 	private ArrayList<Integer> scores;
+	private String name;
 	
-	public Assignment(){
+	public Assignment(String name){
 		studentIDs = new ArrayList<>();
 		scores = new ArrayList<>();
+		this.name = name;
 	}
 	
 	public void addStudentAndScore(int id, int score){
@@ -33,7 +35,7 @@ public class Assignment{
 		}
 	}
 	
-	public int getTopStudent(){
+	public int getTopStudentID(){
 		if (studentIDs.size() > 0){
 			return studentIDs.get(0);
 		}
@@ -45,6 +47,10 @@ public class Assignment{
 			return scores.get(0);
 		}
 		return -1;
+	}
+	
+	public String getName(){
+		return name;
 	}
 	
 }

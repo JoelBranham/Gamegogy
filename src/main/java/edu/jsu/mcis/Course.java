@@ -6,11 +6,11 @@ public class Course{
 
 	private int id,year,size;
 	private String term;
-	private ArrayList<Assignment> assignments;
+	private Map<String, Assignment> assignments;
 
 	public Course(int i,int y,int s, String t)
 	{
-		assignments = new ArrayList<>();
+		assignments = new HashMap<String, Assignment>();
 		id = i;
 		year = y;
 		size = s;
@@ -44,12 +44,21 @@ public class Course{
 	
 	public void addAssignment(Assignment a)
 	{
-		assignments.add(a);
+		assignments.put(a.getName(), a);
 	}
 	
-	public ArrayList<Assignment> getAssignments()
+	public ArrayList<String> getAssignments()
 	{
-		return assignments;
+		ArrayList<String> assignmentList = new ArrayList<>();
+		assignmentList.addAll(assignments.keySet());
+		return assignmentList;
+	}
+	
+	public Assignment getAssignment(String name){   //use hashmap instead?
+		if (assignments.containsKey(name)){
+			return assignments.get(name);
+		}
+		return null;  //throw exception?
 	}
 	
 }

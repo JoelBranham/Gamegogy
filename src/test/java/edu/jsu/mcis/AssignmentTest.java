@@ -10,13 +10,18 @@ public class AssignmentTest{
 	
 	@Before
 	public void setup(){
-		a = new Assignment();
+		a = new Assignment("a");
+	}
+	
+	@Test
+	public void testAssignmentInitializedProperly(){
+		assertEquals("a",a.getName());
 	}
 	
 	@Test
 	public void testAddStudentAndScore(){
 		a.addStudentAndScore(1111, 100);
-		assertEquals(a.getTopStudent(), 1111);
+		assertEquals(a.getTopStudentID(), 1111);
 		assertEquals(a.getTopScore(), 100);
 	}
 	
@@ -25,7 +30,7 @@ public class AssignmentTest{
 		a.addStudentAndScore(1111, 100);
 		a.addStudentAndScore(1234, 99);
 		a.addStudentAndScore(4321, 30);
-		assertEquals(a.getTopStudent(), 1111);
+		assertEquals(a.getTopStudentID(), 1111);
 		assertEquals(a.getTopScore(), 100);
 	}
 	
