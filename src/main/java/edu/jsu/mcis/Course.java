@@ -1,12 +1,16 @@
 package edu.jsu.mcis;
 
+import java.util.*;
+
 public class Course{
 
 	private int id,year,size;
 	private String term;
+	private ArrayList<Assignment> assignments;
 
 	public Course(int i,int y,int s, String t)
 	{
+		assignments = new ArrayList<>();
 		id = i;
 		year = y;
 		size = s;
@@ -36,6 +40,16 @@ public class Course{
 	public String toString()
 	{
 		return "[" + id + "] " + term + " " + year + " (" + size + " students)";
+	}
+	
+	public void addAssignment(Assignment a)
+	{
+		assignments.add(a);
+	}
+	
+	public ArrayList<Assignment> getAssignments()
+	{
+		return assignments;
 	}
 	
 }
