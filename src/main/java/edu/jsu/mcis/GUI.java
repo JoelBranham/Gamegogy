@@ -1,4 +1,4 @@
-package testui;
+package edu.jsu.mcis;
 
 import java.awt.Color;
 import java.awt.Dimension;
