@@ -22,7 +22,7 @@ public class Assignment{
 		else{
 			boolean added = false;
 			for (int i = 0; i < scores.size() && !added; i++){
-				if (scores.get(i) < score){
+				if (scores.get(i) <= score){
 					scores.add(i, score);
 					studentIDs.add(i, id);
 					added = true;

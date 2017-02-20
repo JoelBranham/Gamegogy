@@ -82,7 +82,7 @@ public class DatabaseTest{
 		assertEquals(65, assignment1.getTopScore());
 		
 		Assignment assignment2 = course1.getAssignment("Assignment 2");
-		assertEquals(111318, assignment2.getTopStudentID());
+		assertEquals(111310, assignment2.getTopStudentID());
 		assertEquals(58, assignment2.getTopScore());
 		
 		Assignment assignment3 = course1.getAssignment("Assignment 3");
