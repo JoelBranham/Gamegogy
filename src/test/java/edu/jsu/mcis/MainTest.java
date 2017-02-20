@@ -7,14 +7,14 @@ import java.io.*;
 public class MainTest{
 
 	private ByteArrayOutputStream out;
-	private String[] validCourseArgs = {"Course", "99000"};
-	private String[] invalidCourseArgs = {"Course", "00"};
-	private String[] validStudentArgs = {"Student", "111111"};
-	private String[] invalidStudentArgs = {"Student", "111500"};
+	private String[] validCourseArgs = {"course", "99000"};
+	private String[] invalidCourseArgs = {"course", "00"};
+	private String[] validStudentArgs = {"student", "111111"};
+	private String[] invalidStudentArgs = {"student", "111500"};
 	private String[] invalidFirstArg = {"Happy", "111111"};
 	private String[] emptyArgs = {};
-	private String[] oneArg = {"Course"};
-	private String[] threeArgs = {"Student", "111111", "Course"};
+	private String[] oneArg = {"course"};
+	private String[] threeArgs = {"student", "111111", "course"};
 	
 	@Before
 	public void setup(){
