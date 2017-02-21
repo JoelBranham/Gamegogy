@@ -10,6 +10,15 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 
+			//Window needs to be titled "Gamegogy"
+			//JComboBox needs to be named - courseComboBox
+			//							  - columnComboBox
+			//labels need to be named - courseEnrollment  
+			//						  - studentId  
+			//						  - studentName    
+			//						  - studentEmail          
+			//						  - studentScore
+
 
 public class GUI extends JPanel{
     JFrame frame;

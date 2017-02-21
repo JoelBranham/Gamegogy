@@ -47,18 +47,18 @@ public class Course{
 		assignments.put(a.getName(), a);
 	}
 	
-	public ArrayList<String> getAssignments()
+	public ArrayList<String> getAssignmentList()
 	{
 		ArrayList<String> assignmentList = new ArrayList<>();
 		assignmentList.addAll(assignments.keySet());
 		return assignmentList;
 	}
 	
-	public Assignment getAssignment(String name){   //use hashmap instead?
+	public Assignment getAssignment(String name){ 
 		if (assignments.containsKey(name)){
 			return assignments.get(name);
 		}
-		return null;  //throw exception?
+		throw new AssignmentException(); 
 	}
-	
+
 }

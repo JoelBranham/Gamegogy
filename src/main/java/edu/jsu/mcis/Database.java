@@ -115,7 +115,7 @@ public class Database{
 		throw new StudentException();
     }
 	
-	public ArrayList<String> getCourseStrings()
+	public ArrayList<String> getCourseList()
 	{
 		ArrayList<Integer> courseList = new ArrayList<>();
 		courseList.addAll(courseMap.keySet());

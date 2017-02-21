@@ -108,7 +108,7 @@ public class DatabaseTest{
 	@Test
 	public void testGetCourseStrings()
 	{
-		ArrayList<String> courses = d.getCourseStrings();
+		ArrayList<String> courses = d.getCourseList();
 		assertTrue(courses.contains("99000"));
 		assertTrue(courses.contains("99001"));
 		assertTrue(courses.contains("99002"));
