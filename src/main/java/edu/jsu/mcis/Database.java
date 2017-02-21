@@ -115,11 +115,15 @@ public class Database{
 		throw new StudentException();
     }
 	
-	public ArrayList<Integer> getCourses()
+	public ArrayList<String> getCourseStrings()
 	{
 		ArrayList<Integer> courseList = new ArrayList<>();
 		courseList.addAll(courseMap.keySet());
-		return courseList;		
+		ArrayList<String> courseStrings = new ArrayList<>();
+		for (int i : courseList){
+			courseStrings.add(String.valueOf(i));
+		}
+		return courseStrings;		
 	}
 	
 	public String getCourseIds()

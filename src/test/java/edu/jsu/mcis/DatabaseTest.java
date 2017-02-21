@@ -2,6 +2,7 @@ package edu.jsu.mcis;
 
 import org.junit.*;
 import static org.junit.Assert.*;
+import java.util.*;
 
 public class DatabaseTest{
 	
@@ -102,6 +103,15 @@ public class DatabaseTest{
 		Assignment total = course2.getAssignment("Total");
 		assertEquals(111143, total.getTopStudentID());
 		assertEquals(886, total.getTopScore());
+	}
+	
+	@Test
+	public void testGetCourseStrings()
+	{
+		ArrayList<String> courses = d.getCourseStrings();
+		assertTrue(courses.contains("99000"));
+		assertTrue(courses.contains("99001"));
+		assertTrue(courses.contains("99002"));
 	}
 	
 }
