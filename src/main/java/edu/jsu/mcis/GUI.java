@@ -4,17 +4,23 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Image;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 
+			//Window needs to be titled "Gamegogy"
+			//JComboBox needs to be named - courseComboBox
+			//							  - columnComboBox
+			//labels need to be named - courseEnrollment  
+			//						  - studentId  
+			//						  - studentName    
+			//						  - studentEmail          
+			//						  - studentScore
 
-public class GUI extends JPanel implements ActionListener{
-    Database dataBase;
+
+public class GUI extends JPanel{
     JFrame frame;
     JLabel[] labels;
     JComboBox[] combos;
@@ -23,9 +29,8 @@ public class GUI extends JPanel implements ActionListener{
     
     String[] testCourses = {"Course1","Course2","Course3"};//remove later
     String[] testColumns = {"Col1","Col2","Col3"};//remove later
-    public GUI(Database dataBase) throws IOException
+    public GUI() throws IOException
     {
-        this.dataBase = dataBase;
        
         BufferedImage img = ImageIO.read(new File("src\\main\\resources\\board.jpg"));
         BufferedImage img2 = ImageIO.read(new File("src\\main\\resources\\black.png"));
@@ -59,47 +64,46 @@ public class GUI extends JPanel implements ActionListener{
        // frame.add(bg1);
         
        
-       
-        
+        labels[0].setText("Gamegogy");
+        labels[0].setBounds(330,10,100,32);
         labels[1].setText("Course");
-        labels[1].setBounds(100,20,70,32);
+        labels[1].setBounds(100,64,70,32);
         labels[2].setText("Column");
-        labels[2].setBounds(450,20,70,32);
+        labels[2].setBounds(450,64,70,32);
         labels[3].setText("Term:");
         labels[3].setBounds(100,200,70,32);
         labels[4].setText("Enrollment:");
         labels[4].setBounds(450,200,200,32);
         labels[5].setText("ID:");
-        labels[5].setBounds(100,480,70,32);
+        labels[5].setBounds(100,400,70,32);
         labels[6].setText("Name:");
-        labels[6].setBounds(100,520,70,32);
+        labels[6].setBounds(100,440,70,32);
         labels[7].setText("Email:");
-        labels[7].setBounds(100,560,70,32);
+        labels[7].setBounds(100,480,70,32);
         labels[8].setText("Score:");
-        labels[8].setBounds(100,600,70,32);
+        labels[8].setBounds(100,520,70,32);
         
         labels[9].setText("111169");
-        labels[9].setBounds(175,480,400,32);
+        labels[9].setBounds(175,400,400,32);
         labels[10].setText("Otis Pate");
-        labels[10].setBounds(175,520,400,32);
+        labels[10].setBounds(175,440,400,32);
         labels[11].setText("opate@jsu.edu");
-        labels[11].setBounds(175,560,400,32);
+        labels[11].setBounds(175,480,400,32);
         labels[12].setText("99");
-        labels[12].setBounds(175,600,400,32);
+        labels[12].setBounds(175,520,400,32);
         labels[13].setText("Summer");
         labels[13].setBounds(175,200,150,32);
         labels[14].setText("15");
         labels[14].setBounds(575,200,200,32);
         
         combos = new JComboBox[numOfCombos];
-        combos[0] = new JComboBox(dataBase.getCourseList().toArray());
-        combos[0].addActionListener((ActionListener) this);
-        combos[0].setBounds(175,28,100,24);
-       
+        combos[0] = new JComboBox(testCourses);
+        combos[0].setBounds(175,70,100,24);
+        //combos[0].setBackground(Color.red);
+        //combos[0].setForeground(Color.red);
         frame.add(combos[0]);
-        combos[1] = new JComboBox();
-        combos[1].addActionListener((ActionListener) this);
-        combos[1].setBounds(525,28,100,24);
+        combos[1] = new JComboBox(testColumns);
+        combos[1].setBounds(575,68,100,24);
         combos[0].updateUI();
         frame.add(combos[1]);
 
@@ -108,14 +112,5 @@ public class GUI extends JPanel implements ActionListener{
         
         
         frame.setVisible(true);//must be last
-    }
-
-    @Override
-    public void actionPerformed(ActionEvent ae) {
-        //System.out.println();
-        JComboBox box = (JComboBox)ae.getSource();
-        //System.out.println(box.getSelectedItem());
-        combos[1].addItem(box.getSelectedItem());
-        
     }
 }
