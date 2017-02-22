@@ -1,18 +1,15 @@
 package edu.jsu.mcis;
 import java.io.*;
 import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Main {
 
-    public static void main(String[] args)  {
-	try {
-            GUI gui = new GUI();
-        } catch (IOException ex) {
-            System.out.println(ex.getMessage());
-        }
+    public static void main(String[] args) {
+       
 
         Database dataBase = new Database();
-		
         if (args.length == 2){
 			if(args[0].equals("course"))
 			{
@@ -42,7 +39,12 @@ public class Main {
 			System.out.println("");
 			//System.exit(0);
 		}
+        
+         try {
+            GUI gui = new GUI(dataBase);
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
     }
-	
 }
 
