@@ -117,13 +117,7 @@ public class Database{
 	
 	public ArrayList<String> getCourseList()
 	{
-		ArrayList<Integer> courseList = new ArrayList<>();
-		courseList.addAll(courseMap.keySet());
-		ArrayList<String> courseStrings = new ArrayList<>();
-		for (int i : courseList){
-			courseStrings.add(String.valueOf(i));
-		}
-		return courseStrings;		
+		return courseIds;		
 	}
 	
 	public String getCourseIds()
