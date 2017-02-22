@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="edu.jsu.mcis.CourseTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2017-02-22T14:39:02" hostname="Encrypted" time="0.015">
+  <properties/>
+  <testcase name="testAssignmentsAreCorrectlyAddedToAssignmentList" classname="edu.jsu.mcis.CourseTest" time="0.0"/>
+  <testcase name="testAddAssignment" classname="edu.jsu.mcis.CourseTest" time="0.0"/>
+  <testcase name="testToString" classname="edu.jsu.mcis.CourseTest" time="0.0"/>
+  <testcase name="testStudentisInitializedProperly2" classname="edu.jsu.mcis.CourseTest" time="0.0"/>
+  <testcase name="testStudentisInitalizedProperly" classname="edu.jsu.mcis.CourseTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

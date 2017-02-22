@@ -4,8 +4,15 @@ import java.util.*;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args)  {
+	try {
+            GUI gui = new GUI();
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+
         Database dataBase = new Database();
+		
         if (args.length == 2){
 			if(args[0].equals("course"))
 			{
@@ -36,5 +43,6 @@ public class Main {
 			//System.exit(0);
 		}
     }
+	
 }
 

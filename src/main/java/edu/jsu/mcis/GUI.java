@@ -32,8 +32,8 @@ public class GUI extends JPanel{
     public GUI() throws IOException
     {
        
-        BufferedImage img = ImageIO.read(new File("board.jpg"));
-        BufferedImage img2 = ImageIO.read(new File("black.png"));
+        BufferedImage img = ImageIO.read(new File("src\\main\\resources\\board.jpg"));
+        BufferedImage img2 = ImageIO.read(new File("src\\main\\resources\\black.png"));
         JLabel bg = new JLabel(new ImageIcon(img));
         bg.setBounds(0,100,700,700);
         JLabel bg1 = new JLabel(new ImageIcon(img2));
