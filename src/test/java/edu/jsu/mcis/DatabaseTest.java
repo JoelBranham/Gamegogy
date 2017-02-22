@@ -112,6 +112,7 @@ public class DatabaseTest{
 		assertTrue(courses.contains("99000"));
 		assertTrue(courses.contains("99001"));
 		assertTrue(courses.contains("99002"));
+		assertFalse(courses.contains("99025"));
 	}
 	
 }
