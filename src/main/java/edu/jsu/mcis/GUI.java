@@ -17,7 +17,9 @@ public class GUI extends JPanel implements ActionListener{
     Database dataBase;
     JFrame frame;
     JLabel[] labels;
+    private JLabel courseEnrollment,courseTerm, studentId,studentName,studentEmail,studentScore;
     JComboBox[] combos;
+    private JComboBox courseComboBox, columnComboBox;
     private final int numOfLabels = 20;
     private final int numOfCombos = 3;
     
@@ -78,19 +80,28 @@ public class GUI extends JPanel implements ActionListener{
         labels[8].setText("Score:");
         labels[8].setBounds(100,600,70,32);
         
-        labels[9].setText("111169");
-        labels[9].setBounds(175,480,400,32);
-        labels[10].setText("Otis Pate");
-        labels[10].setBounds(175,520,400,32);
-        labels[11].setText("opate@jsu.edu");
+        studentId = new JLabel("111169");//columnComboBox.getSelectedItem().getTopStudentID()
+        studentId.setBounds(175,480,400,32);
+        //labels[9].setText("111169");
+        //labels[9].setBounds(175,480,400,32);
+        studentName = new JLabel("Otis Pate");//dataBase.getstudent(columnComboBox.getSelectedItem().getTopStudentID()).getName();
+        studentName.setBounds(175,520,400,32);
+        //labels[10].setText("Otis Pate");
+        //labels[10].setBounds(175,520,400,32);
+        labels[11].setText("opate@jsu.edu");//dataBase.getstudent(columnComboBox.getSelectedItem().getTopStudentID()).getEmail();
         labels[11].setBounds(175,560,400,32);
-        labels[12].setText("99");
-        labels[12].setBounds(175,600,400,32);
-        labels[13].setText("Summer");
-        labels[13].setBounds(175,200,150,32);
-        labels[14].setText("15");
-        labels[14].setBounds(575,200,200,32);
+        studentScore = new JLabel("99");//columnComboBox.getSelectedItem().getstudent()
+        studentScore.setBounds(175,520,400,32);
+       //labels[12].setText("99");
+        //labels[12].setBounds(175,600,400,32);
+        courseTerm = new JLabel("Summer");//courseComboBox.getSelectedItem().getTerm()
+        //labels[13].setText("Summer");
+        //labels[13].setBounds(175,200,150,32);
+        courseEnrollment.setText("15");//courseComboBox.getSelectedItem().getSize()
+        courseEnrollment.setBounds(575,200,200,32);
         
+        
+        /*
         combos = new JComboBox[numOfCombos];
         combos[0] = new JComboBox(dataBase.getCourseList().toArray());
         combos[0].addActionListener((ActionListener) this);
@@ -102,7 +113,7 @@ public class GUI extends JPanel implements ActionListener{
         combos[1].setBounds(525,28,100,24);
         combos[0].updateUI();
         frame.add(combos[1]);
-
+        */
       
        
         
