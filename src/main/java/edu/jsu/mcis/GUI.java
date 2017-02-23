@@ -1,11 +1,7 @@
 package edu.jsu.mcis;
 
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.Image;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.*;
+import java.awt.event.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -14,40 +10,74 @@ import javax.swing.*;
 
 
 public class GUI extends JPanel implements ActionListener{
-    Database dataBase;
-    JFrame frame;
-    JLabel[] labels;
-    private JLabel courseEnrollment,courseTerm, studentId,studentName,studentEmail,studentScore;
-    JComboBox[] combos;
+    private Database dataBase;
+//    private JLabel[] labels;
+    private JLabel courseEnrollment, courseTerm, studentId, studentName, studentEmail, studentScore;
     private JComboBox courseComboBox, columnComboBox;
-    private final int numOfLabels = 20;
-    private final int numOfCombos = 3;
-    
-    String[] testCourses = {"Course1","Course2","Course3"};//remove later
-    String[] testColumns = {"Col1","Col2","Col3"};//remove later
-    public GUI(Database dataBase) throws IOException
-    {
+//    private final int numOfLabels = 20;
+//   private final int numOfCombos = 3;
+
+	private Course currentCourse;
+	private Assignment currentAssignment;
+	private Student currentStudent;
+
+    public GUI(Database dataBase) throws IOException{		
         this.dataBase = dataBase;
-       
+
         BufferedImage img = ImageIO.read(new File("src\\main\\resources\\board.jpg"));
         BufferedImage img2 = ImageIO.read(new File("src\\main\\resources\\black.png"));
         JLabel bg = new JLabel(new ImageIcon(img));
-        bg.setBounds(0,100,700,700);
+        //bg.setBounds(0,100,700,700);
         JLabel bg1 = new JLabel(new ImageIcon(img2));
-        bg1.setBounds(175,70,100,24);
-        
-        
-        
-        frame = new JFrame();
-        frame.setName("Gamegogy");
-        frame.setTitle("Gamegogy");
-        frame.setSize(new Dimension(700,700));
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setLayout(null);
-        frame.setResizable(false);
-        
-        
-        
+        //bg1.setBounds(175,70,100,24);
+		
+		courseComboBox = new JComboBox(dataBase.getCourseList().toArray());
+		//courseComboBox.setBounds(175,28,100,24);
+		courseComboBox.addActionListener(this);
+		courseComboBox.setName("courseComboBox");
+		add(courseComboBox);
+
+		columnComboBox = new JComboBox();
+		columnComboBox.addActionListener(this);
+		columnComboBox.setName("columnComboBox");
+		//columnComboBox.setBounds(525,28,100,24);
+		add(columnComboBox);
+
+		courseTerm = new JLabel();
+		courseTerm.setName("courseTerm");
+		//courseTerm.setBounds(175,200,150,32);
+		add(courseTerm);
+		
+		courseEnrollment = new JLabel();
+		courseEnrollment.setName("courseEnrollment");
+		//courseEnrollment.setBounds(575,200,200,32);
+		add(courseEnrollment);
+
+        studentId = new JLabel();
+        //studentId.setBounds(175,480,400,32);
+		studentId.setName("studentId");
+		add(studentId);
+		
+		studentName = new JLabel();
+        //studentName.setBounds(175,520,400,32);
+		studentName.setName("studentName");
+		add(studentName);
+		
+		studentEmail = new JLabel();
+        //studentName.setBounds(175,560,400,32);
+		studentEmail.setName("studentEmail");
+		add(studentEmail);
+		
+		studentScore = new JLabel();
+        //studentScore.setBounds(175,520,400,32);
+		studentScore.setName("studentScore");
+		add(studentScore);
+		
+		updateAfterCourseChange();
+		updateAfterAssignmentChange();
+		
+		
+		/*
         labels = new JLabel[numOfLabels];
         for (int k=0;k<labels.length;k++)
         {
@@ -61,8 +91,6 @@ public class GUI extends JPanel implements ActionListener{
        // frame.add(bg1);
         
        
-       
-        
         labels[1].setText("Course");
         labels[1].setBounds(100,20,70,32);
         labels[2].setText("Column");
@@ -79,9 +107,9 @@ public class GUI extends JPanel implements ActionListener{
         labels[7].setBounds(100,560,70,32);
         labels[8].setText("Score:");
         labels[8].setBounds(100,600,70,32);
-        
-        studentId = new JLabel("111169");//columnComboBox.getSelectedItem().getTopStudentID()
-        studentId.setBounds(175,480,400,32);
+		*/
+        /*
+		String assignmentName = (String) columnComboBox.getSelectedItem();
         //labels[9].setText("111169");
         //labels[9].setBounds(175,480,400,32);
         studentName = new JLabel("Otis Pate");//dataBase.getstudent(columnComboBox.getSelectedItem().getTopStudentID()).getName();
@@ -114,19 +142,34 @@ public class GUI extends JPanel implements ActionListener{
         combos[0].updateUI();
         frame.add(combos[1]);
         */
-      
-       
-        
-        
-        frame.setVisible(true);//must be last
-    }
 
-    @Override
-    public void actionPerformed(ActionEvent ae) {
-        //System.out.println();
-        JComboBox box = (JComboBox)ae.getSource();
-        //System.out.println(box.getSelectedItem());
-        combos[1].addItem(box.getSelectedItem());
-        
+    }
+	
+	public void updateAfterCourseChange(){
+		String currentCourseString = (String) courseComboBox.getSelectedItem();
+		currentCourse = dataBase.getCourse(Integer.parseInt(currentCourseString));
+		columnComboBox.setModel(new DefaultComboBoxModel(currentCourse.getAssignmentList().toArray()));
+		updateAfterAssignmentChange();
+	}
+	
+	public void updateAfterAssignmentChange(){
+		String currentAssignmentString = (String) columnComboBox.getSelectedItem();
+		currentAssignment = currentCourse.getAssignment(currentAssignmentString);
+		courseTerm.setText(currentCourse.getTerm() + " " + currentCourse.getYear());
+		courseEnrollment.setText(currentCourse.getSize() + "");
+		currentStudent = dataBase.getStudent(currentAssignment.getTopStudentID());
+		studentId.setText(currentStudent.getId() + "");
+		studentName.setText(currentStudent.getFname() + " " + currentStudent.getLname());
+		studentEmail.setText(currentStudent.getEmail() + "@jsu.edu");
+		studentScore.setText(currentAssignment.getTopScore() + ".0");
+	}
+	
+    public void actionPerformed(ActionEvent event) {
+		if (courseComboBox == event.getSource()){
+			updateAfterCourseChange();
+		}
+		else if (columnComboBox == event.getSource()){
+			updateAfterAssignmentChange();
+		}
     }
 }

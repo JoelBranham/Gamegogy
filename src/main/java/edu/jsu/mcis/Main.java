@@ -3,21 +3,23 @@ import java.io.*;
 import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.*;
+import java.awt.*;
 
 public class Main {
 
     public static void main(String[] args) {
        
 
-        Database dataBase = new Database();
+        Database database = new Database();
         if (args.length == 2){
 			if(args[0].equals("course"))
 			{
-				System.out.println(dataBase.getCourse(Integer.parseInt(args[1])));
+				System.out.println(database.getCourse(Integer.parseInt(args[1])));
 			} 
 			else if(args[0].equals("student"))
 			{
-				System.out.println(dataBase.getStudent(Integer.parseInt(args[1])).toString());
+				System.out.println(database.getStudent(Integer.parseInt(args[1])).toString());
 			}
 			else{
 				System.out.println("");
@@ -27,24 +29,27 @@ public class Main {
 			
 				if (args[0].equals("courseids"))
 				{
-					System.out.println(dataBase.getCourseIds());
+					System.out.println(database.getCourseIds());
 				}
 				else if (args[0].equals("studentids"))
 				{
-					System.out.println(dataBase.getStudentIds());
+					System.out.println(database.getStudentIds());
 				}
 			
 		}
 		else{
 			System.out.println("");
-			//System.exit(0);
+			try{
+				JFrame win = new JFrame("Gamegogy");
+				win.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+				GUI gui = new GUI(database);
+				win.add(gui);
+				//win.setLayout(null);
+				win.setSize(new Dimension(700,700));
+				win.setVisible(true);
+			}
+			catch(IOException i){}
 		}
-        
-         try {
-            GUI gui = new GUI(dataBase);
-        } catch (IOException ex) {
-            System.out.println(ex.getMessage());
-        }
     }
 }
 
