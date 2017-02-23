@@ -13,36 +13,27 @@ public class Main {
 
         Database database = new Database();
         if (args.length == 2){
-			if(args[0].equals("course"))
-			{
+			if(args[0].equals("course")){
 				System.out.println(database.getCourse(Integer.parseInt(args[1])));
 			} 
-			else if(args[0].equals("student"))
-			{
+			else if(args[0].equals("student")){
 				System.out.println(database.getStudent(Integer.parseInt(args[1])).toString());
-			}
-			else{
-				System.out.println("");
 			}
 		}
 		else if (args.length == 1){
-			
-				if (args[0].equals("courseids"))
-				{
+				if (args[0].equals("courseids")){
 					System.out.println(database.getCourseIds());
 				}
-				else if (args[0].equals("studentids"))
-				{
+				else if (args[0].equals("studentids")){
 					System.out.println(database.getStudentIds());
 				}
-			
 		}
 		else{
-			System.out.println("");
 			try{
 				JFrame win = new GUI(database);
 				win.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				win.setSize(new Dimension(700,700));
+				win.setSize(new Dimension(500,700));
+				win.setResizable(false);
 				win.setVisible(true);
 			}
 			catch(IOException i){}

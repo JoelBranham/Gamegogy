@@ -87,14 +87,14 @@ public class Database{
     }
   
     public Course getCourse(int id){
-		if(courseMap.containsKey(id)){
+		if (courseMap.containsKey(id)){
 			return courseMap.get(id);
 		}
 		throw new CourseException();
     }
 	
     public Student getStudent(int id){
-		if(studentMap.containsKey(id)){
+		if (studentMap.containsKey(id)){
 			return studentMap.get(id);
 		}
 		throw new StudentException();
@@ -106,7 +106,7 @@ public class Database{
 	
 	public String getCourseIds(){
 		String courses="";
-		for (int i=0; i<courseIds.size(); i++){
+		for (int i=0; i< courseIds.size(); i++){
 			String course=(courseIds.get(i));
 			courses += course +"\n";	
 		}
@@ -115,7 +115,7 @@ public class Database{
 	
 	public String getStudentIds(){
 		String students = "";
-		for (int i=0; i<studentIds.size(); i++){
+		for (int i=0; i< studentIds.size(); i++){
 			String student=(studentIds.get(i));
 			students += student + "\n";	
 		}
