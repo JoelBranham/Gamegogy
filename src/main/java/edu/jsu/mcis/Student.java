@@ -5,31 +5,26 @@ public class Student{
 	private String fName,lName,email;
 	private int id;
 	
-	public Student(int i,String fN,String lN, String e)
-	{
+	public Student(int i,String fN,String lN, String e){
 		id = i;
 		fName = fN;
 		lName = lN;
 		email = e;
 	}
 	
-	public int getId()
-	{
+	public int getId(){
 		return id;
 	}
 	
-	public String getFname()
-	{
+	public String getFname(){
 		return fName;
 	}
 	
-	public String getLname()
-	{
+	public String getLname(){
 		return lName;
 	}
 	
-	public String getEmail()
-	{
+	public String getEmail(){
 		return email;
 	}
 	
