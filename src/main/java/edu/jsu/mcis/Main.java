@@ -42,10 +42,9 @@ public class Main {
 			try{
 				JFrame win = new JFrame("Gamegogy");
 				win.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+				win.setSize(new Dimension(700,700));
 				GUI gui = new GUI(database);
 				win.add(gui);
-				//win.setLayout(null);
-				win.setSize(new Dimension(700,700));
 				win.setVisible(true);
 			}
 			catch(IOException i){}

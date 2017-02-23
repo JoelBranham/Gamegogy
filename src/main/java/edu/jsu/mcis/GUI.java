@@ -12,10 +12,20 @@ import javax.swing.*;
 public class GUI extends JPanel implements ActionListener{
     private Database dataBase;
 //    private JLabel[] labels;
+	private JLabel course, column, term, enrollment, id, name, email, score;
     private JLabel courseEnrollment, courseTerm, studentId, studentName, studentEmail, studentScore;
     private JComboBox courseComboBox, columnComboBox;
 //    private final int numOfLabels = 20;
 //   private final int numOfCombos = 3;
+
+	private JPanel comboBoxPanel;
+	private JPanel space;
+	private JPanel termEnrollment;
+	private JPanel space2;
+	private JPanel idPanel;
+	private JPanel namePanel;
+	private JPanel emailPanel;
+	private JPanel scorePanel;
 
 	private Course currentCourse;
 	private Assignment currentAssignment;
@@ -23,6 +33,8 @@ public class GUI extends JPanel implements ActionListener{
 
     public GUI(Database dataBase) throws IOException{		
         this.dataBase = dataBase;
+		setPreferredSize(new Dimension(700, 700));
+		setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
 
         BufferedImage img = ImageIO.read(new File("src\\main\\resources\\board.jpg"));
         BufferedImage img2 = ImageIO.read(new File("src\\main\\resources\\black.png"));
@@ -31,47 +43,123 @@ public class GUI extends JPanel implements ActionListener{
         JLabel bg1 = new JLabel(new ImageIcon(img2));
         //bg1.setBounds(175,70,100,24);
 		
+		comboBoxPanel = new JPanel(new GridLayout(0,4));
+		comboBoxPanel.setMaximumSize(new Dimension(450, 50));
+		
+		JLabel course = new JLabel("Course");
+		comboBoxPanel.add(course);
+		
 		courseComboBox = new JComboBox(dataBase.getCourseList().toArray());
 		//courseComboBox.setBounds(175,28,100,24);
+		//courseComboBox.setSize(new Dimension(100,100));
 		courseComboBox.addActionListener(this);
 		courseComboBox.setName("courseComboBox");
-		add(courseComboBox);
-
+		comboBoxPanel.add(courseComboBox);
+		
+		JLabel column = new JLabel("Column");
+		comboBoxPanel.add(column);
+		
 		columnComboBox = new JComboBox();
+		//columnComboBox.setSize(new Dimension(200,200));
 		columnComboBox.addActionListener(this);
 		columnComboBox.setName("columnComboBox");
 		//columnComboBox.setBounds(525,28,100,24);
-		add(columnComboBox);
+		comboBoxPanel.add(columnComboBox);
 
+		add(comboBoxPanel);
+		
+		
+		
+		space = new JPanel();
+		space.setPreferredSize(new Dimension(1,300));
+		space.setMaximumSize(new Dimension(1,300));
+		add(space);
+		
+		
+		termEnrollment = new JPanel(new GridLayout(0,4));
+		termEnrollment.setPreferredSize(new Dimension(450,50));
+		termEnrollment.setMaximumSize(new Dimension(450,50));
+		
+		term = new JLabel("Term: ");
+		termEnrollment.add(term);
+		
 		courseTerm = new JLabel();
 		courseTerm.setName("courseTerm");
 		//courseTerm.setBounds(175,200,150,32);
-		add(courseTerm);
+		termEnrollment.add(courseTerm);
+		
+		enrollment = new JLabel("Enrollment: ");
+		termEnrollment.add(enrollment);
 		
 		courseEnrollment = new JLabel();
 		courseEnrollment.setName("courseEnrollment");
 		//courseEnrollment.setBounds(575,200,200,32);
-		add(courseEnrollment);
-
+		termEnrollment.add(courseEnrollment);
+		
+		add(termEnrollment);
+		
+		
+		
+		space2 = new JPanel();
+		space2.setPreferredSize(new Dimension(1,200));
+		space2.setMaximumSize(new Dimension(1,200));
+		add(space2);
+		
+		
+		
+		idPanel = new JPanel();
+		id = new JLabel("ID: ");
+		idPanel.add(id);
+		
         studentId = new JLabel();
         //studentId.setBounds(175,480,400,32);
 		studentId.setName("studentId");
-		add(studentId);
+		idPanel.add(studentId);
+		
+		add(idPanel);
+		
+		
+		
+		namePanel = new JPanel();
+		
+		name = new JLabel("Name: ");
+		namePanel.add(name);
 		
 		studentName = new JLabel();
         //studentName.setBounds(175,520,400,32);
 		studentName.setName("studentName");
-		add(studentName);
+		namePanel.add(studentName);
+		
+		add(namePanel);
+		
+		
+		
+		emailPanel = new JPanel();
+		
+		email = new JLabel("Email: ");
+		emailPanel.add(email);
 		
 		studentEmail = new JLabel();
         //studentName.setBounds(175,560,400,32);
 		studentEmail.setName("studentEmail");
-		add(studentEmail);
+		emailPanel.add(studentEmail);
+		
+		add(emailPanel);
+		
+		
+		scorePanel = new JPanel();
+		
+		score = new JLabel("Score: ");
+		scorePanel.add(score);
 		
 		studentScore = new JLabel();
         //studentScore.setBounds(175,520,400,32);
 		studentScore.setName("studentScore");
-		add(studentScore);
+		scorePanel.add(studentScore);
+		
+		add(scorePanel);
+		
+		
 		
 		updateAfterCourseChange();
 		updateAfterAssignmentChange();
