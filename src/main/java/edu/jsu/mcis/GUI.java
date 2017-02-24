@@ -2,10 +2,8 @@ package edu.jsu.mcis;
 
 import java.awt.*;
 import java.awt.event.*;
-import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import javax.imageio.ImageIO;
 import javax.swing.*;
 
 
@@ -124,7 +122,7 @@ public class GUI extends JFrame implements ActionListener{
 	}
 	
 	public void updateAfterAssignmentChange(){
-
+		
 		String currentAssignmentString = (String) columnComboBox.getSelectedItem();
 		currentAssignment = currentCourse.getAssignment(currentAssignmentString);
 		courseTerm.setText(currentCourse.getTerm() + " " + currentCourse.getYear());

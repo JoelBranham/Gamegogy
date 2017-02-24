@@ -1,4 +1,5 @@
 package edu.jsu.mcis;
+
 import java.io.*;
 import java.util.*;
 import java.util.logging.Level;
@@ -7,10 +8,9 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Main {
-
+	
     public static void main(String[] args) {
-       
-
+		
         Database database = new Database();
         if (args.length == 2){
 			if(args[0].equals("course")){
@@ -38,6 +38,8 @@ public class Main {
 			}
 			catch(IOException i){}
 		}
+		
     }
+	
 }
 
