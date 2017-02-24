@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="edu.jsu.mcis.DatabaseTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2017-02-22T19:04:17" hostname="Encrypted" time="0.169">
+<testsuite name="edu.jsu.mcis.DatabaseTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2017-02-24T17:12:36" hostname="LogansLaptop" time="0.312">
   <properties/>
-  <testcase name="testInvalidKeyThrowsStudentException" classname="edu.jsu.mcis.DatabaseTest" time="0.035"/>
-  <testcase name="testInvalidKeyThrowsCourseException" classname="edu.jsu.mcis.DatabaseTest" time="0.02"/>
+  <testcase name="testInvalidKeyThrowsStudentException" classname="edu.jsu.mcis.DatabaseTest" time="0.171"/>
+  <testcase name="testInvalidKeyThrowsCourseException" classname="edu.jsu.mcis.DatabaseTest" time="0.016"/>
   <testcase name="testStudents" classname="edu.jsu.mcis.DatabaseTest" time="0.016"/>
-  <testcase name="testAddCourseInfo1" classname="edu.jsu.mcis.DatabaseTest" time="0.029"/>
-  <testcase name="testAddCourseInfo2" classname="edu.jsu.mcis.DatabaseTest" time="0.024"/>
-  <testcase name="testCourses" classname="edu.jsu.mcis.DatabaseTest" time="0.022"/>
-  <testcase name="testGetCourseStrings" classname="edu.jsu.mcis.DatabaseTest" time="0.019"/>
+  <testcase name="testAddCourseInfo1" classname="edu.jsu.mcis.DatabaseTest" time="0.031"/>
+  <testcase name="testAddCourseInfo2" classname="edu.jsu.mcis.DatabaseTest" time="0.016"/>
+  <testcase name="testCourses" classname="edu.jsu.mcis.DatabaseTest" time="0.015"/>
+  <testcase name="testGetCourseStrings" classname="edu.jsu.mcis.DatabaseTest" time="0.016"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

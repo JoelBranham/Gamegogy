@@ -6,17 +6,23 @@ import java.util.*;
   
 public class Database{
     
-	private Map<Integer, Course> courseMap;
+	private Map<Integer, Course> courseMap; //Refactor to a string
 	private Map<Integer, Student> studentMap; 
-	private ArrayList <String> courseIds = new ArrayList<String>();
+	private ArrayList <String> courseIds = new ArrayList<String>();//Get info from maps instead of arrays
 	private ArrayList <String> studentIds = new ArrayList<String>();
     
     public Database(){
+    	//this("src\\main\\resources\\courses.csv", "", "");
+    	//Instatiate here
         buildCourse("src\\main\\resources\\courses.csv");
 		addCourseInfo("src\\main\\resources\\courses");
         buildStudent("src\\main\\resources\\students.csv");
     }
     
+    /*public Database(String coursesPath, String courseDir, String studentsPath) {
+    	buildCourse(coursesPath);
+    }**/
+
     public void buildCourse(String fileName){
 		courseMap = new HashMap<Integer, Course>();
   		String myline;
