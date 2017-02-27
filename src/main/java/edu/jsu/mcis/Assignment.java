@@ -49,6 +49,14 @@ public class Assignment{
 		throw new AssignmentException();
 	}
 	
+	public ArrayList<Integer> getStudents(){
+		return studentIDs;
+	}
+	
+	public ArrayList<Integer> getScores(){
+		return scores;
+	}
+	
 	public String getName(){
 		return name;
 	}

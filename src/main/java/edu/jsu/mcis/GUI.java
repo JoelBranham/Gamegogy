@@ -9,6 +9,8 @@ import javax.swing.*;
 
 public class GUI extends JFrame implements ActionListener{
 	
+	private Leaderboard leaderboard;
+	
     private Database dataBase;
 	private JLabel course, column, term, enrollment, id, name, email, score, line;
 	private JLabel courseEnrollment, courseTerm, studentId, studentName, studentEmail, studentScore;
@@ -63,6 +65,7 @@ public class GUI extends JFrame implements ActionListener{
 		courseEnrollment.setBounds(325,180,50,32);
 		add(courseEnrollment);
 		
+		
 		String s = "";
 		for(int i = 0; i < 125; i++){
 			s += "-";
@@ -109,7 +112,10 @@ public class GUI extends JFrame implements ActionListener{
 		
 		updateAfterCourseChange();
 		updateAfterAssignmentChange();
-
+		
+		leaderboard = new Leaderboard(400, 300, currentAssignment);
+		leaderboard.setBounds(50, 200, 400, 300);
+		add(leaderboard);
     }
 	
 	public void updateAfterCourseChange(){
