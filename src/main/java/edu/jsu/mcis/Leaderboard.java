@@ -9,31 +9,22 @@ import java.util.*;
 public class Leaderboard extends JPanel implements MouseListener{
 	
 	private LeaderBar[] bars;
-	private int topScore;
+	private Assignment assignment;
 	private ArrayList<Integer> scores;
 	
 	public Leaderboard(int width, int height, Assignment assignment){
-		topScore = assignment.getTopScore();
+		this.assignment = assignment;
 		scores = assignment.getScores();
 		int numBars = assignment.getScores().size();
 		bars = new LeaderBar[numBars];
 		for (int i = 0; i < bars.length; i++){
-			double scaleFactor = calculateScaleFactor(i);
-			bars[i] = new LeaderBar(scaleFactor, width * 2/3, height / numBars / 2);
+			bars[i] = new LeaderBar(calculateScaleFactor(i), width * 2/3, height / numBars / 2);
 			bars[i].setPoints(0, (i + 1) * height / (numBars + 1));
 		}
 	}
 	
 	private double calculateScaleFactor(int index){
-		double topScore = (double) this.topScore;
-		double currentScore = (double) scores.get(index);
-		double percentage = scores.get(index) / topScore;
-		System.out.println(percentage);
-		return percentage;
-		/*
-		System.out.println(percentage);
-		return  scores.get(index) / topScore * 100.0;
-		*/
+		return (double)(scores.get(index)) / (double) (assignment.getTopScore());
 	}
 	
 	@Override
