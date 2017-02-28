@@ -19,14 +19,14 @@ public class Leaderboard extends JPanel implements MouseListener{
 		bars = new LeaderBar[numBars];
 		for (int i = 0; i < bars.length; i++){
 			bars[i] = new LeaderBar(calculateScaleFactor(i), width * 2/3, height / numBars / 2);
-			bars[i].setPoints(0, (i + 1) * height / (numBars + 1));
+			bars[i].offsetPoints(0, (i + 1) * height / (numBars + 1));
 		}
 	}
 	
 	private double calculateScaleFactor(int index){
 		return (double)(scores.get(index)) / (double) (assignment.getTopScore());
 	}
-	
+
 	@Override
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
@@ -37,6 +37,14 @@ public class Leaderboard extends JPanel implements MouseListener{
 			g2d.draw(shape);
 			g2d.fill(shape); 	
 		}
+	}
+	
+	public Shape[] getShapes(){
+		Shape[] shapes = new Shape[bars.length];
+		for (int i = 0; i < bars.length; i++){
+			shapes[i] = bars[i].getShape();
+		}
+		return shapes;
 	}
 	
 	public void mouseClicked(MouseEvent event) { 

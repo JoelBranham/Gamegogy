@@ -38,7 +38,7 @@ public class LeaderBar{
 		shape = new Polygon(x, y, points.length);
 	}
 	
-	public void setPoints(int widthOffset, int heightOffset){
+	public void offsetPoints(int widthOffset, int heightOffset){
 		for (int i = 0; i < points.length; i++){
 			points[i].setLocation(widthOffset + points[i].x, heightOffset + points[i].y);
 		}
