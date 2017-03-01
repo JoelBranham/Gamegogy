@@ -4,7 +4,7 @@ import java.util.*;
 
 public class Assignment{
 	
-	private ArrayList<Integer> studentIDs;
+	private ArrayList<String> studentIDs;
 	private ArrayList<Integer> scores;
 	private String name;
 	
@@ -14,7 +14,7 @@ public class Assignment{
 		this.name = name;
 	}
 	
-	public void addStudentAndScore(int id, int score){
+	public void addStudentAndScore(String id, int score){
 		if (scores.size() == 0){
 			scores.add(score);
 			studentIDs.add(id);
@@ -35,7 +35,7 @@ public class Assignment{
 		}
 	}
 	
-	public int getTopStudentID(){
+	public String getTopStudentID(){
 		if (studentIDs.size() > 0){
 			return studentIDs.get(0);
 		}
@@ -49,7 +49,7 @@ public class Assignment{
 		throw new AssignmentException();
 	}
 	
-	public ArrayList<Integer> getStudents(){
+	public ArrayList<String> getStudents(){
 		return studentIDs;
 	}
 	

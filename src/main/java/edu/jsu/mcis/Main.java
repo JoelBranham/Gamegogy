@@ -14,18 +14,22 @@ public class Main {
         Database database = new Database();
         if (args.length == 2){
 			if(args[0].equals("course")){
-				System.out.println(database.getCourse(Integer.parseInt(args[1])));
+				System.out.println(database.getCourse(args[1]));
 			} 
 			else if(args[0].equals("student")){
-				System.out.println(database.getStudent(Integer.parseInt(args[1])).toString());
+				System.out.println(database.getStudent(args[1]));
 			}
 		}
 		else if (args.length == 1){
 				if (args[0].equals("courseids")){
-					System.out.println(database.getCourseIds());
+					for (String s: database.getCourseList()){
+						System.out.println(s);
+					}
 				}
 				else if (args[0].equals("studentids")){
-					System.out.println(database.getStudentIds());
+					for (String s: database.getStudentList()){
+						System.out.println(s);
+					}
 				}
 		}
 		else{

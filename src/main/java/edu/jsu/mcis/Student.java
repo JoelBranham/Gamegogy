@@ -2,17 +2,16 @@ package edu.jsu.mcis;
 
 public class Student{
 	
-	private String fName,lName,email;
-	private int id;
+	private String id,fName,lName,email;
 	
-	public Student(int i,String fN,String lN, String e){
+	public Student(String i,String fN,String lN, String e){
 		id = i;
 		fName = fN;
 		lName = lN;
 		email = e;
 	}
 	
-	public int getId(){
+	public String getId(){
 		return id;
 	}
 	

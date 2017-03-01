@@ -36,17 +36,17 @@ public class AssignmentTest{
 	
 	@Test
 	public void testAddStudentAndScore(){
-		a.addStudentAndScore(1111, 100);
-		assertEquals(a.getTopStudentID(), 1111);
+		a.addStudentAndScore("1111", 100);
+		assertEquals(a.getTopStudentID(), "1111");
 		assertEquals(a.getTopScore(), 100);
 	}
 	
 	@Test
 	public void testCorrectTopStudentAndScore(){
-		a.addStudentAndScore(1111, 100);
-		a.addStudentAndScore(1234, 99);
-		a.addStudentAndScore(4321, 30);
-		assertEquals(a.getTopStudentID(), 1111);
+		a.addStudentAndScore("1111", 100);
+		a.addStudentAndScore("1234", 99);
+		a.addStudentAndScore("4321", 30);
+		assertEquals(a.getTopStudentID(), "1111");
 		assertEquals(a.getTopScore(), 100);
 	}
 

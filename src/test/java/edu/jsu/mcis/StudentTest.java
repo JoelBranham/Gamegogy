@@ -11,14 +11,14 @@ public class StudentTest{
 	@Before
 	public void setup()
 	{
-		student1 = new Student(123, "First", "Last", "First.Last");
-		student2 = new Student(654321, "Jim", "Joe", "Jim.Joe");
+		student1 = new Student("123", "First", "Last", "First.Last");
+		student2 = new Student("654321", "Jim", "Joe", "Jim.Joe");
 	}
 	
 	@Test
 	public void testStudentIsInitalizedProperly()
 	{
-		assertEquals(123, student1.getId());
+		assertEquals("123", student1.getId());
 		assertEquals("First", student1.getFname());
 		assertEquals("Last", student1.getLname());
 		assertEquals("First.Last", student1.getEmail());
@@ -26,7 +26,7 @@ public class StudentTest{
 	
 	@Test
 	public void testStudentIsInitializedProperly2(){
-		assertEquals(654321, student2.getId());
+		assertEquals("654321", student2.getId());
 		assertEquals("Jim", student2.getFname());
 		assertEquals("Joe", student2.getLname());
 		assertEquals("Jim.Joe", student2.getEmail());

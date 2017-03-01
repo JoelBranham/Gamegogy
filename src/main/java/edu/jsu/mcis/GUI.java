@@ -121,7 +121,7 @@ public class GUI extends JFrame implements ActionListener{
 	public void updateAfterCourseChange(){
 		
 		String currentCourseString = (String) courseComboBox.getSelectedItem();
-		currentCourse = dataBase.getCourse(Integer.parseInt(currentCourseString));
+		currentCourse = dataBase.getCourse(currentCourseString);
 		columnComboBox.setModel(new DefaultComboBoxModel(currentCourse.getAssignmentList().toArray()));
 		updateAfterAssignmentChange();
 	}

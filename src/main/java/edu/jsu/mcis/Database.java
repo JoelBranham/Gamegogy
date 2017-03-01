@@ -6,11 +6,9 @@ import java.util.*;
   
 public class Database{
     
-	private Map<Integer, Course> courseMap; //Refactor to a string
-	private Map<Integer, Student> studentMap; 
-	private ArrayList <String> courseIds = new ArrayList<String>();//Get info from maps instead of arrays
-	private ArrayList <String> studentIds = new ArrayList<String>();
-    
+	private HashMap<String, Course> courseMap; 
+	private HashMap<String, Student> studentMap; 
+	
     public Database(){
     	//this("src\\main\\resources\\courses.csv", "", "");
     	//Instatiate here
@@ -24,20 +22,19 @@ public class Database{
     }**/
 
     public void buildCourse(String fileName){
-		courseMap = new HashMap<Integer, Course>();
+		courseMap = new HashMap<String, Course>();
   		String myline;
     	try{
         	BufferedReader in = new BufferedReader(new FileReader(new File(fileName)));
             myline = in.readLine();
             while ((myline = in.readLine())!=null){
 				String[] course = myline.split(",");
-				int id = Integer.parseInt(course[0].substring(1,course[0].length()-1));
-				int year = Integer.parseInt(course[2].substring(1,course[2].length()-1));
-				int size = Integer.parseInt(course[3].substring(1,course[3].length()-1));
+				String id = (course[0].substring(1,course[0].length()-1));
+				String year = (course[2].substring(1,course[2].length()-1));
+				String size = (course[3].substring(1,course[3].length()-1));
 				String term = course[1].substring(1, course[1].length()-1);
-				courseMap.put(id, new Course(id, year, size, term));
-				courseIds.add(String.valueOf(id));				
-            }
+				courseMap.put(id, new Course(id, year, size, term));		
+            }			
         }
         catch(IOException e) {e.printStackTrace();}		
     }
@@ -45,7 +42,7 @@ public class Database{
 	public void addCourseInfo(String folderName){
 		final File folder = new File(folderName);
 		for (final File fileEntry : folder.listFiles()){
-			int courseID = Integer.parseInt(fileEntry.getName().substring(0,fileEntry.getName().length()-4));
+			String courseID = (fileEntry.getName().substring(0,fileEntry.getName().length()-4));
 			try{
 				Course c = getCourse(courseID);
 				BufferedReader in = new BufferedReader(new FileReader(fileEntry));
@@ -60,7 +57,7 @@ public class Database{
 					Assignment a = new Assignment(assignmentName);
 					for (int j = 0; j < lines.size(); j++){
 						String[] row = lines.get(j).split(",");
-						int studentId = Integer.parseInt(row[0].substring(1,row[0].length()-1));
+						String studentId = (row[0].substring(1,row[0].length()-1));
 						int score = Integer.parseInt(row[i].substring(1,row[i].length()-1));
 						a.addStudentAndScore(studentId, score);
 					}
@@ -74,32 +71,33 @@ public class Database{
 	}
 	
     public void buildStudent(String fileName){
-		studentMap = new HashMap<Integer, Student>();
+		studentMap = new HashMap<String, Student>();
     	String myline;
         try{
             BufferedReader in = new BufferedReader(new FileReader(new File(fileName)));
 			in.readLine();
             while ((myline = in.readLine())!=null){
 				String[] student = myline.split(",");
-				int id = Integer.parseInt(student[0].substring(1,student[0].length()-1));
+				String id = (student[0].substring(1,student[0].length()-1));
 				String first = student[1].substring(1, student[1].length() - 1);
 				String last = student[2].substring(1, student[2].length() - 1);
 				String email = student[3].substring(1, student[3].length() - 1);
 				studentMap.put(id, new Student(id, first, last, email));				
-				studentIds.add(String.valueOf(id));
             }
+			
+
         }
         catch(IOException e) {e.printStackTrace();}
     }
   
-    public Course getCourse(int id){
+    public Course getCourse(String id){
 		if (courseMap.containsKey(id)){
 			return courseMap.get(id);
 		}
 		throw new CourseException();
     }
 	
-    public Student getStudent(int id){
+    public Student getStudent(String id){
 		if (studentMap.containsKey(id)){
 			return studentMap.get(id);
 		}
@@ -107,24 +105,15 @@ public class Database{
     }
 	
 	public ArrayList<String> getCourseList(){
-		return courseIds;		
+		ArrayList<String> sortedCourse = new ArrayList(courseMap.keySet());
+		Collections.sort(sortedCourse);
+		return sortedCourse;
 	}
 	
-	public String getCourseIds(){
-		String courses="";
-		for (int i=0; i< courseIds.size(); i++){
-			String course=(courseIds.get(i));
-			courses += course +"\n";	
-		}
-		return courses;
+	public ArrayList<String> getStudentList(){
+		ArrayList<String> sortedStudent = new ArrayList(studentMap.keySet());
+		Collections.sort(sortedStudent);
+		return sortedStudent;
 	}
-	
-	public String getStudentIds(){
-		String students = "";
-		for (int i=0; i< studentIds.size(); i++){
-			String student=(studentIds.get(i));
-			students += student + "\n";	
-		}
-		return students;
-	}
+
 }
