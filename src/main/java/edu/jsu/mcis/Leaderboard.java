@@ -11,15 +11,31 @@ public class Leaderboard extends JPanel implements MouseListener{
 	private LeaderBar[] bars;
 	private Assignment assignment;
 	private ArrayList<Integer> scores;
+	private int numBars,myWidth,myHeight;
+	
 	
 	public Leaderboard(int width, int height, Assignment assignment){
 		this.assignment = assignment;
 		scores = assignment.getScores();
-		int numBars = assignment.getScores().size();
+		numBars = assignment.getScores().size();
 		bars = new LeaderBar[numBars];
 		for (int i = 0; i < bars.length; i++){
 			bars[i] = new LeaderBar(calculateScaleFactor(i), width * 2/3, height / numBars / 2);
 			bars[i].offsetPoints(0, (i + 1) * height / (numBars + 1));
+			myWidth = width;
+			myHeight = height;
+		}
+		
+	}
+	public void setAssignment(Assignment assignment){
+		this.assignment = assignment;
+		scores = assignment.getScores();
+		numBars = assignment.getScores().size();
+		bars = new LeaderBar[numBars];
+		for (int i = 0; i < bars.length; i++){
+			bars[i] = new LeaderBar(calculateScaleFactor(i), myWidth * 2/3, myHeight / numBars / 2);
+			bars[i].offsetPoints(0, (i + 1) * myHeight / (numBars + 1));
+			repaint(bars[i].getShape().getBounds());
 		}
 	}
 	

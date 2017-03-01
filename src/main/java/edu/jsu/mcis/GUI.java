@@ -124,7 +124,6 @@ public class GUI extends JFrame implements ActionListener{
 		currentCourse = dataBase.getCourse(Integer.parseInt(currentCourseString));
 		columnComboBox.setModel(new DefaultComboBoxModel(currentCourse.getAssignmentList().toArray()));
 		updateAfterAssignmentChange();
-		
 	}
 	
 	public void updateAfterAssignmentChange(){
@@ -138,7 +137,6 @@ public class GUI extends JFrame implements ActionListener{
 		studentName.setText(currentStudent.getFname() + " " + currentStudent.getLname());
 		studentEmail.setText(currentStudent.getEmail() + "@jsu.edu");
 		studentScore.setText(currentAssignment.getTopScore() + ".0");
-		
 	}
 	
     public void actionPerformed(ActionEvent event) {
@@ -148,5 +146,6 @@ public class GUI extends JFrame implements ActionListener{
 		else if (columnComboBox == event.getSource()){
 			updateAfterAssignmentChange();
 		}
+		leaderboard.setAssignment(currentAssignment);
     }
 }
