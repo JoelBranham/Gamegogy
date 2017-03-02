@@ -5,9 +5,10 @@ import java.awt.event.*;
 import java.io.File;
 import java.io.IOException;
 import javax.swing.*;
+import java.util.*;
 
 
-public class GUI extends JFrame implements ActionListener{
+public class GUI extends JFrame implements ActionListener, Observer{
 	
 	private Leaderboard leaderboard;
 	
@@ -116,10 +117,10 @@ public class GUI extends JFrame implements ActionListener{
 		leaderboard = new Leaderboard(400, 300, currentAssignment);
 		leaderboard.setBounds(50, 200, 400, 300);
 		add(leaderboard);
+		leaderboard.addAnObserver(this);
     }
 	
 	public void updateAfterCourseChange(){
-		
 		String currentCourseString = (String) courseComboBox.getSelectedItem();
 		currentCourse = dataBase.getCourse(currentCourseString);
 		columnComboBox.setModel(new DefaultComboBoxModel(currentCourse.getAssignmentList().toArray()));
@@ -127,7 +128,6 @@ public class GUI extends JFrame implements ActionListener{
 	}
 	
 	public void updateAfterAssignmentChange(){
-		
 		String currentAssignmentString = (String) columnComboBox.getSelectedItem();
 		currentAssignment = currentCourse.getAssignment(currentAssignmentString);
 		courseTerm.setText(currentCourse.getTerm() + " " + currentCourse.getYear());
@@ -137,6 +137,12 @@ public class GUI extends JFrame implements ActionListener{
 		studentName.setText(currentStudent.getFname() + " " + currentStudent.getLname());
 		studentEmail.setText(currentStudent.getEmail() + "@jsu.edu");
 		studentScore.setText(currentAssignment.getTopScore() + ".0");
+	}
+	
+    public void update(Observable o, Object arg) {	
+		String message = (String) arg;
+		System.out.println(message);
+		Scanner s = new Scanner(message).useDelimiter(":");
 	}
 	
     public void actionPerformed(ActionEvent event) {

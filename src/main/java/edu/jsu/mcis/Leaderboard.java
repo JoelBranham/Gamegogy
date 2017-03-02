@@ -11,24 +11,20 @@ public class Leaderboard extends JPanel implements MouseListener{
 	private LeaderBar[] bars;
 	private Assignment assignment;
 	private ArrayList<Integer> scores;
-	private int numBars,myWidth,myHeight;
-	
+	private ArrayList<String> studentIDs;
+	private int numBars, myWidth, myHeight;
+	private LeaderboardObserver leaderboardObserver;
 	
 	public Leaderboard(int width, int height, Assignment assignment){
-		this.assignment = assignment;
-		scores = assignment.getScores();
-		numBars = assignment.getScores().size();
-		bars = new LeaderBar[numBars];
-		for (int i = 0; i < bars.length; i++){
-			bars[i] = new LeaderBar(calculateScaleFactor(i), width * 2/3, height / numBars / 2);
-			bars[i].offsetPoints(0, (i + 1) * height / (numBars + 1));
-			myWidth = width;
-			myHeight = height;
-		}
-		
+		myWidth = width;
+		myHeight = height;
+		leaderboardObserver = new LeaderboardObserver();
+		setAssignment(assignment);
+		addMouseListener(this);
 	}
 	public void setAssignment(Assignment assignment){
 		this.assignment = assignment;
+		studentIDs = assignment.getStudents();
 		scores = assignment.getScores();
 		numBars = assignment.getScores().size();
 		bars = new LeaderBar[numBars];
@@ -64,14 +60,17 @@ public class Leaderboard extends JPanel implements MouseListener{
 	}
 	
 	public void mouseClicked(MouseEvent event) { 
-	/*
-		Shape shape =  whatever.getShape();
-		if(shape.contains(event.getX(), event.getY())){
-			notifyObservers();
+		for (int i = 0; i < bars.length; i++){
+			if (bars[i].getShape().getBounds().contains(event.getX(), event.getY())){
+				leaderboardObserver.update(studentIDs.get(i), scores.get(i));
+			}
 		}
-		repaint(shape);
-		*/
 	}
+	
+	public void addAnObserver(Observer observer){
+		leaderboardObserver.addObserver(observer);
+	}
+	
 	public void mousePressed(MouseEvent event) {}
 	public void mouseReleased(MouseEvent event) {}
 	public void mouseEntered(MouseEvent event) {}
