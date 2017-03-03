@@ -11,9 +11,8 @@ public class DatabaseTest{
 	@Before
 	public void setup()
 	{
-		d = new Database();
-		d.buildCourse("src\\test\\resources\\coursestest.csv");
-		d.buildStudent("src\\test\\resources\\studentstest.csv");
+		d = new Database("src\\test\\resources\\coursestest.csv","src\\test\\resources\\coursestest","src\\test\\resources\\studentstest.csv");
+		
 	}
 	
 	@Test
@@ -68,7 +67,7 @@ public class DatabaseTest{
 	@Test
 	public void testAddCourseInfo1()
 	{
-		d.addCourseInfo("src\\test\\resources\\coursestest");
+		
 		Course course1 = d.getCourse("99000");
 		assertEquals("Spring", course1.getTerm());
 		assertEquals("2013", course1.getYear());
@@ -94,7 +93,7 @@ public class DatabaseTest{
 	@Test
 	public void testAddCourseInfo2()
 	{
-		d.addCourseInfo("src\\test\\resources\\coursestest");
+	
 		Course course2 = d.getCourse("99001");
 		assertEquals("Fall", course2.getTerm());
 		assertEquals("1944", course2.getYear());

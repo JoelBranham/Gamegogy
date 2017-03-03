@@ -179,17 +179,25 @@ getContentPane().setBackground(Color.black);
 		currentAssignment = currentCourse.getAssignment(currentAssignmentString);
 		courseTerm.setText(currentCourse.getTerm() + " " + currentCourse.getYear());
 		courseEnrollment.setText(currentCourse.getSize() + "");
-		currentStudent = dataBase.getStudent(currentAssignment.getTopStudentID());
-		studentId.setText(currentStudent.getId() + "");
-		studentName.setText(currentStudent.getFname() + " " + currentStudent.getLname());
-		studentEmail.setText(currentStudent.getEmail() + "@jsu.edu");
-		studentScore.setText(currentAssignment.getTopScore() + ".0");
-	}
+		updatestudentInfo(currentAssignment.getTopStudentID(),currentAssignment.getTopScore());
+		}
 	
     public void update(Observable o, Object arg) {	
 		String message = (String) arg;
 		System.out.println(message);
 		Scanner s = new Scanner(message).useDelimiter(":");
+
+		updatestudentInfo(s.next(),s.nextInt());
+	}
+
+	private void updatestudentInfo(String id, int score){
+		currentStudent = dataBase.getStudent(id);
+		studentId.setText(currentStudent.getId() + "");
+		studentName.setText(currentStudent.getFname() + " " + currentStudent.getLname());
+		studentEmail.setText(currentStudent.getEmail() + "@jsu.edu");
+		studentScore.setText(score + ".0");
+		
+
 	}
 	
     public void actionPerformed(ActionEvent event) {

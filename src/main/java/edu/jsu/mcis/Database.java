@@ -10,18 +10,17 @@ public class Database{
 	private HashMap<String, Student> studentMap; 
 	
     public Database(){
-    	//this("src\\main\\resources\\courses.csv", "", "");
-    	//Instatiate here
-        buildCourse("src\\main\\resources\\courses.csv");
-		addCourseInfo("src\\main\\resources\\courses");
-        buildStudent("src\\main\\resources\\students.csv");
+    	this("src\\main\\resources\\courses.csv","src\\main\\resources\\courses","src\\main\\resources\\students.csv");
+    	
     }
     
-    /*public Database(String coursesPath, String courseDir, String studentsPath) {
+    public Database(String coursesPath, String courseDir, String studentsPath) {
     	buildCourse(coursesPath);
-    }**/
+		addCourseInfo(courseDir);
+		buildStudent(studentsPath);
+    }
 
-    public void buildCourse(String fileName){
+    private void buildCourse(String fileName){
 		courseMap = new HashMap<String, Course>();
   		String myline;
     	try{
@@ -39,7 +38,7 @@ public class Database{
         catch(IOException e) {e.printStackTrace();}		
     }
 	
-	public void addCourseInfo(String folderName){
+	private void addCourseInfo(String folderName){
 		final File folder = new File(folderName);
 		for (final File fileEntry : folder.listFiles()){
 			String courseID = (fileEntry.getName().substring(0,fileEntry.getName().length()-4));
@@ -70,7 +69,7 @@ public class Database{
 		}
 	}
 	
-    public void buildStudent(String fileName){
+    private void buildStudent(String fileName){
 		studentMap = new HashMap<String, Student>();
     	String myline;
         try{
