@@ -36,7 +36,7 @@ public class GamegogyKeywords {
 	}
 	
 	public String getCommandLineOutput(){
-		return output.trim();
+		return output;
 	}
 	
 }

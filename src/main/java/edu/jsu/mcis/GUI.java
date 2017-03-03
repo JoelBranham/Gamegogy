@@ -120,7 +120,6 @@ getContentPane().setBackground(Color.black);
 		studentName = new JLabel();
         studentName.setBounds(100,585,500,25);
 		studentName.setName("studentName");
-		studentName.setName("studentScore");
 		studentName.setFont(new Font("AR Julian", Font.PLAIN, 13));
 		studentName.setForeground(Color.white);
 		add(studentName);

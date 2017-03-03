@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="edu.jsu.mcis.MainTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2017-03-01T18:58:25" hostname="Encrypted" time="0.101">
+<testsuite name="edu.jsu.mcis.MainTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2017-03-03T18:45:17" hostname="Joel" time="0.079">
   <properties/>
-  <testcase name="testInvalidStudentArgsThrowsStudentException" classname="edu.jsu.mcis.MainTest" time="0.042"/>
-  <testcase name="testInvalidCourseArgsThrowsCourseException" classname="edu.jsu.mcis.MainTest" time="0.012"/>
-  <testcase name="testCorrectStudentArgsYieldCorrectOutput" classname="edu.jsu.mcis.MainTest" time="0.024"/>
-  <testcase name="testCorrectCourseArgsYieldCorrectOutput" classname="edu.jsu.mcis.MainTest" time="0.019"/>
+  <testcase name="testInvalidStudentArgsThrowsStudentException" classname="edu.jsu.mcis.MainTest" time="0.02"/>
+  <testcase name="testInvalidCourseArgsThrowsCourseException" classname="edu.jsu.mcis.MainTest" time="0.02"/>
+  <testcase name="testCorrectStudentArgsYieldCorrectOutput" classname="edu.jsu.mcis.MainTest" time="0.022"/>
+  <testcase name="testCorrectCourseArgsYieldCorrectOutput" classname="edu.jsu.mcis.MainTest" time="0.015"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
