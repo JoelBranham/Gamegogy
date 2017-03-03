@@ -22,14 +22,10 @@ public class Main {
 		}
 		else if (args.length == 1){
 				if (args[0].equals("courseids")){
-					for (String s: database.getCourseList()){
-						System.out.println(s);
-					}
+					System.out.println(Database.listToString(database.getCourseList()));
 				}
 				else if (args[0].equals("studentids")){
-					for (String s: database.getStudentList()){
-						System.out.println(s);
-					}
+					System.out.println(Database.listToString(database.getStudentList()));
 				}
 		}
 		else{

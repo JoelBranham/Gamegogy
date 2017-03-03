@@ -114,5 +114,13 @@ public class Database{
 		Collections.sort(sortedStudent);
 		return sortedStudent;
 	}
+	
+	public static String listToString(ArrayList<String> list){
+		String string = "";
+		for (String s: list){
+			string += (s + "\n");
+		}
+		return string;
+	}
 
 }
