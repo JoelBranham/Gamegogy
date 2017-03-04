@@ -26,17 +26,12 @@ public class GUI extends JFrame implements ActionListener, Observer{
 
     public GUI(Database dataBase) throws IOException{
 
-
-getContentPane().setBackground(Color.black);
+		getContentPane().setBackground(Color.black);
  
-
-
-		
         this.dataBase = dataBase;
 		setPreferredSize(new Dimension(500, 700));
 		setLayout(null);
 		setTitle("Gamegogy");
-
 		
 		
 		JLabel course = new JLabel("Course");
@@ -149,14 +144,9 @@ getContentPane().setBackground(Color.black);
 		studentScore.setFont(new Font("AR Julian", Font.PLAIN, 13));
 		studentScore.setForeground(Color.white);
 		add(studentScore);
-
-		
 		
 		updateAfterCourseChange();
 		updateAfterAssignmentChange();
-		
-
-		
 
 		leaderboard = new Leaderboard(400, 300, currentAssignment);
 		leaderboard.setBounds(50, 240, 400, 300);
@@ -182,10 +172,7 @@ getContentPane().setBackground(Color.black);
 		}
 	
     public void update(Observable o, Object arg) {	
-		String message = (String) arg;
-		System.out.println(message);
-		Scanner s = new Scanner(message).useDelimiter(":");
-
+		Scanner s = new Scanner((String) arg).useDelimiter(":");
 		updatestudentInfo(s.next(),s.nextInt());
 	}
 
@@ -195,8 +182,6 @@ getContentPane().setBackground(Color.black);
 		studentName.setText(currentStudent.getFname() + " " + currentStudent.getLname());
 		studentEmail.setText(currentStudent.getEmail() + "@jsu.edu");
 		studentScore.setText(score + ".0");
-		
-
 	}
 	
     public void actionPerformed(ActionEvent event) {
@@ -209,6 +194,5 @@ getContentPane().setBackground(Color.black);
 		leaderboard.setAssignment(currentAssignment);
 		
     }
-	
 	
 }

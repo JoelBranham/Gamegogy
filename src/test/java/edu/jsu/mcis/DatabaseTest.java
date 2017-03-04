@@ -3,21 +3,20 @@ package edu.jsu.mcis;
 import org.junit.*;
 import static org.junit.Assert.*;
 import java.util.*;
+import java.io.*;
 
 public class DatabaseTest{
 	
 	private Database d;
 	
 	@Before
-	public void setup()
-	{
+	public void setup(){
 		d = new Database("src\\test\\resources\\coursestest.csv","src\\test\\resources\\coursestest","src\\test\\resources\\studentstest.csv");
 		
 	}
 	
 	@Test
-	public void testCourses()
-	{
+	public void testCourses(){
 		Course correctCourse1 = new Course("99000" , "2013", "11", "Spring");
 		Course check = d.getCourse("99000");
 		assertEquals(correctCourse1.getId(), check.getId());
@@ -27,8 +26,7 @@ public class DatabaseTest{
 	}
 	
 	@Test
-	public void testStudents()
-	{
+	public void testStudents(){
 		Student correctStudent = new Student("420000", "Snoop", "Dogg", "SnoopDogg");
 		Student check = d.getStudent("420000");
 		assertEquals(correctStudent.getId(), check.getId());
@@ -38,8 +36,7 @@ public class DatabaseTest{
 	}
 	
 	@Test
-	public void testInvalidKeyThrowsStudentException()
-	{
+	public void testInvalidKeyThrowsStudentException(){
 		boolean thrown = false;
 		try{
 			d.getStudent("01");
@@ -52,8 +49,7 @@ public class DatabaseTest{
 	}
 	
 	@Test
-	public void testInvalidKeyThrowsCourseException()
-	{
+	public void testInvalidKeyThrowsCourseException(){
 		boolean thrown = false;
 		try{
 			d.getCourse("02");
@@ -63,11 +59,9 @@ public class DatabaseTest{
 		}
 		assertTrue(thrown);
 	}
-	
+
 	@Test
-	public void testAddCourseInfo1()
-	{
-		
+	public void testAddCourseInfo1(){
 		Course course1 = d.getCourse("99000");
 		assertEquals("Spring", course1.getTerm());
 		assertEquals("2013", course1.getYear());
@@ -91,9 +85,7 @@ public class DatabaseTest{
 	}
 	
 	@Test
-	public void testAddCourseInfo2()
-	{
-	
+	public void testAddCourseInfo2(){
 		Course course2 = d.getCourse("99001");
 		assertEquals("Fall", course2.getTerm());
 		assertEquals("1944", course2.getYear());
@@ -105,13 +97,38 @@ public class DatabaseTest{
 	}
 	
 	@Test
-	public void testGetCourseStrings()
-	{
+	public void testGetCourseStrings(){
 		ArrayList<String> courses = d.getCourseList();
 		assertTrue(courses.contains("99000"));
 		assertTrue(courses.contains("99001"));
 		assertTrue(courses.contains("99002"));
 		assertFalse(courses.contains("99025"));
+	}
+	
+	@Test
+	public void testGetStudentStrings(){
+		ArrayList<String> students = d.getStudentList();
+		assertTrue(students.contains("420000"));
+		assertTrue(students.contains("111113"));
+		assertTrue(students.contains("111318"));
+		assertTrue(students.contains("111190"));
+		assertTrue(students.contains("111406"));
+		assertTrue(students.contains("111115"));
+		assertTrue(students.contains("111211"));
+		assertTrue(students.contains("111208"));
+		assertTrue(students.contains("111310"));
+		assertTrue(students.contains("111335"));
+		assertTrue(students.contains("111141"));
+		assertTrue(students.contains("111262"));
+	}
+	
+	@Test
+	public void testListToString(){
+		ArrayList<String> list = new ArrayList<>();
+		list.add("apple");
+		list.add("grape");
+		list.add("pear");
+		assertEquals("apple\ngrape\npear\n", Database.listToString(list));
 	}
 	
 }

@@ -24,10 +24,6 @@ public class LeaderBar{
 		return shape;
 	}
 	
-	public Point[] getPoints(){
-		return points;
-	}
-	
 	private void updateShape(){
 		int[] x = new int[points.length];
 		int[] y = new int[points.length];

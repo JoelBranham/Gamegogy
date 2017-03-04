@@ -21,14 +21,14 @@ public class Main {
 			}
 		}
 		else if (args.length == 1){
-				if (args[0].equals("courseids")){
-					System.out.println(Database.listToString(database.getCourseList()));
-				}
-				else if (args[0].equals("studentids")){
-					System.out.println(Database.listToString(database.getStudentList()));
-				}
+			if (args[0].equals("courseids")){
+				System.out.println(Database.listToString(database.getCourseList()));
+			}
+			else if (args[0].equals("studentids")){
+				System.out.println(Database.listToString(database.getStudentList()));
+			}
 		}
-		else{
+		else if (args.length == 0){
 			try{
 				JFrame win = new GUI(database);
 				win.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

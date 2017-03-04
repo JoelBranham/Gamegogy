@@ -10,8 +10,6 @@ public class Leaderboard extends JPanel implements MouseListener{
 	
 	private LeaderBar[] bars;
 	private Assignment assignment;
-	private ArrayList<Integer> scores;
-	private ArrayList<String> studentIDs;
 	private int numBars, myWidth, myHeight;
 	private LeaderboardObserver leaderboardObserver;
 	
@@ -22,10 +20,9 @@ public class Leaderboard extends JPanel implements MouseListener{
 		setAssignment(assignment);
 		addMouseListener(this);
 	}
+	
 	public void setAssignment(Assignment assignment){
 		this.assignment = assignment;
-		studentIDs = assignment.getStudents();
-		scores = assignment.getScores();
 		numBars = assignment.getScores().size();
 		bars = new LeaderBar[numBars];
 		for (int i = 0; i < bars.length; i++){
@@ -36,7 +33,7 @@ public class Leaderboard extends JPanel implements MouseListener{
 	}
 	
 	private double calculateScaleFactor(int index){
-		return (double)(scores.get(index)) / (double) (assignment.getTopScore());
+		return (double)(assignment.getScores().get(index)) / (double) (assignment.getTopScore());
 	}
 
 	@Override
@@ -62,7 +59,7 @@ public class Leaderboard extends JPanel implements MouseListener{
 	public void mouseClicked(MouseEvent event) { 
 		for (int i = 0; i < bars.length; i++){
 			if (bars[i].getShape().getBounds().contains(event.getX(), event.getY())){
-				leaderboardObserver.update(studentIDs.get(i), scores.get(i));
+				leaderboardObserver.update(assignment.getStudents().get(i), assignment.getScores().get(i));
 			}
 		}
 	}

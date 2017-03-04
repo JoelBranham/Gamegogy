@@ -11,11 +11,10 @@ public class Database{
 	
     public Database(){
     	this("src\\main\\resources\\courses.csv","src\\main\\resources\\courses","src\\main\\resources\\students.csv");
-    	
     }
     
-    public Database(String coursesPath, String courseDir, String studentsPath) {
-    	buildCourse(coursesPath);
+    public Database(String coursesPath, String courseDir, String studentsPath){
+		buildCourse(coursesPath);
 		addCourseInfo(courseDir);
 		buildStudent(studentsPath);
     }
@@ -83,8 +82,6 @@ public class Database{
 				String email = student[3].substring(1, student[3].length() - 1);
 				studentMap.put(id, new Student(id, first, last, email));				
             }
-			
-
         }
         catch(IOException e) {e.printStackTrace();}
     }
