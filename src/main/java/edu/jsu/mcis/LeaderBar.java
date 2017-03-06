@@ -10,6 +10,7 @@ public class LeaderBar{
 
 	private Point[] points;
 	private Shape shape;
+	private Color color;
 	
 	public LeaderBar(double scaleFactor, int width, int height){
 		points = new Point[4];
@@ -18,6 +19,7 @@ public class LeaderBar{
 		points[2] = new Point((int) (width * scaleFactor), height);
 		points[3] = new Point(0, height);
 		updateShape();
+		color = Color.black;
 	}
 	
 	public Shape getShape(){
@@ -39,5 +41,13 @@ public class LeaderBar{
 			points[i].setLocation(widthOffset + points[i].x, heightOffset + points[i].y);
 		}
 		updateShape();
+	}
+	
+	public void setColor(Color color){
+		this.color = color;
+	}
+	
+	public Color getColor(){
+		return color;
 	}
 }
