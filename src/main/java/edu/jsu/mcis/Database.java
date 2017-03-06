@@ -99,13 +99,13 @@ public class Database{
 		}
 		throw new StudentException();
     }
-	
+	@SuppressWarnings("unchecked")
 	public ArrayList<String> getCourseList(){
 		ArrayList<String> sortedCourse = new ArrayList(courseMap.keySet());
 		Collections.sort(sortedCourse);
 		return sortedCourse;
 	}
-	
+	@SuppressWarnings("unchecked")
 	public ArrayList<String> getStudentList(){
 		ArrayList<String> sortedStudent = new ArrayList(studentMap.keySet());
 		Collections.sort(sortedStudent);

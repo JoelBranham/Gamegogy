@@ -24,6 +24,7 @@ public class GUI extends JFrame implements ActionListener, Observer{
 	private Assignment currentAssignment;
 	private Student currentStudent;
 
+	@SuppressWarnings("unchecked")
     public GUI(Database dataBase) throws IOException{
 
 		getContentPane().setBackground(Color.black);
@@ -155,6 +156,8 @@ public class GUI extends JFrame implements ActionListener, Observer{
 
 		
     }
+
+	@SuppressWarnings("unchecked")
 	
 	public void updateAfterCourseChange(){
 		String currentCourseString = (String) courseComboBox.getSelectedItem();
