@@ -17,18 +17,26 @@ public class Leaderboard extends JPanel implements MouseListener{
 		myWidth = width;
 		myHeight = height;
 		leaderboardObserver = new LeaderboardObserver();
+		bars = new LeaderBar[numBars];
 		setAssignment(assignment);
 		addMouseListener(this);
+		setLayout(null);
 	}
 	
 	public void setAssignment(Assignment assignment){
+		for (int i=0; i<bars.length; i++){
+			bars[i].setLabelText("");
+		}
 		this.assignment = assignment;
 		numBars = assignment.getScores().size();
 		bars = new LeaderBar[numBars];
 		for (int i = 0; i < bars.length; i++){
-			bars[i] = new LeaderBar(calculateScaleFactor(i), myWidth * 2/3, myHeight / numBars / 2);
+			bars[i] = new LeaderBar(calculateScaleFactor(i), myWidth * 2/3, myHeight / numBars / 2,(assignment.getScores().get(i)) );
 			bars[i].offsetPoints(0, (i + 1) * myHeight / (numBars + 1));
 			repaint(bars[i].getShape().getBounds());
+			bars[i].setLabelBounds(myWidth - 75, (i + 1) * myHeight / (numBars + 1), 30, myHeight / numBars / 2);
+			bars[i].setLabelText(assignment.getScores().get(i)+ "");
+			add(bars[i].getLabel());
 		}
 	}
 	
