@@ -42,7 +42,7 @@ public class Leaderboard extends JPanel implements MouseListener{
 		Graphics2D g2d = (Graphics2D)g;
 		for (int i = 0; i < bars.length; i++){
 			Shape shape = bars[i].getShape();
-			g2d.setColor(Color.black);
+			g2d.setColor(bars[i].getColor());
 			g2d.draw(shape);
 			g2d.fill(shape); 	
 		}
@@ -60,8 +60,13 @@ public class Leaderboard extends JPanel implements MouseListener{
 		for (int i = 0; i < bars.length; i++){
 			if (bars[i].getShape().getBounds().contains(event.getX(), event.getY())){
 				leaderboardObserver.update(assignment.getStudents().get(i), assignment.getScores().get(i));
+				bars[i].setColor(Color.red);
+			}
+			else {
+				bars[i].setColor(Color.black);
 			}
 		}
+		repaint();
 	}
 	
 	public void addAnObserver(Observer observer){
