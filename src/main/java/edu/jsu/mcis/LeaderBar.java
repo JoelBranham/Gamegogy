@@ -45,8 +45,6 @@ public class LeaderBar{
 			points[i].setLocation(widthOffset + points[i].x, heightOffset + points[i].y);
 		}
 		updateShape();
-		
-		//label.setBounds(widthOffset + 55 + points[i].x, heightOffset + points[i].y, 50, height);
 	}
 	
 	public void setColor(Color color){
