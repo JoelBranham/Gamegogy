@@ -31,11 +31,12 @@ public class webServiceTest{
 	@Test
 	public void testJSONtoCSV()  throws MalformedURLException, IOException{
 
-		String studentID = testService.getStudent(111111);
+		String studentID = testService.getStudent(111111).split(",")[0];
 		String courseID = testService.getCourse(99000);
 		String studentList = testService.getStudentList();
 		String courseList = testService.getCourseList();
-
+		String s = 	testService.getStudent(111111).split(",")[0];
+		assertEquals("111111",studentID);
 		assertTrue(true);
 
 		//convert to CSV here
