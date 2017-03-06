@@ -59,11 +59,6 @@ public class LeaderBar{
 	
 	public void setLabelBounds(int widthOffset, int heightOffset, int width, int height){
 		label.setBounds(widthOffset, heightOffset, width, height);
-		System.out.println(widthOffset);
-		System.out.println(heightOffset);
-		System.out.println(width);
-		System.out.println(height);
-		System.out.println();
 	}
 	public JLabel getLabel(){
 		return label;
