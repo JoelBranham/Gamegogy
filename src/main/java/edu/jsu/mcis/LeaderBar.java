@@ -14,7 +14,7 @@ public class LeaderBar{
 	private JLabel label;
 	private int height;
 	
-	public LeaderBar(double scaleFactor, int width, int height, int score){
+	public LeaderBar(double scaleFactor, int width, int height){
 		points = new Point[4];
 		points[0] = new Point(0,0);
 		points[1] = new Point((int) (width * scaleFactor), 0);
@@ -58,9 +58,11 @@ public class LeaderBar{
 	public void setLabelBounds(int widthOffset, int heightOffset, int width, int height){
 		label.setBounds(widthOffset, heightOffset, width, height);
 	}
+	
 	public JLabel getLabel(){
 		return label;
 	}
+	
 	public void setLabelText(String score){
 		label.setText(score);
 	}

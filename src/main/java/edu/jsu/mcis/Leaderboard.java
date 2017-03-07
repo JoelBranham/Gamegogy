@@ -31,13 +31,13 @@ public class Leaderboard extends JPanel implements MouseListener{
 		numBars = assignment.getScores().size();
 		bars = new LeaderBar[numBars];
 		for (int i = 0; i < bars.length; i++){
-			bars[i] = new LeaderBar(calculateScaleFactor(i), myWidth * 2/3, myHeight / numBars / 2,(assignment.getScores().get(i)) );
+			bars[i] = new LeaderBar(calculateScaleFactor(i), myWidth * 2/3, myHeight / numBars / 2);
 			bars[i].offsetPoints(0, (i + 1) * myHeight / (numBars + 1));
-			repaint(bars[i].getShape().getBounds());
 			bars[i].setLabelBounds(myWidth - 75, (i + 1) * myHeight / (numBars + 1), 30, myHeight / numBars / 2);
 			bars[i].setLabelText(assignment.getScores().get(i)+ "");
 			add(bars[i].getLabel());
 		}
+		repaint();
 	}
 	
 	private double calculateScaleFactor(int index){
@@ -49,10 +49,9 @@ public class Leaderboard extends JPanel implements MouseListener{
 		super.paintComponent(g);
 		Graphics2D g2d = (Graphics2D)g;
 		for (int i = 0; i < bars.length; i++){
-			Shape shape = bars[i].getShape();
 			g2d.setColor(bars[i].getColor());
-			g2d.draw(shape);
-			g2d.fill(shape); 	
+			g2d.draw(bars[i].getShape());
+			g2d.fill(bars[i].getShape()); 	
 		}
 	}
 	
@@ -85,6 +84,5 @@ public class Leaderboard extends JPanel implements MouseListener{
 	public void mouseReleased(MouseEvent event) {}
 	public void mouseEntered(MouseEvent event) {}
 	public void mouseExited(MouseEvent event) {}
-	
 	
 }
