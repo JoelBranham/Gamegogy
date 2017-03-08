@@ -8,7 +8,7 @@ import java.awt.*;
 import static org.junit.Assert.*;
 
 
-public class WindowTest{
+public class GUITest{
 	
 	@Test
 	public void testWindowOpensOnRuntime(){
@@ -27,4 +27,6 @@ public class WindowTest{
 
 		assertTrue(windowOpened);
 	}	
+	
+	
 }
