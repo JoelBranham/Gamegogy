@@ -22,11 +22,16 @@ public class Main {
 		}
 		else if (args.length == 1){
 			if (args[0].equals("courseids")){
-				System.out.println(Database.listToString(database.getCourseList()));
+				System.out.println(listToString(database.getCourseList()));
 			}
+			
 			else if (args[0].equals("studentids")){
-				System.out.println(Database.listToString(database.getStudentList()));
+				System.out.println(listToString(database.getStudentList()));
 			}
+			
+			//else if (args[0].equals("http://inspired.jsu.edu:7272/gamegogy/") || args[0].equals("http://inspired.jsu.edu:7272/gamegogy")){
+				//make this feed in and take in url
+			//}
 		}
 		else if (args.length == 0){
 			try{
@@ -40,6 +45,14 @@ public class Main {
 		}
 		
     }
+	
+	public static String listToString(ArrayList<String> list){
+		String string = "";
+		for (String s: list){
+			string += (s + "\n");
+		}
+		return string;
+	}
 	
 }
 

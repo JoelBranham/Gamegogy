@@ -8,19 +8,22 @@ public class Database{
     
 	private HashMap<String, Course> courseMap; 
 	private HashMap<String, Student> studentMap; 
+	private WebService service;
 	
     public Database(){
     	this("src\\main\\resources\\courses.csv","src\\main\\resources\\courses","src\\main\\resources\\students.csv");
     }
     
     public Database(String coursesPath, String courseDir, String studentsPath){
+		courseMap = new HashMap<String, Course>();
+		studentMap = new HashMap<String, Student>();
+		service = new WebService();
 		buildCourse(coursesPath);
 		addCourseInfo(courseDir);
 		buildStudent(studentsPath);
     }
 
     private void buildCourse(String fileName){
-		courseMap = new HashMap<String, Course>();
   		String myline;
     	try{
         	BufferedReader in = new BufferedReader(new FileReader(new File(fileName)));
@@ -69,7 +72,6 @@ public class Database{
 	}
 	
     private void buildStudent(String fileName){
-		studentMap = new HashMap<String, Student>();
     	String myline;
         try{
             BufferedReader in = new BufferedReader(new FileReader(new File(fileName)));
@@ -99,25 +101,19 @@ public class Database{
 		}
 		throw new StudentException();
     }
+	
 	@SuppressWarnings("unchecked")
 	public ArrayList<String> getCourseList(){
 		ArrayList<String> sortedCourse = new ArrayList(courseMap.keySet());
 		Collections.sort(sortedCourse);
 		return sortedCourse;
 	}
+	
 	@SuppressWarnings("unchecked")
 	public ArrayList<String> getStudentList(){
 		ArrayList<String> sortedStudent = new ArrayList(studentMap.keySet());
 		Collections.sort(sortedStudent);
 		return sortedStudent;
-	}
-	
-	public static String listToString(ArrayList<String> list){
-		String string = "";
-		for (String s: list){
-			string += (s + "\n");
-		}
-		return string;
 	}
 
 }

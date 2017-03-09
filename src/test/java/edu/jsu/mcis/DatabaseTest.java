@@ -12,7 +12,6 @@ public class DatabaseTest{
 	@Before
 	public void setup(){
 		d = new Database("src\\test\\resources\\coursestest.csv","src\\test\\resources\\coursestest","src\\test\\resources\\studentstest.csv");
-		
 	}
 	
 	@Test
@@ -120,15 +119,6 @@ public class DatabaseTest{
 		assertTrue(students.contains("111335"));
 		assertTrue(students.contains("111141"));
 		assertTrue(students.contains("111262"));
-	}
-	
-	@Test
-	public void testListToString(){
-		ArrayList<String> list = new ArrayList<>();
-		list.add("apple");
-		list.add("grape");
-		list.add("pear");
-		assertEquals("apple\ngrape\npear\n", Database.listToString(list));
 	}
 	
 }
