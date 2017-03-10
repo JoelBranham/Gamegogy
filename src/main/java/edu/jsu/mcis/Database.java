@@ -6,7 +6,7 @@ import java.net.*;
 
 public class Database{
     
-	private HashMap<String, Course> courseMap; 
+	private HashMap<String, Course> courseMap; //declare as Map
 	private HashMap<String, Student> studentMap; 
 	private WebService service;
 	
@@ -187,16 +187,14 @@ public class Database{
 		throw new StudentException();
     }
 	
-	@SuppressWarnings("unchecked")
-	public ArrayList<String> getCourseList(){
-		ArrayList<String> sortedCourse = new ArrayList(courseMap.keySet());
+	public ArrayList<String> getCourseList(){  //return list
+		ArrayList<String> sortedCourse = new ArrayList<>(courseMap.keySet());  //declare as list 
 		Collections.sort(sortedCourse);
 		return sortedCourse;
 	}
 	
-	@SuppressWarnings("unchecked")
-	public ArrayList<String> getStudentList(){
-		ArrayList<String> sortedStudent = new ArrayList(studentMap.keySet());
+	public ArrayList<String> getStudentList(){  //return list 
+		ArrayList<String> sortedStudent = new ArrayList<>(studentMap.keySet());  //delcare as list
 		Collections.sort(sortedStudent);
 		return sortedStudent;
 	}

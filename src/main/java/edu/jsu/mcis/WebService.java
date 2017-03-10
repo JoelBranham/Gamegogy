@@ -148,8 +148,7 @@ public class WebService {
         return list;
     }
 	
-     public ArrayList<String> getCourseList() throws MalformedURLException, IOException 
-    {
+     public ArrayList<String> getCourseList() throws MalformedURLException, IOException {
         ArrayList<String> list = new ArrayList<>();
         URL url = new URL(URLName + "courselist/");
         URLConnection con = url.openConnection();
