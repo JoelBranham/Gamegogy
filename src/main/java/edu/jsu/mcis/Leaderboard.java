@@ -12,6 +12,7 @@ public class Leaderboard extends JPanel implements MouseListener{
 	private Assignment assignment;
 	private int numBars, myWidth, myHeight;
 	private LeaderboardObserver leaderboardObserver;
+	private float fontSize;
 	
 	public Leaderboard(int width, int height, Assignment assignment){
 		myWidth = width;
@@ -35,6 +36,11 @@ public class Leaderboard extends JPanel implements MouseListener{
 			bars[i].offsetPoints(0, (i + 1) * myHeight / (numBars + 1));
 			bars[i].setLabelBounds(myWidth - 75, (i + 1) * myHeight / (numBars + 1), 30, myHeight / numBars / 2);
 			bars[i].setLabelText(assignment.getScores().get(i)+ "");
+			fontSize = 140.0f/(float) numBars;
+			if(numBars < 10){
+				fontSize = 15.0f;
+			}
+			bars[i].getLabel().setFont(bars[i].getLabel().getFont().deriveFont(fontSize));
 			add(bars[i].getLabel());
 		}
 		repaint();

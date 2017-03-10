@@ -154,7 +154,6 @@ public class GUI extends JFrame implements ActionListener, Observer{
 		add(leaderboard);
 		leaderboard.addAnObserver(this);
 
-		
     }
 
 	@SuppressWarnings("unchecked")
@@ -172,7 +171,7 @@ public class GUI extends JFrame implements ActionListener, Observer{
 		courseTerm.setText(currentCourse.getTerm() + " " + currentCourse.getYear());
 		courseEnrollment.setText(currentCourse.getSize() + "");
 		updatestudentInfo(currentAssignment.getTopStudentID(),currentAssignment.getTopScore());
-		}
+	}
 	
     public void update(Observable o, Object arg) {	
 		Scanner s = new Scanner((String) arg).useDelimiter(":");

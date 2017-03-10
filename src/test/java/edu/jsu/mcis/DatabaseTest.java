@@ -8,10 +8,24 @@ import java.io.*;
 public class DatabaseTest{
 	
 	private Database d;
+	private Database onlineDatabase;
+	private WebService service;
 	
 	@Before
 	public void setup(){
+		service = new WebService("http://inspired.jsu.edu:7272/gamegogy/");
 		d = new Database("src\\test\\resources\\coursestest.csv","src\\test\\resources\\coursestest","src\\test\\resources\\studentstest.csv");
+		onlineDatabase = new Database(true,service);
+	}
+	
+	@Test
+	public void testOnlineDatabase(){
+		d = onlineDatabase;
+		testCourses();
+		testStudents();
+		testAddCourseInfo1();
+		testGetCourseStrings();
+		testGetStudentStrings();
 	}
 	
 	@Test
@@ -26,12 +40,12 @@ public class DatabaseTest{
 	
 	@Test
 	public void testStudents(){
-		Student correctStudent = new Student("420000", "Snoop", "Dogg", "SnoopDogg");
-		Student check = d.getStudent("420000");
+		Student correctStudent = new Student("111318", "Cathleen", "Guzman", "cguzman"); 
+		Student check = d.getStudent("111318");
 		assertEquals(correctStudent.getId(), check.getId());
 		assertEquals(correctStudent.getFname(), check.getFname());
 		assertEquals(correctStudent.getLname(), check.getLname());
-		assertEquals(correctStudent.getEmail(), check.getEmail());
+		assertEquals(correctStudent.getEmail(), check.getEmail().replace("\"",""));
 	}
 	
 	@Test
@@ -107,7 +121,6 @@ public class DatabaseTest{
 	@Test
 	public void testGetStudentStrings(){
 		ArrayList<String> students = d.getStudentList();
-		assertTrue(students.contains("420000"));
 		assertTrue(students.contains("111113"));
 		assertTrue(students.contains("111318"));
 		assertTrue(students.contains("111190"));
@@ -120,5 +133,6 @@ public class DatabaseTest{
 		assertTrue(students.contains("111141"));
 		assertTrue(students.contains("111262"));
 	}
+	
 	
 }

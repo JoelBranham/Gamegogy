@@ -9,9 +9,12 @@ import java.awt.*;
 
 public class Main {
 	
+	
     public static void main(String[] args) {
 		
-        Database database = new Database();
+		boolean useGUI = false;
+        Database database = new Database(false,null);
+		WebService service;
         if (args.length == 2){
 			if(args[0].equals("course")){
 				System.out.println(database.getCourse(args[1]));
@@ -24,16 +27,19 @@ public class Main {
 			if (args[0].equals("courseids")){
 				System.out.println(listToString(database.getCourseList()));
 			}
-			
 			else if (args[0].equals("studentids")){
 				System.out.println(listToString(database.getStudentList()));
 			}
-			
-			//else if (args[0].equals("http://inspired.jsu.edu:7272/gamegogy/") || args[0].equals("http://inspired.jsu.edu:7272/gamegogy")){
-				//make this feed in and take in url
-			//}
+			else{
+				service = new WebService(args[0]);
+				database = new Database(true,service);
+				useGUI = true;
+			}
 		}
 		else if (args.length == 0){
+			useGUI = true;
+		}
+		if(useGUI){
 			try{
 				JFrame win = new GUI(database);
 				win.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

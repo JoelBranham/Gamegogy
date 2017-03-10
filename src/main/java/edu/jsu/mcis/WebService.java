@@ -11,30 +11,19 @@ import org.json.simple.parser.*;
 
 public class WebService {
 	
-    /*
-    private URL url;
-    private URLConnection con;
-    private InputStream is;
-    private String id;
-    */
-    public WebService() {
-       // try {
-          //  System.out.println(getStudent(111111));
-          //  System.out.println(getBasicCourseInfo(99001));
-			//System.out.println(getDetailedCourseInfo(99001));
-            //System.out.println(getStudentList());
-			//System.out.println(getCourseListCSV());
-			//System.out.println(getStudentListCSV());
-			
-      //  } catch (IOException ex) {
-            //Logger.getLogger(webService.class.getName()).log(Level.SEVERE, null, ex);
-       // }
+	private String URLName;
+	
+    public WebService(String URLName) {
+		if(URLName.charAt(URLName.length()-1) != '/'){
+			URLName += "/";
+		}
+		this.URLName = URLName;
     }
 	
     public String getStudent(int id) throws MalformedURLException, IOException{
         String ID = String.valueOf(id);
         String myLine = null;
-        URL url = new URL("http://inspired.jsu.edu:7272/gamegogy/student/" + ID);
+        URL url = new URL(URLName + "student/" + ID);
         URLConnection con = url.openConnection();
         InputStream is = con.getInputStream();
         BufferedReader br = new BufferedReader(new InputStreamReader(is));
@@ -50,7 +39,7 @@ public class WebService {
 	
      public String getBasicCourseInfo(int id) throws MalformedURLException, IOException {
 
-        URL url = new URL("http://inspired.jsu.edu:7272/gamegogy/course/" + String.valueOf(id));
+        URL url = new URL(URLName + "course/" + String.valueOf(id));
         URLConnection con = url.openConnection();
         InputStream is = con.getInputStream();
 		StringBuffer jsonContents = new StringBuffer();
@@ -76,18 +65,11 @@ public class WebService {
 		}
 		
 		catch(ParseException p){return "";}
-
-        /*String courseID = returnString.split("id\":\"")[1].split("\"")[0];
-        String courseTerm = returnString.split("term\":\"")[1].split("\"")[0];
-        String courseYear = returnString.split("year\":\"")[1].split("\"")[0];
-        String courseSize = returnString.split("size\":\"")[1].split("\"")[0];
-        returnString = courseID + "," + courseTerm + "," + courseYear + "," + courseSize;
-        */
     }
 	
      public String getDetailedCourseInfo(int id) throws MalformedURLException, IOException {
 
-        URL url = new URL("http://inspired.jsu.edu:7272/gamegogy/course/" + String.valueOf(id));
+        URL url = new URL(URLName + "course/" + String.valueOf(id));
         URLConnection con = url.openConnection();
         InputStream is = con.getInputStream();
 		StringBuffer jsonContents = new StringBuffer();
@@ -151,7 +133,7 @@ public class WebService {
      public ArrayList<String> getStudentList() throws MalformedURLException, IOException{
         ArrayList<String> list = new ArrayList<>();
         String myLine = "";
-        URL url = new URL("http://inspired.jsu.edu:7272/gamegogy/studentlist/");
+        URL url = new URL(URLName + "studentlist/");
         URLConnection con = url.openConnection();
         InputStream is = con.getInputStream();
         BufferedReader br = new BufferedReader(new InputStreamReader(is));
@@ -169,7 +151,7 @@ public class WebService {
      public ArrayList<String> getCourseList() throws MalformedURLException, IOException 
     {
         ArrayList<String> list = new ArrayList<>();
-        URL url = new URL("http://inspired.jsu.edu:7272/gamegogy/courselist/");
+        URL url = new URL(URLName + "courselist/");
         URLConnection con = url.openConnection();
         InputStream is = con.getInputStream();
         BufferedReader br = new BufferedReader(new InputStreamReader(is));

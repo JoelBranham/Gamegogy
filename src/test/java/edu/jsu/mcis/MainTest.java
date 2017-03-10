@@ -66,6 +66,7 @@ public class MainTest{
 		(String) out.toString().trim());
 	}
 	
+	
 	@Test
 	public void testCorrectSingleArgYieldsCorrectOutput2(){
 		Main.main(studentIDsArg);
@@ -73,12 +74,7 @@ public class MainTest{
 		(String) out.toString().trim());
 	}
 	
-	@Test
-	public void testIncorrectSingleArgDoesNothing(){
-		String[] arg = {"stuff"};
-		Main.main(arg);
-		assertEquals("",out.toString());
-	}
+	
 	
 	@Test
 	public void testWindowOpensOnRuntime(){

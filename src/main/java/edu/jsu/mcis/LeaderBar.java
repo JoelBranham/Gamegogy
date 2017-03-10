@@ -24,6 +24,7 @@ public class LeaderBar{
 		color = Color.black;
 		label= new JLabel("");
 		this.height = height;
+		
 	}
 	
 	public Shape getShape(){
