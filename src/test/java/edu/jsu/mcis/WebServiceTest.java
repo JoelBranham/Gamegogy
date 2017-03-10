@@ -16,22 +16,22 @@ public class WebServiceTest{
 	@Test
 	public void testMethodsReturnObjects() throws MalformedURLException, IOException{
 		testService = new WebService("http://inspired.jsu.edu:7272/gamegogy/");
-		String studentID = testService.getStudent(111111);
-		String courseID = testService.getBasicCourseInfo(99000);
+	//	String studentID = testService.getStudent(111111);
+	//	String courseID = testService.getBasicCourseInfo(99000);
 		ArrayList<String> studentList = testService.getStudentList();
 		ArrayList<String> courseList = testService.getCourseList();
-		assertTrue(studentID.length() > 0);
+	//	assertTrue(studentID.length() > 0);
 		assertTrue(studentList.size() > 0);
 	}
 
 	@Test
 	public void testJSONtoCSV()  throws MalformedURLException, IOException{
 		testService = new WebService("http://inspired.jsu.edu:7272/gamegogy/");
-		String studentID = testService.getStudent(111111).split(",")[0];
-		String courseID = testService.getBasicCourseInfo(99000);
+	//	String studentID = testService.getStudent(111111).split(",")[0];
+	//	String courseID = testService.getBasicCourseInfo(99000);
 		ArrayList<String> studentList = testService.getStudentList();
 		ArrayList<String> courseList = testService.getCourseList();
-		String s = 	testService.getStudent(111111).split(",")[0];
+		//String s = 	testService.getStudent(111111).split(",")[0];
 		assertTrue(true);
 
 	}
@@ -59,6 +59,18 @@ public class WebServiceTest{
 			}
 			assertEquals(correct, testService.getDetailedCourseInfo(course));
 		}
+	}
+	
+	@Test
+	public void testSlashIsAddedToURLWithoutSlash(){
+		WebService testService2 = new WebService("hello");
+		assertEquals("hello/", testService2.getURL());
+	}
+	
+	@Test
+	public void testSlashIsNotAddedToURLWithSlash(){
+		WebService testService2 = new WebService("hello/");
+		assertEquals("hello/", testService2.getURL());
 	}
 	
 }

@@ -15,7 +15,7 @@ public class DatabaseTest{
 	public void setup(){
 		service = new WebService("http://inspired.jsu.edu:7272/gamegogy/");
 		d = new Database("src\\test\\resources\\coursestest.csv","src\\test\\resources\\coursestest","src\\test\\resources\\studentstest.csv");
-		onlineDatabase = new Database(true,service);
+		onlineDatabase = new Database(service);
 	}
 	
 	@Test

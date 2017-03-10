@@ -20,7 +20,7 @@ public class WebService {
 		this.URLName = URLName;
     }
 	
-    public String getStudent(int id) throws MalformedURLException, IOException{
+    private String getStudent(int id) throws MalformedURLException, IOException{
         String ID = String.valueOf(id);
         String myLine = null;
         URL url = new URL(URLName + "student/" + ID);
@@ -37,7 +37,7 @@ public class WebService {
         return returnString;
     }
 	
-     public String getBasicCourseInfo(int id) throws MalformedURLException, IOException {
+     private String getBasicCourseInfo(int id) throws MalformedURLException, IOException {
 
         URL url = new URL(URLName + "course/" + String.valueOf(id));
         URLConnection con = url.openConnection();
@@ -185,4 +185,7 @@ public class WebService {
 		return s;
 	}
     
+	public String getURL(){
+		return URLName;
+	}
 }

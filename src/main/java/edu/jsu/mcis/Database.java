@@ -9,28 +9,25 @@ public class Database{
 	private HashMap<String, Course> courseMap; 
 	private HashMap<String, Student> studentMap; 
 	private WebService service;
-	private boolean online;
 	
     public Database(){
-    	this(false,null);
+    	this(null);
     }
     
-    public Database(boolean online, WebService service){
+    public Database(WebService service){
 		try{
-			this.online = online;
 			this.service = service;
 			courseMap = new HashMap<String, Course>();
 			studentMap = new HashMap<String, Student>();
-	
-			if(online){
+			if(service == null){
+				buildStudent("src\\main\\resources\\students.csv");
+				buildCourse("src\\main\\resources\\courses.csv");
+				addCourseInfo("src\\main\\resources\\courses");
+			}
+			else{
 				buildOnlineCourse();
 				addOnlineCourseInfo();
 				buildOnlineStudent();
-			}
-			else{
-				buildCourse("src\\main\\resources\\courses.csv");
-				addCourseInfo("src\\main\\resources\\courses");
-				buildStudent("src\\main\\resources\\students.csv");
 			}
 		}
 		catch(MalformedURLException ex){ex.printStackTrace();}
@@ -48,9 +45,7 @@ public class Database{
     private void buildCourse(String fileName){
   		String myline;
     	try{
-			BufferedReader in = null;
-			in = new BufferedReader(new FileReader(new File(fileName)));
-
+			BufferedReader in = new BufferedReader(new FileReader(new File(fileName)));
             myline = in.readLine();
             while ((myline = in.readLine())!=null){
 				String[] course = myline.split(",");
@@ -67,8 +62,7 @@ public class Database{
 	private void buildOnlineCourse(){
   		String myline;
     	try{
-			BufferedReader in = null;
-			in = new BufferedReader(new InputStreamReader(new ByteArrayInputStream(service.getCourseListCSV().getBytes())));
+			BufferedReader in = new BufferedReader(new InputStreamReader(new ByteArrayInputStream(service.getCourseListCSV().getBytes())));
             myline = in.readLine();
             while ((myline = in.readLine())!=null){
 				String[] course = myline.split(",");
@@ -205,10 +199,6 @@ public class Database{
 		ArrayList<String> sortedStudent = new ArrayList(studentMap.keySet());
 		Collections.sort(sortedStudent);
 		return sortedStudent;
-	}
-	
-	public boolean isOnline(){
-		return online;
 	}
 
 }

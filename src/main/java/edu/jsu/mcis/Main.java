@@ -9,12 +9,11 @@ import java.awt.*;
 
 public class Main {
 	
-	
     public static void main(String[] args) {
 		
+        Database database = new Database();
 		boolean useGUI = false;
-        Database database = new Database(false,null);
-		WebService service;
+		
         if (args.length == 2){
 			if(args[0].equals("course")){
 				System.out.println(database.getCourse(args[1]));
@@ -31,8 +30,7 @@ public class Main {
 				System.out.println(listToString(database.getStudentList()));
 			}
 			else{
-				service = new WebService(args[0]);
-				database = new Database(true,service);
+				database = new Database(new WebService(args[0]));
 				useGUI = true;
 			}
 		}
