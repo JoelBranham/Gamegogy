@@ -4,12 +4,11 @@ import java.util.*;
 
 public class Course{
 
-	private int id,year,size;
-	private String term;
+	private String id,year,size,term;
 	private Map<String, Assignment> assignments;
 	private ArrayList<String> assignmentList;
 
-	public Course(int i,int y,int s, String t){
+	public Course(String i,String y,String s, String t){
 		assignments = new HashMap<String, Assignment>();
 		assignmentList = new ArrayList<String>();
 		id = i;
@@ -18,15 +17,15 @@ public class Course{
 		term = t;
 	}
 	
-	public int getId(){
+	public String getId(){
 		return id;
 	}
 	
-	public int getYear(){
+	public String getYear(){
 		return year;
 	}
 	
-	public int getSize(){
+	public String getSize(){
 		return size;
 	}
 	

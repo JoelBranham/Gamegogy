@@ -8,11 +8,12 @@ import java.awt.*;
 import static org.junit.Assert.*;
 
 
-public class WindowTest{
-	
+public class GUITest{
+
 	@Test
 	public void testWindowOpensOnRuntime(){
-		Database testDatabase = new Database();
+		
+		Database testDatabase = new Database(new WebService("http://inspired.jsu.edu:7272/gamegogy/"));
 		boolean windowOpened = false;
 
 		try{
@@ -27,4 +28,6 @@ public class WindowTest{
 
 		assertTrue(windowOpened);
 	}	
+	
+	
 }
