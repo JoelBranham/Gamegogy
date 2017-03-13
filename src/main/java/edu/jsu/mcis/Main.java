@@ -42,6 +42,7 @@ public class Main {
 				JFrame win = new GUI(database);
 				win.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 				win.setSize(new Dimension(500,700));
+				win.setJMenuBar(new menubar().bar);
 				win.setResizable(false);
 				win.setVisible(true);
 			}

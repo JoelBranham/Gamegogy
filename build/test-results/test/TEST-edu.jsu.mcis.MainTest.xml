@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="edu.jsu.mcis.MainTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2017-03-09T04:40:22" hostname="Joel" time="0.404">
+<testsuite name="edu.jsu.mcis.MainTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2017-03-13T17:42:43" hostname="Allie" time="0.525">
   <properties/>
-  <testcase name="testInvalidStudentArgsThrowsStudentException" classname="edu.jsu.mcis.MainTest" time="0.028"/>
-  <testcase name="testInvalidCourseArgsThrowsCourseException" classname="edu.jsu.mcis.MainTest" time="0.024"/>
-  <testcase name="testIncorrectSingleArgDoesNothing" classname="edu.jsu.mcis.MainTest" time="0.017"/>
-  <testcase name="testWindowOpensOnRuntime" classname="edu.jsu.mcis.MainTest" time="0.29"/>
-  <testcase name="testCorrectStudentArgsYieldCorrectOutput" classname="edu.jsu.mcis.MainTest" time="0.018"/>
-  <testcase name="testCorrectCourseArgsYieldCorrectOutput" classname="edu.jsu.mcis.MainTest" time="0.011"/>
-  <testcase name="testCorrectSingleArgYieldsCorrectOutput1" classname="edu.jsu.mcis.MainTest" time="0.008"/>
-  <testcase name="testCorrectSingleArgYieldsCorrectOutput2" classname="edu.jsu.mcis.MainTest" time="0.007"/>
+  <testcase name="testInvalidStudentArgsThrowsStudentException" classname="edu.jsu.mcis.MainTest" time="0.05"/>
+  <testcase name="testInvalidCourseArgsThrowsCourseException" classname="edu.jsu.mcis.MainTest" time="0.026"/>
+  <testcase name="testWindowOpensOnRuntime" classname="edu.jsu.mcis.MainTest" time="0.311"/>
+  <testcase name="testCorrectStudentArgsYieldCorrectOutput" classname="edu.jsu.mcis.MainTest" time="0.06"/>
+  <testcase name="testCorrectCourseArgsYieldCorrectOutput" classname="edu.jsu.mcis.MainTest" time="0.026"/>
+  <testcase name="testCorrectSingleArgYieldsCorrectOutput1" classname="edu.jsu.mcis.MainTest" time="0.023"/>
+  <testcase name="testCorrectSingleArgYieldsCorrectOutput2" classname="edu.jsu.mcis.MainTest" time="0.022"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

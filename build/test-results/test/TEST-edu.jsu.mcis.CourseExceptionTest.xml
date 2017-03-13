@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="edu.jsu.mcis.CourseExceptionTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2017-03-09T04:40:22" hostname="Joel" time="0.001">
+<testsuite name="edu.jsu.mcis.CourseExceptionTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2017-03-13T17:42:26" hostname="Allie" time="0.006">
   <properties/>
-  <testcase name="testCoursetExceptionDoesThrowException" classname="edu.jsu.mcis.CourseExceptionTest" time="0.001"/>
+  <testcase name="testCoursetExceptionDoesThrowException" classname="edu.jsu.mcis.CourseExceptionTest" time="0.006"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

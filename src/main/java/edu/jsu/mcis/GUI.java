@@ -195,6 +195,9 @@ public class GUI extends JFrame implements ActionListener, Observer{
 		}
 		leaderboard.setAssignment(currentAssignment);
 		
+
+		
+
     }
-	
-}
+
+	}
