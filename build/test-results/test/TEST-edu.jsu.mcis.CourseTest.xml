@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="edu.jsu.mcis.CourseTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2017-03-09T04:40:22" hostname="Joel" time="0.004">
+<testsuite name="edu.jsu.mcis.CourseTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2017-03-13T19:12:09" hostname="Encrypted" time="0.011">
   <properties/>
   <testcase name="testAssignmentsAreCorrectlyAddedToAssignmentList" classname="edu.jsu.mcis.CourseTest" time="0.0"/>
-  <testcase name="testGetAssignmentsReturnsArrayListofStrings" classname="edu.jsu.mcis.CourseTest" time="0.001"/>
-  <testcase name="testAddAssignment" classname="edu.jsu.mcis.CourseTest" time="0.0"/>
-  <testcase name="testToString" classname="edu.jsu.mcis.CourseTest" time="0.0"/>
-  <testcase name="testCourseisInitalizedProperly" classname="edu.jsu.mcis.CourseTest" time="0.0"/>
+  <testcase name="testGetAssignmentsReturnsArrayListofStrings" classname="edu.jsu.mcis.CourseTest" time="0.0"/>
+  <testcase name="testAddAssignment" classname="edu.jsu.mcis.CourseTest" time="0.001"/>
+  <testcase name="testToString" classname="edu.jsu.mcis.CourseTest" time="0.003"/>
+  <testcase name="testCourseisInitalizedProperly" classname="edu.jsu.mcis.CourseTest" time="0.001"/>
   <testcase name="testCourseisInitializedProperly2" classname="edu.jsu.mcis.CourseTest" time="0.0"/>
   <testcase name="testGettingNonexistentAssignmentThrowsException" classname="edu.jsu.mcis.CourseTest" time="0.0"/>
   <system-out><![CDATA[]]></system-out>

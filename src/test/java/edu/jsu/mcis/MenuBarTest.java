@@ -9,5 +9,10 @@ import static org.junit.Assert.*;
 
 public class MenuBarTest{
 
-    
+    @Test
+    public void testMenuBarHasItems()
+    {
+        menubar bar = new menubar();
+        assertTrue(bar.bar.getMenuCount()>0);
+    }
 }
