@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="edu.jsu.mcis.StudentExceptionTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2017-03-13T19:12:27" hostname="Encrypted" time="0.0">
-  <properties/>
-  <testcase name="testStudentExceptionDoesThrowException" classname="edu.jsu.mcis.StudentExceptionTest" time="0.0"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

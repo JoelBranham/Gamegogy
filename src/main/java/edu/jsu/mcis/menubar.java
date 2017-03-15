@@ -6,34 +6,63 @@ import java.awt.event.*;
 public class menubar extends JMenu implements ActionListener{
     public JMenuBar bar;
     private JMenu menu;
-    private JRadioButton oButton;
-    private JRadioButton wButton;
+    private JRadioButton offlineButton;
+    private JRadioButton webButton;
+    
+    public boolean getOnlineStatus()
+    {
+        boolean value = false;
+        if (offlineButton.isSelected() && !webButton.isSelected())
+            value = false;
+        else if (!offlineButton.isSelected() && webButton.isSelected())
+            value = true;
+        return value;
+    }
+    public Boolean getOfflineButtonStatus()
+    {
+        return this.offlineButton.isSelected();
+    }
+    public Boolean getWebButtonStatus()
+    {
+        return this.webButton.isSelected();
+    }
+    public void setOfflineButtonStatus(Boolean value)
+    {
+        this.offlineButton.setSelected(value);
+        this.webButton.setSelected(!value);
+    }
+    public void setWebButtonStatus(Boolean value)
+    {
+        this.webButton.setSelected(value);
+        this.offlineButton.setSelected(!value);
+    }
 
     public menubar(){
         bar = new JMenuBar();
         menu = new JMenu("Menu");
-        oButton = new JRadioButton("Offline");
-        wButton = new JRadioButton("Webservice");
-        oButton.setSelected(true);
-        wButton.setSelected(false);
+        offlineButton = new JRadioButton("Offline");
+        webButton = new JRadioButton("Webservice");
+        offlineButton.setSelected(true);
+        webButton.setSelected(false);
         
 
-        oButton.addActionListener(this);
-        menu.add(oButton);
-        wButton.addActionListener(this);
-        menu.add(wButton);
+        offlineButton.addActionListener(this);
+        menu.add(offlineButton);
+        webButton.addActionListener(this);
+        menu.add(webButton);
         bar.add(menu);
         
     }
     @Override
     public void actionPerformed(ActionEvent e){
        if(e.getActionCommand().equals("Offline")){
-            wButton.setSelected(false);
-            oButton.setSelected(true);
+           //menu.setSelected(false);
+            webButton.setSelected(false);
+            offlineButton.setSelected(true);
        }
        else if(e.getActionCommand().equals("Webservice")){
-           wButton.setSelected(true);
-           oButton.setSelected(false);
+           webButton.setSelected(true);
+           offlineButton.setSelected(false);
        }
 
     }
