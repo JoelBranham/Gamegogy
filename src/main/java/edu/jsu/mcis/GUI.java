@@ -14,7 +14,6 @@ public class GUI extends JFrame implements ActionListener, Observer{
 	private Leaderboard leaderboard;
 	
     private Database dataBase;
-	private menubar mbar;
 
 
 	private JLabel course, column, term, enrollment, id, name, email, score, line, leader;
@@ -29,9 +28,7 @@ public class GUI extends JFrame implements ActionListener, Observer{
     public GUI(Database dataBase) throws IOException{
 
 		getContentPane().setBackground(Color.black);
-		mbar = new menubar();
-		//database = new Database(mbar.getOnlineStatus());	//check const in database
-		this.setJMenuBar(mbar.bar);
+ 
         this.dataBase = dataBase;
 		setPreferredSize(new Dimension(500, 700));
 		setLayout(null);

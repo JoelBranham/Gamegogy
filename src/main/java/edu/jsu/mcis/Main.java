@@ -6,12 +6,14 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.*;
 import java.awt.*;
+import java.util.List;
+import java.net.MalformedURLException;
 
 public class Main {
 	
-    public static void main(String[] args) {
+    public static void main(String[] args) throws MalformedURLException, IOException {
 		
-        Database database = new Database();
+        Database database = new Database(new CSVReader());
 		boolean useGUI = false;
 		
         if (args.length == 2){
@@ -30,7 +32,7 @@ public class Main {
 				System.out.println(listToString(database.getStudentList()));
 			}
 			else{
-				database = new Database(new WebService(args[0]));
+				database = new Database(new JSONReader(args[0]));
 				useGUI = true;
 			}
 		}
@@ -42,7 +44,6 @@ public class Main {
 				JFrame win = new GUI(database);
 				win.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 				win.setSize(new Dimension(500,700));
-				//win.setJMenuBar(new menubar().bar);
 				win.setResizable(false);
 				win.setVisible(true);
 			}
@@ -51,7 +52,7 @@ public class Main {
 		
     }
 	
-	public static String listToString(ArrayList<String> list){
+	public static String listToString(List<String> list){
 		String string = "";
 		for (String s: list){
 			string += (s + "\n");

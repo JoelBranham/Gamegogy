@@ -6,14 +6,15 @@ import java.util.*;
 import javax.swing.*;
 import java.awt.*;
 import static org.junit.Assert.*;
+import java.net.MalformedURLException;
 
 
 public class GUITest{
 
 	@Test
-	public void testWindowOpensOnRuntime(){
+	public void testWindowOpensOnRuntime() throws MalformedURLException, IOException{
 		
-		Database testDatabase = new Database(new WebService("http://inspired.jsu.edu:7272/gamegogy/"));
+		Database testDatabase = new Database(new JSONReader("http://inspired.jsu.edu:7272/gamegogy/"));
 		boolean windowOpened = false;
 
 		try{
