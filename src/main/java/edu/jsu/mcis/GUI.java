@@ -14,6 +14,7 @@ public class GUI extends JFrame implements ActionListener, Observer{
 	private Leaderboard leaderboard;
 	
     private Database dataBase;
+	private menubar mbar;
 
 
 	private JLabel course, column, term, enrollment, id, name, email, score, line, leader;
@@ -28,11 +29,13 @@ public class GUI extends JFrame implements ActionListener, Observer{
     public GUI(Database dataBase) throws IOException{
 
 		getContentPane().setBackground(Color.black);
- 
+ 		
+	    mbar = new menubar();
         this.dataBase = dataBase;
 		setPreferredSize(new Dimension(500, 700));
 		setLayout(null);
 		setTitle("Gamegogy");
+	    this.setJMenuBar(mbar.bar);
 		
 		
 		JLabel course = new JLabel("Course");
