@@ -14,29 +14,108 @@ public class JSONReader implements DataReader{
 	private String URLName;
 	private List<Student> studentList;
 	private List<Course> courseList;
+	private BufferedReader br;
+	private InputStream is;
 	
-    public JSONReader(String URLName) throws MalformedURLException, IOException {
-		
+    public JSONReader(String URL) throws MalformedURLException, IOException {
 		studentList = new ArrayList<Student>();
 		courseList = new ArrayList<Course>();
 		
-		if(URLName.charAt(URLName.length()-1) != '/'){
-			URLName += "/";
+		if(URL.charAt(URL.length()-1) != '/'){
+			URL += "/";
 		}
-		this.URLName = URLName;
-
+		URLName = URL;
+		
 		buildOnlineCourse();
 		addOnlineCourseInfo();
 		buildOnlineStudent();
     }
 	
+	private void buildOnlineCourse(){
+  		String myline;
+    	try{
+			BufferedReader in = new BufferedReader(new InputStreamReader(new ByteArrayInputStream(getCourseListCSV().getBytes())));
+            myline = in.readLine();
+            while ((myline = in.readLine())!=null){
+				String[] course = myline.split(",");
+				String id = (course[0].substring(1,course[0].length()-1));
+				String year = (course[2].substring(1,course[2].length()-1));
+				String size = (course[3].substring(1,course[3].length()-1));
+				String term = course[1].substring(1, course[1].length()-1);
+				courseList.add(new Course(id, year, size, term));		
+            }			
+        }
+        catch(IOException e) {e.printStackTrace();}		
+    }
+	
+	private void addOnlineCourseInfo() throws MalformedURLException, IOException{
+		for (String s: getCourseString()){
+			String courseID = s;
+			try{
+				Course c = new Course("","","","");
+				for(Course d: courseList){
+					if(d.getId() == courseID){
+						c = d;
+					}
+				}
+				int courseIDNum = Integer.parseInt(courseID);
+				String full = getDetailedCourseInfo(courseIDNum);  
+				BufferedReader in = new BufferedReader(new InputStreamReader(new ByteArrayInputStream(full.getBytes())));
+				String[] assignments = in.readLine().split(",");
+				List<String> lines = new ArrayList<String>();
+				String myline;
+				while ((myline = in.readLine())!=null){
+					lines.add(myline);
+				}
+				for (int i = 1; i < assignments.length; i++){
+					String assignmentName = assignments[i].substring(1, assignments[i].length()-1);
+					Assignment a = new Assignment(assignmentName);
+					for (int j = 0; j < lines.size(); j++){
+						String[] row = lines.get(j).split(",");
+						String studentId = (row[0].substring(1,row[0].length()-1));
+						int score = Integer.parseInt(row[i].substring(1,row[i].length()-1));
+						a.addStudentAndScore(studentId, score);
+					}
+					c.addAssignment(a);
+				}
+				for (int i = 0; i < courseList.size(); i++){
+					if (courseList.get(i).getId() == courseID){
+						courseList.remove(i);
+						courseList.add(c);
+					} 
+				}
+			}
+			catch(IOException e) {e.printStackTrace();}
+		}
+	}
+	
+	private void buildOnlineStudent(){
+    	String myline;
+        try{
+            BufferedReader in = new BufferedReader(new InputStreamReader(new ByteArrayInputStream(getStudentListCSV().getBytes())));
+			String check = in.readLine();
+            while ((myline = in.readLine())!=null){
+				String[] student = myline.split(",");
+				String id = (student[0].substring(1,student[0].length()-1));
+				String first = student[1].substring(1, student[1].length() - 1);
+				String last = student[2].substring(1, student[2].length() - 1);
+				String email = student[3].substring(1, student[3].length() - 1);
+				studentList.add(new Student(id,  first, last, email));
+            }
+        }
+        catch(IOException e) {e.printStackTrace();}
+    }
+	
+	private void openConnection(String URLExtension) throws MalformedURLException, IOException{
+        URL url = new URL(URLName + URLExtension);
+        URLConnection con = url.openConnection();
+        is = con.getInputStream();
+        br = new BufferedReader(new InputStreamReader(is));	
+	}
+	
     private String getStudentFromJSON(int id) throws MalformedURLException, IOException{
         String ID = String.valueOf(id);
-        String myLine = null;
-        URL url = new URL(URLName + "student/" + ID);
-        URLConnection con = url.openConnection();
-        InputStream is = con.getInputStream();
-        BufferedReader br = new BufferedReader(new InputStreamReader(is));
+		openConnection("/student/" + ID);
         
         String returnString = br.readLine();
         String studentID = returnString.split("id\":\"")[1].split("\"")[0];
@@ -49,9 +128,7 @@ public class JSONReader implements DataReader{
 	
      private String getBasicCourseInfo(int id) throws MalformedURLException, IOException {
 
-        URL url = new URL(URLName + "course/" + String.valueOf(id));
-        URLConnection con = url.openConnection();
-        InputStream is = con.getInputStream();
+        openConnection("course/" + String.valueOf(id));
 		StringBuffer jsonContents = new StringBuffer();
 		
         try(BufferedReader reader = new BufferedReader(new InputStreamReader(is))) {
@@ -79,9 +156,7 @@ public class JSONReader implements DataReader{
 	
     private String getDetailedCourseInfo(int id) throws MalformedURLException, IOException {
 
-        URL url = new URL(URLName + "course/" + String.valueOf(id));
-        URLConnection con = url.openConnection();
-        InputStream is = con.getInputStream();
+        openConnection("course/" + String.valueOf(id));
 		StringBuffer jsonContents = new StringBuffer();
 		
         try(BufferedReader reader = new BufferedReader(new InputStreamReader(is))) {
@@ -90,17 +165,17 @@ public class JSONReader implements DataReader{
                 jsonContents.append(line + '\n');
             }
         }
-		catch(IOException i){}
-		
+		catch(IOException i){throw new IOException();}
+
 		try{
 			String returnString = "\"ID\",";
 			
 			JSONParser parser = new JSONParser();
 			JSONObject jobject = (JSONObject) parser.parse(jsonContents.toString());
-
+			
 			jobject = (JSONObject) parser.parse("" + jobject.get("grades"));
 			
-			String colHeadersString = (String) "" + jobject.get("colHeaders");
+			String colHeadersString = "" + jobject.get("colHeaders");
 			colHeadersString = colHeadersString.substring(1,colHeadersString.length() - 1);
 			returnString += (colHeadersString + "\n");
 			
@@ -143,10 +218,8 @@ public class JSONReader implements DataReader{
      private List<String> getStudentListJSON() throws MalformedURLException, IOException{
         List<String> list = new ArrayList<>();
         String myLine = "";
-        URL url = new URL(URLName + "studentlist/");
-        URLConnection con = url.openConnection();
-        InputStream is = con.getInputStream();
-        BufferedReader br = new BufferedReader(new InputStreamReader(is));
+        openConnection("studentlist/");
+
         while ((myLine = br.readLine())!=null){
             String[] students = myLine.split(",");
 			students[0] = students[0].substring(1);
@@ -160,10 +233,8 @@ public class JSONReader implements DataReader{
 	
      private List<String> getCourseListJSON() throws MalformedURLException, IOException {
         List<String> list = new ArrayList<>();
-        URL url = new URL(URLName + "courselist/");
-        URLConnection con = url.openConnection();
-        InputStream is = con.getInputStream();
-        BufferedReader br = new BufferedReader(new InputStreamReader(is));
+        openConnection("courselist/");
+
         String coursesLine = br.readLine();
 		String[] courses = coursesLine.split(",");
 		courses[0] = courses[0].substring(1);
@@ -172,80 +243,6 @@ public class JSONReader implements DataReader{
 			list.add(s);
 		}
         return list;
-    }
-	
-	private void buildOnlineStudent(){
-    	String myline;
-        try{
-            BufferedReader in = new BufferedReader(new InputStreamReader(new ByteArrayInputStream(getStudentListCSV().getBytes())));
-			String check = in.readLine();
-            while ((myline = in.readLine())!=null){
-				String[] student = myline.split(",");
-				String id = (student[0].substring(1,student[0].length()-1));
-				String first = student[1].substring(1, student[1].length() - 1);
-				String last = student[2].substring(1, student[2].length() - 1);
-				String email = student[3].substring(1, student[3].length() - 1);
-				studentList.add(new Student(id,  first, last, email));
-            }
-        }
-        catch(IOException e) {e.printStackTrace();}
-    }
-	
-	private void addOnlineCourseInfo() throws MalformedURLException, IOException{
-		for (String s: getCourseString()){
-			String courseID = s.substring(1,s.length()-1);
-			try{
-				Course c = new Course("","","","");
-				for(Course d: courseList){
-					if(d.getId() == courseID){
-						c = d;
-					}
-				}
-				int courseIDNum = Integer.parseInt(courseID);
-				BufferedReader in = new BufferedReader(new InputStreamReader(new ByteArrayInputStream(getDetailedCourseInfo(courseIDNum).getBytes())));
-				String[] assignments = in.readLine().split(",");
-				List<String> lines = new ArrayList<String>();
-				String myline;
-				while ((myline = in.readLine())!=null){
-					lines.add(myline);
-				}
-				for (int i = 1; i < assignments.length; i++){
-					String assignmentName = assignments[i].substring(1, assignments[i].length()-1);
-					Assignment a = new Assignment(assignmentName);
-					for (int j = 0; j < lines.size(); j++){
-						String[] row = lines.get(j).split(",");
-						String studentId = (row[0].substring(1,row[0].length()-1));
-						int score = Integer.parseInt(row[i].substring(1,row[i].length()-1));
-						a.addStudentAndScore(studentId, score);
-					}
-					c.addAssignment(a);
-				}
-				for (int i = 0; i < courseList.size(); i++){
-					if (courseList.get(i).getId() == courseID){
-						courseList.remove(i);
-						courseList.add(c);
-					} 
-				}
-			}
-			catch(IOException e) {e.printStackTrace();}
-		}
-	}
-	
-	private void buildOnlineCourse(){
-  		String myline;
-    	try{
-			BufferedReader in = new BufferedReader(new InputStreamReader(new ByteArrayInputStream(getCourseListCSV().getBytes())));
-            myline = in.readLine();
-            while ((myline = in.readLine())!=null){
-				String[] course = myline.split(",");
-				String id = (course[0].substring(1,course[0].length()-1));
-				String year = (course[2].substring(1,course[2].length()-1));
-				String size = (course[3].substring(1,course[3].length()-1));
-				String term = course[1].substring(1, course[1].length()-1);
-				courseList.add(new Course(id, year, size, term));		
-            }			
-        }
-        catch(IOException e) {e.printStackTrace();}		
     }
 	
 	private String getStudentListCSV() throws MalformedURLException, IOException{
@@ -280,22 +277,12 @@ public class JSONReader implements DataReader{
 		return URLName;
 	}
 	
-	private List<String> getStudentString(){
-		List<String> studentStrings = new ArrayList<>();
-		for(Student s: studentList){
-			studentStrings.add(s.getId());
+	public List<String> getCourseString(){
+		List<String> courseStrings = new ArrayList<>();
+		for(Course c: courseList){
+			courseStrings.add(c.getId());
 		}
-		
-		return studentStrings;
-	}
-	
-	private List<String> getCourseString(){
-	List<String> courseStrings = new ArrayList<>();
-	for(Course c: courseList){
-		courseStrings.add(c.getId());
-	}
-	
-	return courseStrings;
+		return courseStrings;
 	}
 	
 }

@@ -3,7 +3,6 @@ package edu.jsu.mcis;
 import java.io.*;
 import java.util.*;
 
-//while boolean is true do this class
 public class CSVReader implements DataReader{
 	
 	private List<Student> studentList;
@@ -104,37 +103,13 @@ public class CSVReader implements DataReader{
 		}
 		throw new CourseException();
     }
-	/*
-    private Student getStudent(String id){
-		for (Student s: studentList){
-			if (s.getId().equals(id)){
-				return s;
-			}
-		}
-		throw new StudentException();
-    }
-	*/
 	
 	public List<Course> getCourseList(){
-	/*
-		List<String> courseStrings = new ArrayList<>();
-		for (Course c: courseList){
-			courseStrings.add(c.getId());
-		}
-		return courseStrings;
-		*/
 		return courseList;
 	}
 	
 	public List<Student> getStudentList(){  
 		return studentList;
-		/*
-		List<String> studentStrings = new ArrayList<>();
-		for (Student s: studentList){
-			studentStrings.add(s.getId());
-		}
-		return studentStrings;
-		*/
 	}
 	
 }

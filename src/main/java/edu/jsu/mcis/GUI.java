@@ -10,20 +10,19 @@ import java.util.*;
 
 public class GUI extends JFrame implements ActionListener, Observer{
 	
+	private Database dataBase;
+	private Course currentCourse;
+	private Assignment currentAssignment;
+	private Student currentStudent;
 	
 	private Leaderboard leaderboard;
 	
-    private Database dataBase;
 	private menubar mbar;
-
 
 	private JLabel course, column, term, enrollment, id, name, email, score, line, leader;
 	private JLabel courseEnrollment, courseTerm, studentId, studentName, studentEmail, studentScore;
 	private JComboBox courseComboBox, columnComboBox;
 
-	private Course currentCourse;
-	private Assignment currentAssignment;
-	private Student currentStudent;
 
 	@SuppressWarnings("unchecked")
     public GUI(Database dataBase) throws IOException{
@@ -197,7 +196,6 @@ public class GUI extends JFrame implements ActionListener, Observer{
 			updateAfterAssignmentChange();
 		}
 		leaderboard.setAssignment(currentAssignment);
-		
     }
 	
 }

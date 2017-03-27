@@ -9,11 +9,7 @@ public class Database{
 	private Map<String, Student> studentMap;
 	private Map<String, Course> courseMap;
 	
-	
-	// DataReader json = new JSONReader(); in GUI
-	// Database d = new Database(json);
-	// 
-	public Database(DataReader reader){
+	public Database(DataReader reader) throws CourseException{
 		List<Course> courseList = reader.getCourseList();
 		List<Student> studentList = reader.getStudentList();
 		

@@ -40,8 +40,8 @@ public class menubar extends JMenu implements ActionListener{
     public menubar(){
         bar = new JMenuBar();
         menu = new JMenu("Menu");
-        offlineButton = new JRadioButton("Offline");
-        webButton = new JRadioButton("Webservice");
+        offlineButton = new JRadioButton("Resource File");
+        webButton = new JRadioButton("Web Service");
         offlineButton.setSelected(true);
         webButton.setSelected(false);
         
