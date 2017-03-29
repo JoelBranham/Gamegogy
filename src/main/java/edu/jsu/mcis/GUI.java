@@ -10,31 +10,32 @@ import java.util.*;
 
 public class GUI extends JFrame implements ActionListener, Observer{
 	
-	private Database dataBase;
-	private Course currentCourse;
-	private Assignment currentAssignment;
-	private Student currentStudent;
 	
 	private Leaderboard leaderboard;
 	
-	private menubar mbar;
+    private Database dataBase;
+
+	private JMenuBar bar;
+    private JMenu menu;
+    private JRadioButton offlineButton;
+    private JRadioButton webButton;
 
 	private JLabel course, column, term, enrollment, id, name, email, score, line, leader;
 	private JLabel courseEnrollment, courseTerm, studentId, studentName, studentEmail, studentScore;
 	private JComboBox courseComboBox, columnComboBox;
 
+	private Course currentCourse;
+	private Assignment currentAssignment;
+	private Student currentStudent;
 
 	@SuppressWarnings("unchecked")
     public GUI(Database dataBase) throws IOException{
 
 		getContentPane().setBackground(Color.black);
- 		
-	    mbar = new menubar();
         this.dataBase = dataBase;
 		setPreferredSize(new Dimension(500, 700));
 		setLayout(null);
 		setTitle("Gamegogy");
-	    this.setJMenuBar(mbar.bar);
 		
 		
 		JLabel course = new JLabel("Course");
@@ -156,6 +157,20 @@ public class GUI extends JFrame implements ActionListener, Observer{
 		add(leaderboard);
 		leaderboard.addAnObserver(this);
 
+
+		bar = new JMenuBar();
+        menu = new JMenu("Menu");
+        offlineButton = new JRadioButton("Offline");
+        webButton = new JRadioButton("Webservice");
+        offlineButton.setSelected(true);
+        webButton.setSelected(false);
+		offlineButton.addActionListener(this);
+        menu.add(offlineButton);
+        webButton.addActionListener(this);
+        menu.add(webButton);
+        bar.add(menu);
+		this.setJMenuBar(bar);
+
     }
 
 	@SuppressWarnings("unchecked")
@@ -189,13 +204,26 @@ public class GUI extends JFrame implements ActionListener, Observer{
 	}
 	
     public void actionPerformed(ActionEvent event) {
-		if (courseComboBox == event.getSource()){
+		 if(event.getActionCommand().equals("Offline")){
+            webButton.setSelected(false);
+            offlineButton.setSelected(true);
+			updateAfterAssignmentChange();
+		   updateAfterCourseChange();
+       }
+		else if(event.getActionCommand().equals("Webservice")){
+           webButton.setSelected(true);
+           offlineButton.setSelected(false);
+		   updateAfterAssignmentChange();
+		   updateAfterCourseChange();
+       }
+		else if (courseComboBox == event.getSource()){
 			updateAfterCourseChange();
 		}
 		else if (columnComboBox == event.getSource()){
 			updateAfterAssignmentChange();
 		}
 		leaderboard.setAssignment(currentAssignment);
+		
     }
 	
 }
