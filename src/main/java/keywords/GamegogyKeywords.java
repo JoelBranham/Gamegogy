@@ -2,13 +2,14 @@ package keywords;
 
 import edu.jsu.mcis.*;
 import java.io.*;
+import java.net.MalformedURLException;
 
 public class GamegogyKeywords {
 	
 	private String output;
 	private ByteArrayOutputStream out;
 	
-	public void startGamegogyCLIWithArguments(){
+	public void startGamegogyCLIWithArguments() throws MalformedURLException, IOException{
 		out = new ByteArrayOutputStream();
 		System.setOut(new PrintStream(out));
 		String[] args = {};
@@ -16,7 +17,7 @@ public class GamegogyKeywords {
 		output = out.toString().trim();
 	}
 	
-	public void startGamegogyCLIWithArguments(String first){
+	public void startGamegogyCLIWithArguments(String first)throws MalformedURLException, IOException{
 		out = new ByteArrayOutputStream();
 		System.setOut(new PrintStream(out));
 		String[] args = new String[1];
@@ -25,7 +26,7 @@ public class GamegogyKeywords {
 		output = out.toString().trim();
 	}
 
-	public void startGamegogyCLIWithArguments(String first, String second){
+	public void startGamegogyCLIWithArguments(String first, String second)throws MalformedURLException, IOException{
 		out = new ByteArrayOutputStream();
 		System.setOut(new PrintStream(out));
 		String[] args = new String[2];
