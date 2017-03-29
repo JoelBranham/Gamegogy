@@ -11,19 +11,17 @@ public class CSVReader implements DataReader{
 	public CSVReader(){
 		studentList = new ArrayList<Student>();
 		courseList = new ArrayList<Course>();
-
 		buildStudent("src\\main\\resources\\students.csv");
 		buildCourse("src\\main\\resources\\courses.csv");
 		addCourseInfo("src\\main\\resources\\courses");
-		
 	}
+	
 	public CSVReader(String courseFileName, String courseFolderName, String studentFileName){
 		studentList = new ArrayList<Student>();
 		courseList = new ArrayList<Course>();
 		buildCourse(courseFileName);
 		addCourseInfo(courseFolderName);
 		buildStudent(studentFileName);
-    
 	}
 	
 	private void buildCourse(String fileName){

@@ -6,23 +6,23 @@ import java.io.File;
 import java.io.IOException;
 import javax.swing.*;
 import java.util.*;
+import java.net.MalformedURLException;
 
 
 public class GUI extends JFrame implements ActionListener, Observer{
-	
 	
 	private Leaderboard leaderboard;
 	
     private Database dataBase;
 
 	private JMenuBar bar;
-    private JMenu menu;
-    private JRadioButton offlineButton;
-    private JRadioButton webButton;
+    private JMenuItem menu;
+    private JRadioButtonMenuItem offlineButton;
+    private JRadioButtonMenuItem webButton;
 
 	private JLabel course, column, term, enrollment, id, name, email, score, line, leader;
 	private JLabel courseEnrollment, courseTerm, studentId, studentName, studentEmail, studentScore;
-	private JComboBox courseComboBox, columnComboBox;
+	private JComboBox<String> courseComboBox, columnComboBox;
 
 	private Course currentCourse;
 	private Assignment currentAssignment;
@@ -44,7 +44,12 @@ public class GUI extends JFrame implements ActionListener, Observer{
 		course.setBounds(50,10,50,32);
 		add(course);
 		
-		courseComboBox = new JComboBox(dataBase.getCourseList().toArray());
+		Object[] objArray = dataBase.getCourseList().toArray();
+		String[] courseStrings = new String[objArray.length];
+		for (int i = 0; i < objArray.length; i++){
+			courseStrings[i] = (String) objArray[i];
+		}
+		courseComboBox = new JComboBox<String>(courseStrings);
 		courseComboBox.setBounds(100,16,75,24);
 		courseComboBox.addActionListener(this);
 		courseComboBox.setName("courseComboBox");
@@ -56,7 +61,7 @@ public class GUI extends JFrame implements ActionListener, Observer{
 		column.setBounds(250,10,50,32);
 		add(column);
 		
-		columnComboBox = new JComboBox();
+		columnComboBox = new JComboBox<String>();
 		columnComboBox.setBounds(300,16,110,24);
 		columnComboBox.addActionListener(this);
 		columnComboBox.setName("columnComboBox");
@@ -159,9 +164,9 @@ public class GUI extends JFrame implements ActionListener, Observer{
 
 
 		bar = new JMenuBar();
-        menu = new JMenu("Menu");
-        offlineButton = new JRadioButton("Offline");
-        webButton = new JRadioButton("Webservice");
+        menu = new JMenu("Source");
+        offlineButton = new JRadioButtonMenuItem("Resource File");
+        webButton = new JRadioButtonMenuItem("Web Service");
         offlineButton.setSelected(true);
         webButton.setSelected(false);
 		offlineButton.addActionListener(this);
@@ -169,16 +174,19 @@ public class GUI extends JFrame implements ActionListener, Observer{
         webButton.addActionListener(this);
         menu.add(webButton);
         bar.add(menu);
-		this.setJMenuBar(bar);
+		setJMenuBar(bar);
 
     }
-
-	@SuppressWarnings("unchecked")
 	
 	public void updateAfterCourseChange(){
 		String currentCourseString = (String) courseComboBox.getSelectedItem();
 		currentCourse = dataBase.getCourse(currentCourseString);
-		columnComboBox.setModel(new DefaultComboBoxModel(currentCourse.getAssignmentList().toArray()));
+		Object[] obArray = currentCourse.getAssignmentList().toArray();
+		String[] assignments = new String[obArray.length];
+		for (int i = 0; i < obArray.length; i++){
+			assignments[i] = (String) obArray[i];
+		}
+		columnComboBox.setModel(new DefaultComboBoxModel<String>(assignments));
 		updateAfterAssignmentChange();
 	}
 	
@@ -187,15 +195,10 @@ public class GUI extends JFrame implements ActionListener, Observer{
 		currentAssignment = currentCourse.getAssignment(currentAssignmentString);
 		courseTerm.setText(currentCourse.getTerm() + " " + currentCourse.getYear());
 		courseEnrollment.setText(currentCourse.getSize() + "");
-		updatestudentInfo(currentAssignment.getTopStudentID(),currentAssignment.getTopScore());
+		updateStudentInfo(currentAssignment.getTopStudentID(),currentAssignment.getTopScore());
 	}
 	
-    public void update(Observable o, Object arg) {	
-		Scanner s = new Scanner((String) arg).useDelimiter(":");
-		updatestudentInfo(s.next(),s.nextInt());
-	}
-
-	private void updatestudentInfo(String id, int score){
+	private void updateStudentInfo(String id, int score){
 		currentStudent = dataBase.getStudent(id);
 		studentId.setText(currentStudent.getId() + "");
 		studentName.setText(currentStudent.getFname() + " " + currentStudent.getLname());
@@ -203,19 +206,30 @@ public class GUI extends JFrame implements ActionListener, Observer{
 		studentScore.setText(score + ".0");
 	}
 	
+    public void update(Observable o, Object arg) {	
+		Scanner s = new Scanner((String) arg).useDelimiter(":");
+		updateStudentInfo(s.next(),s.nextInt());
+	}
+	
     public void actionPerformed(ActionEvent event) {
-		 if(event.getActionCommand().equals("Offline")){
+		if(event.getActionCommand().equals("Resource File")){
             webButton.setSelected(false);
             offlineButton.setSelected(true);
-			updateAfterAssignmentChange();
-		   updateAfterCourseChange();
-       }
-		else if(event.getActionCommand().equals("Webservice")){
-           webButton.setSelected(true);
-           offlineButton.setSelected(false);
-		   updateAfterAssignmentChange();
-		   updateAfterCourseChange();
-       }
+           	dataBase = new Database(new CSVReader());
+           	setGUIIndex();
+        }
+		else if(event.getActionCommand().equals("Web Service")){
+            webButton.setSelected(true);
+            offlineButton.setSelected(false);
+            try{
+           		dataBase = new Database(new JSONReader("http://inspired.jsu.edu:7272/gamegogy"));
+			}
+			catch(IOException ex){
+           		//JOptionPane.showMessageDialog(this,"Web Service Unavailable. Reverting to local Resource File.","Connection Error",JOptionPane.WARNING_MESSAGE);
+           		dataBase = new Database(new CSVReader());
+			}
+			setGUIIndex();
+        }
 		else if (courseComboBox == event.getSource()){
 			updateAfterCourseChange();
 		}
@@ -223,7 +237,13 @@ public class GUI extends JFrame implements ActionListener, Observer{
 			updateAfterAssignmentChange();
 		}
 		leaderboard.setAssignment(currentAssignment);
-		
+    }
+
+    public void setGUIIndex(){
+	   courseComboBox.setSelectedIndex(0);
+	   columnComboBox.setSelectedIndex(0);
+	   updateAfterAssignmentChange();
+	   updateAfterCourseChange();
     }
 	
 }

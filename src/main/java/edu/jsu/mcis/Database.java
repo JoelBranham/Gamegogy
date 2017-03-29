@@ -10,16 +10,13 @@ public class Database{
 	private Map<String, Course> courseMap;
 	
 	public Database(DataReader reader) throws CourseException{
-		List<Course> courseList = reader.getCourseList();
-		List<Student> studentList = reader.getStudentList();
-		
 		studentMap = new HashMap<String, Student>();
 		courseMap = new HashMap<String, Course>();
 		
-		for (Student s: studentList){
+		for (Student s: reader.getStudentList()){
 			studentMap.put(s.getId(), s);
 		}
-		for (Course c: courseList){
+		for (Course c: reader.getCourseList()){
 			courseMap.put(c.getId(), c);
 		}
 	}
