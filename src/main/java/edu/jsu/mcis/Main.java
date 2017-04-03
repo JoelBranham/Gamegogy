@@ -8,7 +8,13 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.List;
 import java.net.MalformedURLException;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.context.ConfigurableApplicationContext;
 
+
+@SpringBootApplication
 public class Main {
 	
     public static void main(String[] args) throws MalformedURLException, IOException {
@@ -32,7 +38,10 @@ public class Main {
 				System.out.println(listToString(database.getStudentList()));
 			}
 			else{
-				database = new Database(new JSONReader(args[0]));
+				SpringApplicationBuilder builder = new SpringApplicationBuilder(Main.class);
+				builder.headless(false);
+				ConfigurableApplicationContext context = builder.run(args);
+				database = new Database(new JSONReader("http://localhost:8080"));
 				useGUI = true;
 			}
 		}
