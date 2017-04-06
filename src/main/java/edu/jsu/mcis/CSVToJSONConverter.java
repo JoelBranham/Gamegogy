@@ -37,10 +37,13 @@ public class CSVToJSONConverter{
 		list.add("111112");
 		return list;
 	}
-	/*
+	
 	public static String getStudentInfo(String id){
 		return id;
 	}
-	*/
+	
+	public static String getCourseInfo(String id){
+		return id;
+	}
 	
 }
