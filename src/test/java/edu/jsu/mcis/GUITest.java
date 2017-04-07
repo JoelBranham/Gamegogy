@@ -7,6 +7,8 @@ import javax.swing.*;
 import java.awt.*;
 import static org.junit.Assert.*;
 import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.HttpURLConnection;
 
 
 public class GUITest{
@@ -28,7 +30,32 @@ public class GUITest{
 		catch(IOException e){}
 
 		assertTrue(windowOpened);
-	}	
+	
+
+}
+
+@Test
+public void testHelpUrlExsist()
+{
+	HttpURLConnection huc;
+	int value = 0;
+	try{	
+		String address = "src\\main\\resources\\Gamegogy help\\Publication1.htm";
+	URL url = new URL(address);
+	huc =  (HttpURLConnection)  url.openConnection();
+    huc.setRequestMethod("GET"); 
+    huc.connect(); 
+    value =  huc.getResponseCode();
+
+
+	assertEquals(HttpURLConnection.HTTP_OK, huc.getResponseCode());
+	}
+	catch (Exception e)
+	{
+
+	}
+	 	
+}	
 	
 	
 }
