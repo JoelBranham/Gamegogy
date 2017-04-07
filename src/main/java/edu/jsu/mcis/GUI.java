@@ -7,7 +7,8 @@ import java.io.IOException;
 import javax.swing.*;
 import java.util.*;
 import java.net.MalformedURLException;
-
+import java.net.URL;
+import java.net.HttpURLConnection;
 
 public class GUI extends JFrame implements ActionListener, Observer{
 	
@@ -16,7 +17,8 @@ public class GUI extends JFrame implements ActionListener, Observer{
     private Database dataBase;
 
 	private JMenuBar bar;
-    private JMenuItem menu;
+    private JMenuItem sourceMenu,helpMenu;
+	private JMenuItem helpButton;
     private JRadioButtonMenuItem offlineButton;
     private JRadioButtonMenuItem webButton;
 
@@ -164,16 +166,25 @@ public class GUI extends JFrame implements ActionListener, Observer{
 
 
 		bar = new JMenuBar();
-        menu = new JMenu("Source");
+        sourceMenu = new JMenu("Source");
+		helpButton = new JMenuItem("Help Documentation");
+
+
+		helpButton.addActionListener(this);
+		helpMenu = new JMenu("Help");
+		helpMenu.add(helpButton);
+
         offlineButton = new JRadioButtonMenuItem("Resource File");
         webButton = new JRadioButtonMenuItem("Web Service");
         offlineButton.setSelected(true);
         webButton.setSelected(false);
 		offlineButton.addActionListener(this);
-        menu.add(offlineButton);
+        sourceMenu.add(offlineButton);
         webButton.addActionListener(this);
-        menu.add(webButton);
-        bar.add(menu);
+        sourceMenu.add(webButton);
+        bar.add(sourceMenu);
+
+		bar.add(helpMenu);
 		setJMenuBar(bar);
 
     }
@@ -212,7 +223,26 @@ public class GUI extends JFrame implements ActionListener, Observer{
 	}
 	
     public void actionPerformed(ActionEvent event) {
-		if(event.getActionCommand().equals("Resource File")){
+		if (event.getActionCommand().equals("Help Documentation"))
+		{
+			Runtime time = Runtime.getRuntime();
+			String url = "src\\main\\resources\\Gamegogy help\\Publication1.htm";
+
+			File htmlFile = new File(url);
+			try{
+			Desktop.getDesktop().browse(htmlFile.toURI());
+
+
+			
+
+				
+			}
+			catch 	(Exception e)
+			{
+
+			}
+		}
+		else if(event.getActionCommand().equals("Resource File")){
             webButton.setSelected(false);
             offlineButton.setSelected(true);
            	dataBase = new Database(new CSVReader());

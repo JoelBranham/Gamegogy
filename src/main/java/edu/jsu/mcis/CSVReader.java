@@ -2,6 +2,9 @@ package edu.jsu.mcis;
 
 import java.io.*;
 import java.util.*;
+import au.com.bytecode.opencsv.*;
+import org.json.simple.*;
+import org.json.simple.parser.*;
 
 public class CSVReader implements DataReader{
 	
@@ -109,5 +112,40 @@ public class CSVReader implements DataReader{
 	public List<Student> getStudentList(){  
 		return studentList;
 	}
+
+
+
+
+	public List<String> getCourseListJSON(){
+		List<String> ids = new ArrayList<String>();
+		for (Course c: courseList){
+			ids.add(c.getId());
+		}
+		return ids;
+	}
+
+	public List<String> getStudentListJSON(){
+		List<String> ids = new ArrayList<String>();
+		for (Student s: studentList){
+			ids.add(s.getId());
+		}
+		return ids;
+	}
+	
+	public String getStudentInfo(String id){
+		StringBuilder builder = new StringBuilder();
+
+		for (Student student: studentList){
+			if (student.getId().equals(id)){
+				builder.append("{\"id\"" + ":" + "\"" + student.getId() + "\"first\"" + ":" + "\"" + student.getFname() + "\"" +  "}");
+			}
+		}
+		return builder.toString();
+	}
+	
+	public String getCourseInfo(String id){
+		return id;
+	}
+	
 	
 }
