@@ -22,12 +22,17 @@ public class Leaderboard extends JPanel implements MouseListener{
 		setAssignment(assignment);
 		addMouseListener(this);
 		setLayout(null);
+		bars[0].setColor(Color.red);
+		repaint();
 	}
-	
+
+
 	public void setAssignment(Assignment assignment){
 		for (int i=0; i<bars.length; i++){
 			bars[i].setLabelText("");
 		}
+		
+	
 		this.assignment = assignment;
 		numBars = assignment.getScores().size();
 		bars = new LeaderBar[numBars];
@@ -43,6 +48,7 @@ public class Leaderboard extends JPanel implements MouseListener{
 			bars[i].getLabel().setFont(bars[i].getLabel().getFont().deriveFont(fontSize));
 			add(bars[i].getLabel());
 		}
+		bars[0].setColor(Color.red);
 		repaint();
 	}
 	
