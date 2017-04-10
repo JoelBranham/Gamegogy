@@ -74,6 +74,12 @@ public class CourseTest{
 		assertEquals("1234", aTest.getTopStudentID());
 		assertEquals("2222", bTest.getTopStudentID());
 		assertEquals("4321", cTest.getTopStudentID());
+		List<String> list = course1.getAssignmentList();
+		for (int i = 0; i < list.size(); i++){
+			String check = list.get(i);
+			Assignment assignment = course1.getAssignment(check);
+			assertEquals(assignment.getName(), check);
+		}
 	}
 	
 	@Test
@@ -88,7 +94,7 @@ public class CourseTest{
 		course1.addAssignment(a);
 		course1.addAssignment(b);
 		course1.addAssignment(c);
-		ArrayList<String> assignments = course1.getAssignmentList();
+		List<String> assignments = course1.getAssignmentList();
 		assertTrue(assignments.contains("a"));
 		assertTrue(assignments.contains("b"));
 		assertTrue(assignments.contains("c"));

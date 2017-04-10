@@ -5,4 +5,6 @@ import static org.junit.Assert.*;
 import java.util.*;
 import java.io.*;
 
-public class CSVReaderTest{}
+public class CSVReaderTest{
+	
+}

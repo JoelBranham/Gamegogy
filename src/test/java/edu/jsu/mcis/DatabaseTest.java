@@ -14,9 +14,9 @@ public class DatabaseTest{
 	@Before
 	public void setup() throws MalformedURLException, IOException{
 		d = new Database(new CSVReader("src\\test\\resources\\coursestest.csv","src\\test\\resources\\coursestest","src\\test\\resources\\studentstest.csv"));
-		onlineDatabase = new Database(new JSONReader("http://inspired.jsu.edu:7272/gamegogy/"));
+		//onlineDatabase = new Database(new JSONReader("http://localhost:8080/gamegogy/"));
 	}
-	
+	/*
 	@Test
 	public void testOnlineDatabase(){
 		d = onlineDatabase;
@@ -26,6 +26,7 @@ public class DatabaseTest{
 		testGetCourseStrings();
 		testGetStudentStrings();
 	}
+	*/
 	
 	@Test
 	public void testCourses(){

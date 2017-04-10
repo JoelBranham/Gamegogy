@@ -16,6 +16,12 @@ public class JSONReaderTest{
 	
 	@Before
 	public void setUp()throws MalformedURLException, IOException {
+		/*
+		String[] arr = new String[1];
+		arr[0] = "http://localhost:8080/gamegogy/";
+		Main.main(arr);
+		reader = new JSONReader("http://localhost:8080/gamegogy/");
+		*/
 		reader = new JSONReader("http://inspired.jsu.edu:7272/gamegogy/");
 	}
 	
@@ -69,5 +75,4 @@ public class JSONReaderTest{
 		JSONReader reader2 = new JSONReader("hello/");
 		assertEquals("hello/", reader2.getURL());
 	}
-	
 }

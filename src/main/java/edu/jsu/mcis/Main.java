@@ -41,7 +41,7 @@ public class Main {
 				SpringApplicationBuilder builder = new SpringApplicationBuilder(Main.class);
 				builder.headless(false);
 				ConfigurableApplicationContext context = builder.run(args);
-				//database = new Database(new JSONReader("http://localhost:8080"));
+				//database = new Database(new JSONReader("http://localhost:8080/gamegogy/"));
 				//useGUI = true;
 			}
 		}

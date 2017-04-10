@@ -4,8 +4,8 @@ import java.util.*;
 
 public class Assignment{
 	
-	private ArrayList<String> studentIDs;
-	private ArrayList<Integer> scores;
+	private List<String> studentIDs;
+	private List<Integer> scores;
 	private String name;
 	
 	public Assignment(String name){
@@ -49,11 +49,11 @@ public class Assignment{
 		throw new AssignmentException();
 	}
 	
-	public ArrayList<String> getStudents(){
+	public List<String> getStudents(){
 		return studentIDs;
 	}
 	
-	public ArrayList<Integer> getScores(){
+	public List<Integer> getScores(){
 		return scores;
 	}
 	

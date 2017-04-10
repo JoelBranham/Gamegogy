@@ -114,8 +114,6 @@ public class CSVReader implements DataReader{
 	}
 
 
-
-
 	public List<String> getCourseListJSON(){
 		List<String> ids = new ArrayList<String>();
 		for (Course c: courseList){
@@ -134,17 +132,47 @@ public class CSVReader implements DataReader{
 	
 	public String getStudentInfo(String id){
 		StringBuilder builder = new StringBuilder();
-
 		for (Student student: studentList){
 			if (student.getId().equals(id)){
-				builder.append("{\"id\"" + ":" + "\"" + student.getId() + "\"first\"" + ":" + "\"" + student.getFname() + "\"" +  "}");
+				builder.append("{\"id\":\"" + student.getId() + "\"");
+				builder.append(",\"first\":\"" + student.getFname() + "\"");
+				builder.append(",\"last\":\"" + student.getLname() + "\"");
+				builder.append(",\"email\":\"" + student.getEmail() + "\"}");
 			}
 		}
 		return builder.toString();
 	}
 	
 	public String getCourseInfo(String id){
-		return id;
+		StringBuilder builder = new StringBuilder();
+		for (Course course: courseList){
+			if (course.getId().equals(id)){
+				builder.append("{\"id\":\"" + course.getId() + "\"");
+				builder.append(",\"term\":\"" + course.getTerm() + "\"");
+				builder.append(",\"year\":\"" + course.getYear() + "\"");
+				builder.append(",\"size\":" + course.getSize());
+				List<String> aList = course.getAssignmentList();
+				String sampleAssignment = aList.get(0); 
+				for (int i = 0; i < aList.size(); i++){
+					aList.set(i, "\"" + aList.get(i) + "\"");
+				}
+				builder.append(",\"grades\":{\"colHeaders\":" + aList.toString() + ",\"rowHeaders\":");
+				
+				List<String> studentIds = course.getAssignment(sampleAssignment).getStudents();
+				for (int i = 0; i < studentIds.size(); i++){
+					studentIds.set(i, "\"" + studentIds.get(i) + "\"");
+				}
+				builder.append(studentIds.toString() + ",\"data\":");
+				
+				List< List<String> > data = new ArrayList<List<String>>();
+				studentIds = course.getAssignment(sampleAssignment).getStudents();
+				for (int i = 0; i < studentIds.size(); i++){
+					data.add(course.getScoresForStudent(studentIds.get(i)));
+				}
+				builder.append(data.toString() + "}}");
+			}
+		}
+		return builder.toString();
 	}
 	
 	
