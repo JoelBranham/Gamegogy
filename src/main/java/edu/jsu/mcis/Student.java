@@ -2,12 +2,12 @@ package edu.jsu.mcis;
 
 public class Student{
 	
-	private String id,fName,lName,email;
+	private String id,first,last,email;
 	
 	public Student(String i,String fN,String lN, String e){
 		id = i;
-		fName = fN;
-		lName = lN;
+		first = fN;
+		last = lN;
 		email = e;
 	}
 	
@@ -15,12 +15,12 @@ public class Student{
 		return id;
 	}
 	
-	public String getFname(){
-		return fName;
+	public String getFirst(){
+		return first;
 	}
 	
-	public String getLname(){
-		return lName;
+	public String getLast(){
+		return last;
 	}
 	
 	public String getEmail(){
@@ -28,7 +28,7 @@ public class Student{
 	}
 	
 	public String toString(){
-		return "[" + id + "] " + fName + " " + lName + " " + email + "@jsu.edu";
+		return "[" + id + "] " + first + " " + last + " " + email + "@jsu.edu";
 	}
 	
 }

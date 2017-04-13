@@ -3,43 +3,32 @@ package edu.jsu.mcis;
 import java.util.concurrent.atomic.AtomicLong;
 import org.springframework.web.bind.annotation.*;
 import java.util.*;
+import org.json.simple.*;
 
 @RestController
+
 public class WebService {
-	
-	/*
-    private static final String template = "Hello, %s!";
-    private final AtomicLong counter = new AtomicLong();
-
-    @RequestMapping("/greeting")
-    public Greeting greeting(@RequestParam(value="name", defaultValue="World") String name) {
-        return new Greeting(counter.incrementAndGet(),
-                            String.format(template, name));
-    }
-	*/
-
-	//gradle 
 
 	private final CSVReader reader = new CSVReader();
 
-	@RequestMapping("/gamegogy/studentlist")
-	public List<String> getStudentList(){
-		return reader.getStudentListJSON();
+	@RequestMapping(value="/gamegogy/studentlist", method=RequestMethod.GET)
+	public String[] getStudentList(){
+		return reader.getStudentIDStrings();
 	}
 	
-	@RequestMapping("/gamegogy/courselist")
-	public List<String> getCourseList(){
-		return reader.getCourseListJSON();
+	@RequestMapping(value="/gamegogy/courselist", method=RequestMethod.GET)
+	public String[] getCourseList(){
+		return reader.getCourseIDStrings();
 	}
 	
-	@RequestMapping("/gamegogy/student")
-	public String getStudentInfo(@RequestParam(value="id") String id){
-		return reader.getStudentInfo(id);
+	@RequestMapping(value="/gamegogy/student/{id}", method=RequestMethod.GET)
+	public Student getStudentInfo(@PathVariable String id){
+		return reader.getStudent(id);
 	}
 	
-	@RequestMapping("/gamegogy/course")
-	public String getCourseInfo(@RequestParam(value="id") String id){
-		return reader.getCourseInfo(id);
+	@RequestMapping(value="/gamegogy/course/{id}", method=RequestMethod.GET)
+	public Course getCourseInfo(@PathVariable String id){
+		return reader.getCourse(id);
 	}
 	
 

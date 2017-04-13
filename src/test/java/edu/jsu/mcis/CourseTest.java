@@ -10,41 +10,37 @@ public class CourseTest{
 	private Course course2;
 	
 	@Before
-	public void setup()
-	{
-		course1 = new Course("123", "1942", "23", "Spring");
-		course2 = new Course("1", "2010", "50", "Fall");
+	public void setup(){
+		course1 = new Course("123", "1942", 23, "Spring");
+		course2 = new Course("1", "2010", 50, "Fall");
 	}
 	
 	@Test
-	public void testCourseisInitalizedProperly()
-	{
-		assertEquals(0, course1.getAssignmentList().size());
+	public void testCourseisInitalizedProperly(){
+		assertEquals(0, course1.getGrades().getColHeaders().size());
 		assertEquals("123", course1.getId());
 		assertEquals("1942", course1.getYear());
-		assertEquals("23", course1.getSize());
+		assertEquals(23, course1.getSize());
 		assertEquals("Spring", course1.getTerm());
 	}
 	
 	@Test
 	public void testCourseisInitializedProperly2(){
-		assertEquals(0, course2.getAssignmentList().size());
+		assertEquals(0, course2.getGrades().getColHeaders().size());
 		assertEquals("1", course2.getId());
 		assertEquals("2010", course2.getYear());
-		assertEquals("50", course2.getSize());
+		assertEquals(50, course2.getSize());
 		assertEquals("Fall", course2.getTerm());
 	}
 	
 	@Test
-	public void testToString()
-	{
+	public void testToString(){
 		assertEquals("[123] Spring 1942 (23 students)", course1.toString());
 		assertEquals("[1] Fall 2010 (50 students)", course2.toString());
 	}
 	
 	@Test
-	public void testAddAssignment()
-	{
+	public void testAddAssignment(){
 		Assignment a = new Assignment("a");
 		a.addStudentAndScore("1111", 100);
 		a.addStudentAndScore("1234", 80);
@@ -57,8 +53,7 @@ public class CourseTest{
 	}
 	
 	@Test
-	public void testAssignmentsAreCorrectlyAddedToAssignmentList()
-	{
+	public void testAssignmentsAreCorrectlyAddedToAssignmentList(){
 		Assignment a = new Assignment("a");
 		a.addStudentAndScore("1234", 90);
 		Assignment b = new Assignment("b");
@@ -74,7 +69,7 @@ public class CourseTest{
 		assertEquals("1234", aTest.getTopStudentID());
 		assertEquals("2222", bTest.getTopStudentID());
 		assertEquals("4321", cTest.getTopStudentID());
-		List<String> list = course1.getAssignmentList();
+		List<String> list = course1.getGrades().getColHeaders();
 		for (int i = 0; i < list.size(); i++){
 			String check = list.get(i);
 			Assignment assignment = course1.getAssignment(check);
@@ -83,8 +78,7 @@ public class CourseTest{
 	}
 	
 	@Test
-	public void testGetAssignmentsReturnsArrayListofStrings()
-	{
+	public void testGetAssignmentsReturnsArrayListofStrings(){
 		Assignment a = new Assignment("a");
 		a.addStudentAndScore("1234", 90);
 		Assignment b = new Assignment("b");
@@ -94,7 +88,7 @@ public class CourseTest{
 		course1.addAssignment(a);
 		course1.addAssignment(b);
 		course1.addAssignment(c);
-		List<String> assignments = course1.getAssignmentList();
+		List<String> assignments = course1.getGrades().getColHeaders();
 		assertTrue(assignments.contains("a"));
 		assertTrue(assignments.contains("b"));
 		assertTrue(assignments.contains("c"));
@@ -102,8 +96,7 @@ public class CourseTest{
 	}
 	
 	@Test
-	public void testGettingNonexistentAssignmentThrowsException()
-	{
+	public void testGettingNonexistentAssignmentThrowsException(){
 		boolean thrown = false;
 		try{
 			course1.getAssignment("Assignment X");

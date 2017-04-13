@@ -30,7 +30,6 @@ public class GUI extends JFrame implements ActionListener, Observer{
 	private Assignment currentAssignment;
 	private Student currentStudent;
 
-	@SuppressWarnings("unchecked")
     public GUI(Database dataBase) throws IOException{
 
 		getContentPane().setBackground(Color.black);
@@ -38,7 +37,6 @@ public class GUI extends JFrame implements ActionListener, Observer{
 		setPreferredSize(new Dimension(500, 700));
 		setLayout(null);
 		setTitle("Gamegogy");
-		
 		
 		JLabel course = new JLabel("Course");
 		course.setFont(new Font("AR Julian", Font.PLAIN, 13));
@@ -192,7 +190,7 @@ public class GUI extends JFrame implements ActionListener, Observer{
 	public void updateAfterCourseChange(){
 		String currentCourseString = (String) courseComboBox.getSelectedItem();
 		currentCourse = dataBase.getCourse(currentCourseString);
-		Object[] obArray = currentCourse.getAssignmentList().toArray();
+		Object[] obArray = currentCourse.getGrades().getColHeaders().toArray();
 		String[] assignments = new String[obArray.length];
 		for (int i = 0; i < obArray.length; i++){
 			assignments[i] = (String) obArray[i];
@@ -212,7 +210,7 @@ public class GUI extends JFrame implements ActionListener, Observer{
 	private void updateStudentInfo(String id, int score){
 		currentStudent = dataBase.getStudent(id);
 		studentId.setText(currentStudent.getId() + "");
-		studentName.setText(currentStudent.getFname() + " " + currentStudent.getLname());
+		studentName.setText(currentStudent.getFirst() + " " + currentStudent.getLast());
 		studentEmail.setText(currentStudent.getEmail() + "@jsu.edu");
 		studentScore.setText(score + ".0");
 	}
@@ -252,7 +250,7 @@ public class GUI extends JFrame implements ActionListener, Observer{
             webButton.setSelected(true);
             offlineButton.setSelected(false);
             try{
-           		dataBase = new Database(new JSONReader("http://inspired.jsu.edu:7272/gamegogy"));
+           		dataBase = new Database(new JSONReader("http://localhost:8080/gamegogy/"));
 			}
 			catch(IOException ex){
            		//JOptionPane.showMessageDialog(this,"Web Service Unavailable. Reverting to local Resource File.","Connection Error",JOptionPane.WARNING_MESSAGE);

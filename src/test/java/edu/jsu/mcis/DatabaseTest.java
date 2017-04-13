@@ -14,9 +14,9 @@ public class DatabaseTest{
 	@Before
 	public void setup() throws MalformedURLException, IOException{
 		d = new Database(new CSVReader("src\\test\\resources\\coursestest.csv","src\\test\\resources\\coursestest","src\\test\\resources\\studentstest.csv"));
-		//onlineDatabase = new Database(new JSONReader("http://localhost:8080/gamegogy/"));
+		onlineDatabase = new Database(new JSONReader("http://inspired.jsu.edu:7272/gamegogy"));
 	}
-	/*
+	
 	@Test
 	public void testOnlineDatabase(){
 		d = onlineDatabase;
@@ -26,11 +26,10 @@ public class DatabaseTest{
 		testGetCourseStrings();
 		testGetStudentStrings();
 	}
-	*/
 	
 	@Test
 	public void testCourses(){
-		Course correctCourse1 = new Course("99000" , "2013", "11", "Spring");
+		Course correctCourse1 = new Course("99000" , "2013", 11, "Spring");
 		Course check = d.getCourse("99000");
 		assertEquals(correctCourse1.getId(), check.getId());
 		assertEquals(correctCourse1.getYear(), check.getYear());
@@ -43,8 +42,8 @@ public class DatabaseTest{
 		Student correctStudent = new Student("111318", "Cathleen", "Guzman", "cguzman"); 
 		Student check = d.getStudent("111318");
 		assertEquals(correctStudent.getId(), check.getId());
-		assertEquals(correctStudent.getFname(), check.getFname());
-		assertEquals(correctStudent.getLname(), check.getLname());
+		assertEquals(correctStudent.getFirst(), check.getFirst());
+		assertEquals(correctStudent.getLast(), check.getLast());
 		assertEquals(correctStudent.getEmail(), check.getEmail().replace("\"",""));
 	}
 	
@@ -77,7 +76,7 @@ public class DatabaseTest{
 		Course course1 = d.getCourse("99000");
 		assertEquals("Spring", course1.getTerm());
 		assertEquals("2013", course1.getYear());
-		assertEquals("11", course1.getSize());
+		assertEquals(11, course1.getSize());
 		
 		Assignment total = course1.getAssignment("Total");
 		assertEquals("111318", total.getTopStudentID());
@@ -101,7 +100,7 @@ public class DatabaseTest{
 		Course course2 = d.getCourse("99001");
 		assertEquals("Fall", course2.getTerm());
 		assertEquals("1944", course2.getYear());
-		assertEquals("10", course2.getSize());
+		assertEquals(10, course2.getSize());
 		
 		Assignment total = course2.getAssignment("Total");
 		assertEquals("111143", total.getTopStudentID());

@@ -3,8 +3,6 @@ package edu.jsu.mcis;
 import java.io.*;
 import java.util.*;
 import au.com.bytecode.opencsv.*;
-import org.json.simple.*;
-import org.json.simple.parser.*;
 
 public class CSVReader implements DataReader{
 	
@@ -38,7 +36,7 @@ public class CSVReader implements DataReader{
 				String year = (course[2].substring(1,course[2].length()-1));
 				String size = (course[3].substring(1,course[3].length()-1));
 				String term = course[1].substring(1, course[1].length()-1);
-				courseList.add(new Course(id, year, size, term));	
+				courseList.add(new Course(id, year, Integer.valueOf(size), term));	
             }			
         }
         catch(IOException e) {e.printStackTrace();}		
@@ -56,6 +54,12 @@ public class CSVReader implements DataReader{
 				String myline;
 				while ((myline = in.readLine())!=null){
 					lines.add(myline);
+					String[] rows = myline.split(",");
+					List<Float> list = new ArrayList<>();
+					for (int i = 1; i < rows.length; i++){
+						list.add(Float.parseFloat(rows[i].substring(1, rows[i].length()-1)));
+					}
+					c.addData(list);
 				}
 				for (int i = 1; i < assignments.length; i++){
 					String assignmentName = assignments[i].substring(1, assignments[i].length()-1);
@@ -68,6 +72,7 @@ public class CSVReader implements DataReader{
 					}
 					c.addAssignment(a);
 				}
+
 				for (int i = 0; i < courseList.size(); i++){
 					if (courseList.get(i).getId() == courseID){
 						courseList.remove(i);
@@ -96,7 +101,7 @@ public class CSVReader implements DataReader{
         catch(IOException e) {e.printStackTrace();}
     }
 	
-	 private Course getCourse(String id){
+	 public Course getCourse(String id){
 		for (Course c: courseList){
 			if (c.getId().equals(id)){
 				return c;
@@ -109,71 +114,33 @@ public class CSVReader implements DataReader{
 		return courseList;
 	}
 	
+	public String[] getCourseIDStrings(){
+		String[] s = new String[courseList.size()];
+		for (int i = 0; i < courseList.size(); i++){
+			s[i] = courseList.get(i).getId();
+		}
+		return s;
+	}
+	
+	public Student getStudent(String id){
+		for(Student student: studentList){
+			if(student.getId().equals(id)){
+				return student;
+			}
+		}
+		throw new StudentException();
+	}
+	
 	public List<Student> getStudentList(){  
 		return studentList;
 	}
 
-
-	public List<String> getCourseListJSON(){
-		List<String> ids = new ArrayList<String>();
-		for (Course c: courseList){
-			ids.add(c.getId());
+	public String[] getStudentIDStrings(){
+		String[] s = new String[studentList.size()];
+		for (int i = 0; i < studentList.size(); i++){
+			s[i] = studentList.get(i).getId();
 		}
-		return ids;
+		return s;
 	}
-
-	public List<String> getStudentListJSON(){
-		List<String> ids = new ArrayList<String>();
-		for (Student s: studentList){
-			ids.add(s.getId());
-		}
-		return ids;
-	}
-	
-	public String getStudentInfo(String id){
-		StringBuilder builder = new StringBuilder();
-		for (Student student: studentList){
-			if (student.getId().equals(id)){
-				builder.append("{\"id\":\"" + student.getId() + "\"");
-				builder.append(",\"first\":\"" + student.getFname() + "\"");
-				builder.append(",\"last\":\"" + student.getLname() + "\"");
-				builder.append(",\"email\":\"" + student.getEmail() + "\"}");
-			}
-		}
-		return builder.toString();
-	}
-	
-	public String getCourseInfo(String id){
-		StringBuilder builder = new StringBuilder();
-		for (Course course: courseList){
-			if (course.getId().equals(id)){
-				builder.append("{\"id\":\"" + course.getId() + "\"");
-				builder.append(",\"term\":\"" + course.getTerm() + "\"");
-				builder.append(",\"year\":\"" + course.getYear() + "\"");
-				builder.append(",\"size\":" + course.getSize());
-				List<String> aList = course.getAssignmentList();
-				String sampleAssignment = aList.get(0); 
-				for (int i = 0; i < aList.size(); i++){
-					aList.set(i, "\"" + aList.get(i) + "\"");
-				}
-				builder.append(",\"grades\":{\"colHeaders\":" + aList.toString() + ",\"rowHeaders\":");
-				
-				List<String> studentIds = course.getAssignment(sampleAssignment).getStudents();
-				for (int i = 0; i < studentIds.size(); i++){
-					studentIds.set(i, "\"" + studentIds.get(i) + "\"");
-				}
-				builder.append(studentIds.toString() + ",\"data\":");
-				
-				List< List<String> > data = new ArrayList<List<String>>();
-				studentIds = course.getAssignment(sampleAssignment).getStudents();
-				for (int i = 0; i < studentIds.size(); i++){
-					data.add(course.getScoresForStudent(studentIds.get(i)));
-				}
-				builder.append(data.toString() + "}}");
-			}
-		}
-		return builder.toString();
-	}
-	
 	
 }

@@ -42,7 +42,7 @@ public class JSONReaderTest{
 	
 	@Test
 	public void testFirstStudent() throws MalformedURLException, IOException{
-		assertEquals("Jerrod", reader.getStudentList().get(0).getFname());
+		assertEquals("Jerrod", reader.getStudentList().get(0).getFirst());
 	}
 	
 	@Test
@@ -58,7 +58,7 @@ public class JSONReaderTest{
 		assertEquals("99000", check.getId());
 		assertEquals("Spring", check.getTerm());
 		assertEquals("2013", check.getYear());
-		assertEquals("11", check.getSize());
+		assertEquals(11, check.getSize());
 		Assignment aCheck = check.getAssignment("Total");
 		assertEquals("111318", aCheck.getTopStudentID());
 		assertEquals(925, aCheck.getTopScore());

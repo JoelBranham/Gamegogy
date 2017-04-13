@@ -43,7 +43,7 @@ public class JSONReader implements DataReader{
 				String year = (course[2].substring(1,course[2].length()-1));
 				String size = (course[3].substring(1,course[3].length()-1));
 				String term = course[1].substring(1, course[1].length()-1);
-				courseList.add(new Course(id, year, size, term));		
+				courseList.add(new Course(id, year, Integer.valueOf(size), term));		
             }			
         }
         catch(IOException e) {e.printStackTrace();}		
@@ -53,7 +53,7 @@ public class JSONReader implements DataReader{
 		for (String s: getCourseString()){
 			String courseID = s;
 			try{
-				Course c = new Course("","","","");
+				Course c = null;
 				for(Course d: courseList){
 					if(d.getId() == courseID){
 						c = d;

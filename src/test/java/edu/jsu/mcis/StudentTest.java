@@ -19,16 +19,16 @@ public class StudentTest{
 	public void testStudentIsInitalizedProperly()
 	{
 		assertEquals("123", student1.getId());
-		assertEquals("First", student1.getFname());
-		assertEquals("Last", student1.getLname());
+		assertEquals("First", student1.getFirst());
+		assertEquals("Last", student1.getLast());
 		assertEquals("First.Last", student1.getEmail());
 	}
 	
 	@Test
 	public void testStudentIsInitializedProperly2(){
 		assertEquals("654321", student2.getId());
-		assertEquals("Jim", student2.getFname());
-		assertEquals("Joe", student2.getLname());
+		assertEquals("Jim", student2.getFirst());
+		assertEquals("Joe", student2.getLast());
 		assertEquals("Jim.Joe", student2.getEmail());
 	}
 	

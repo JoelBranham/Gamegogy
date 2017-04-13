@@ -5,11 +5,13 @@ import java.util.*;
 public class Assignment{
 	
 	private List<String> studentIDs;
+	private List<String> unsortedStudents;
 	private List<Integer> scores;
 	private String name;
 	
 	public Assignment(String name){
 		studentIDs = new ArrayList<>();
+		unsortedStudents = new ArrayList<>();
 		scores = new ArrayList<>();
 		this.name = name;
 	}
@@ -33,6 +35,7 @@ public class Assignment{
 				studentIDs.add(id);
 			}
 		}
+		unsortedStudents.add(id);
 	}
 	
 	public String getTopStudentID(){
@@ -51,6 +54,10 @@ public class Assignment{
 	
 	public List<String> getStudents(){
 		return studentIDs;
+	}
+
+	public List<String> getUnsortedStudents(){
+		return unsortedStudents;
 	}
 	
 	public List<Integer> getScores(){
