@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="edu.jsu.mcis.MainTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2017-04-14T17:44:14" hostname="BrighidMaura" time="0.203">
+  <properties/>
+  <testcase name="testInvalidStudentArgsThrowsStudentException" classname="edu.jsu.mcis.MainTest" time="0.015"/>
+  <testcase name="testInvalidCourseArgsThrowsCourseException" classname="edu.jsu.mcis.MainTest" time="0.016"/>
+  <testcase name="testWindowOpensOnRuntime" classname="edu.jsu.mcis.MainTest" time="0.109"/>
+  <testcase name="testCorrectStudentArgsYieldCorrectOutput" classname="edu.jsu.mcis.MainTest" time="0.016"/>
+  <testcase name="testCorrectCourseArgsYieldCorrectOutput" classname="edu.jsu.mcis.MainTest" time="0.016"/>
+  <testcase name="testCorrectSingleArgYieldsCorrectOutput1" classname="edu.jsu.mcis.MainTest" time="0.015"/>
+  <testcase name="testCorrectSingleArgYieldsCorrectOutput2" classname="edu.jsu.mcis.MainTest" time="0.016"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

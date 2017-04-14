@@ -1,0 +1,37 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'net.sf.opencsv:opencsv:2.3'
+        classpath 'com.googlecode.json-simple:json-simple:1.1.1'
+        classpath 'org.robotframework:swinglibrary:1.9.6'
+        classpath files(mkdir('build/classes/main'))
+        classpath files(mkdir('build/resources/main'))
+    }
+}
+
+version = '1.0'
+
+jar {
+    baseName = rootProject.name + '-' + project.name
+    manifest {
+        attributes 'Implementation-Title': 'Gamegogy', 
+                   'Implementation-Version': version, 
+                   'Main-Class': 'edu.jsu.mcis.Main'
+    }
+}
+
+dependencies {
+    compile 'org.robotframework:swinglibrary:1.9.6'
+	compile 'org.robotframework:javalib-core:1.2.1'
+	compile 'org.netbeans:jemmy:2.2.7.5'
+    compile 'net.sf.opencsv:opencsv:2.3'
+    compile 'com.googlecode.json-simple:json-simple:1.1.1'
+    compile 'org.springframework.boot:spring-boot-starter-web'
+    testCompile 'junit:junit:4.+'
+    testCompile 'com.jayway.jsonpath:json-path'
+    testCompile 'org.springframework.boot:spring-boot-starter-test'
+    testCompile 'com.googlecode.json-simple:json-simple:1.1.1'
+}
+

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="edu.jsu.mcis.DatabaseTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2017-04-14T17:43:55" hostname="BrighidMaura" time="9.062">
+  <properties/>
+  <testcase name="testInvalidKeyThrowsStudentException" classname="edu.jsu.mcis.DatabaseTest" time="1.203"/>
+  <testcase name="testInvalidKeyThrowsCourseException" classname="edu.jsu.mcis.DatabaseTest" time="1.047"/>
+  <testcase name="testStudents" classname="edu.jsu.mcis.DatabaseTest" time="0.922"/>
+  <testcase name="testGetStudentStrings" classname="edu.jsu.mcis.DatabaseTest" time="0.954"/>
+  <testcase name="testAddCourseInfo1" classname="edu.jsu.mcis.DatabaseTest" time="0.984"/>
+  <testcase name="testAddCourseInfo2" classname="edu.jsu.mcis.DatabaseTest" time="0.938"/>
+  <testcase name="testCourses" classname="edu.jsu.mcis.DatabaseTest" time="1.014"/>
+  <testcase name="testOnlineDatabase" classname="edu.jsu.mcis.DatabaseTest" time="1.0"/>
+  <testcase name="testGetCourseStrings" classname="edu.jsu.mcis.DatabaseTest" time="1.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
