@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="edu.jsu.mcis.LeaderboardTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2017-04-14T17:44:14" hostname="BrighidMaura" time="0.0">
+<testsuite name="edu.jsu.mcis.LeaderboardTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2017-04-18T16:26:48" hostname="Joel" time="0.001">
   <properties/>
-  <testcase name="testGetShapes" classname="edu.jsu.mcis.LeaderboardTest" time="0.0"/>
+  <testcase name="testGetShapes" classname="edu.jsu.mcis.LeaderboardTest" time="0.001"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

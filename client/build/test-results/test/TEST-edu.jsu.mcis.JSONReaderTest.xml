@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="edu.jsu.mcis.JSONReaderTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2017-04-14T17:44:06" hostname="BrighidMaura" time="7.921">
+<testsuite name="edu.jsu.mcis.JSONReaderTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2017-04-18T16:26:38" hostname="Joel" time="9.122">
   <properties/>
-  <testcase name="testStudentListSizeIsCorrect" classname="edu.jsu.mcis.JSONReaderTest" time="1.165"/>
-  <testcase name="testGetCourseStringIsCorrect" classname="edu.jsu.mcis.JSONReaderTest" time="1.016"/>
-  <testcase name="testFirstStudent" classname="edu.jsu.mcis.JSONReaderTest" time="0.953"/>
-  <testcase name="testSlashIsNotAddedToURLWithSlash" classname="edu.jsu.mcis.JSONReaderTest" time="1.0"/>
-  <testcase name="testSlashIsAddedToURLWithoutSlash" classname="edu.jsu.mcis.JSONReaderTest" time="0.954"/>
-  <testcase name="testGetURL" classname="edu.jsu.mcis.JSONReaderTest" time="0.89"/>
-  <testcase name="testCourseListSizeIsCorrect" classname="edu.jsu.mcis.JSONReaderTest" time="0.954"/>
-  <testcase name="testCourseInfoLoadedCorrectly" classname="edu.jsu.mcis.JSONReaderTest" time="0.989"/>
+  <testcase name="testStudentListSizeIsCorrect" classname="edu.jsu.mcis.JSONReaderTest" time="1.131"/>
+  <testcase name="testGetCourseStringIsCorrect" classname="edu.jsu.mcis.JSONReaderTest" time="1.079"/>
+  <testcase name="testFirstStudent" classname="edu.jsu.mcis.JSONReaderTest" time="1.378"/>
+  <testcase name="testSlashIsNotAddedToURLWithSlash" classname="edu.jsu.mcis.JSONReaderTest" time="1.106"/>
+  <testcase name="testSlashIsAddedToURLWithoutSlash" classname="edu.jsu.mcis.JSONReaderTest" time="1.145"/>
+  <testcase name="testGetURL" classname="edu.jsu.mcis.JSONReaderTest" time="1.12"/>
+  <testcase name="testCourseListSizeIsCorrect" classname="edu.jsu.mcis.JSONReaderTest" time="1.11"/>
+  <testcase name="testCourseInfoLoadedCorrectly" classname="edu.jsu.mcis.JSONReaderTest" time="1.052"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[java.net.MalformedURLException: no protocol: hello/courselist
 	at java.net.URL.<init>(URL.java:593)

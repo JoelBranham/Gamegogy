@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="edu.jsu.mcis.GUITest" tests="2" skipped="0" failures="0" errors="0" timestamp="2017-04-14T17:44:04" hostname="BrighidMaura" time="1.173">
+<testsuite name="edu.jsu.mcis.GUITest" tests="2" skipped="0" failures="0" errors="0" timestamp="2017-04-18T16:26:37" hostname="Joel" time="1.338">
   <properties/>
-  <testcase name="testWindowOpensOnRuntime" classname="edu.jsu.mcis.GUITest" time="1.173"/>
+  <testcase name="testWindowOpensOnRuntime" classname="edu.jsu.mcis.GUITest" time="1.337"/>
   <testcase name="testHelpUrlExsist" classname="edu.jsu.mcis.GUITest" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
