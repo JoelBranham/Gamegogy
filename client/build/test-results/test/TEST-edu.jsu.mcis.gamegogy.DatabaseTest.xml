@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="edu.jsu.mcis.gamegogy.DatabaseTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2017-04-18T19:27:14" hostname="Joel" time="24.168">
+  <properties/>
+  <testcase name="testInvalidKeyThrowsStudentException" classname="edu.jsu.mcis.gamegogy.DatabaseTest" time="3.96"/>
+  <testcase name="testInvalidKeyThrowsCourseException" classname="edu.jsu.mcis.gamegogy.DatabaseTest" time="2.461"/>
+  <testcase name="testStudents" classname="edu.jsu.mcis.gamegogy.DatabaseTest" time="3.019"/>
+  <testcase name="testGetStudentStrings" classname="edu.jsu.mcis.gamegogy.DatabaseTest" time="2.369"/>
+  <testcase name="testAddCourseInfo1" classname="edu.jsu.mcis.gamegogy.DatabaseTest" time="2.521"/>
+  <testcase name="testAddCourseInfo2" classname="edu.jsu.mcis.gamegogy.DatabaseTest" time="2.855"/>
+  <testcase name="testCourses" classname="edu.jsu.mcis.gamegogy.DatabaseTest" time="2.616"/>
+  <testcase name="testOnlineDatabase" classname="edu.jsu.mcis.gamegogy.DatabaseTest" time="3.04"/>
+  <testcase name="testGetCourseStrings" classname="edu.jsu.mcis.gamegogy.DatabaseTest" time="1.326"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

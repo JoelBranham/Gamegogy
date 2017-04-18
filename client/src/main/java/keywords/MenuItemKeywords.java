@@ -1,6 +1,6 @@
 package keywords;
 
-import edu.jsu.mcis.*;
+import edu.jsu.mcis.gamegogy.*;
 
 import org.robotframework.javalib.annotation.RobotKeyword;
 import org.robotframework.javalib.annotation.RobotKeywords;

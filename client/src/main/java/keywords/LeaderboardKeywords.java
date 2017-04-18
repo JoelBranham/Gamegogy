@@ -13,7 +13,7 @@ import java.awt.Component;
 import java.awt.Shape;
 import java.awt.Rectangle;
 
-import edu.jsu.mcis.*;
+import edu.jsu.mcis.gamegogy.*;
 
 public class LeaderboardKeywords {
 

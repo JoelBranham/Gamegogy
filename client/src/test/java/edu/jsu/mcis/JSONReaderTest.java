@@ -1,4 +1,4 @@
-package edu.jsu.mcis;
+package edu.jsu.mcis.gamegogy;
 
 import org.junit.*;
 import java.io.*;

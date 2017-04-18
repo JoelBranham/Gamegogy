@@ -23,7 +23,7 @@ jar {
 }
 
 springBoot {
-    mainClass = 'edu.jsu.mcis.service.Application'
+    mainClass = 'edu.jsu.mcis.gamegogy.service.Application'
 }
 
 dependencies {
