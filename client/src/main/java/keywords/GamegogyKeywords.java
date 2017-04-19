@@ -1,8 +1,9 @@
 package keywords;
 
-import edu.jsu.mcis.gamegogy.*;
 import java.io.*;
 import java.net.MalformedURLException;
+
+import edu.jsu.mcis.gamegogy.*;
 
 public class GamegogyKeywords {
 	

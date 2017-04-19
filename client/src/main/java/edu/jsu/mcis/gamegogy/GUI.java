@@ -6,9 +6,6 @@ import java.io.File;
 import java.io.IOException;
 import javax.swing.*;
 import java.util.*;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.net.HttpURLConnection;
 
 public class GUI extends JFrame implements ActionListener, Observer{
 	

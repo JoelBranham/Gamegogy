@@ -1,7 +1,5 @@
 package keywords;
 
-import edu.jsu.mcis.gamegogy.*;
-
 import org.robotframework.javalib.annotation.RobotKeyword;
 import org.robotframework.javalib.annotation.RobotKeywords;
 import org.robotframework.javalib.annotation.ArgumentNames;
@@ -10,6 +8,8 @@ import org.robotframework.swing.context.Context;
 import org.netbeans.jemmy.operators.JRadioButtonMenuItemOperator;
 import org.netbeans.jemmy.operators.ContainerOperator;
 import javax.swing.JRadioButtonMenuItem;
+
+import edu.jsu.mcis.gamegogy.*;
 
 public class MenuItemKeywords {
 

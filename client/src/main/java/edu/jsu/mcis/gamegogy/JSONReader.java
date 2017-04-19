@@ -1,7 +1,6 @@
 package edu.jsu.mcis.gamegogy;
+
 import java.io.*;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;

@@ -1,7 +1,6 @@
 package edu.jsu.mcis.gamegogy;
 
 import java.util.*;
-import org.json.simple.*;
 
 public class Course{
 

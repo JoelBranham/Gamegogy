@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="edu.jsu.mcis.gamegogy.JSONReaderTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2017-04-18T19:27:40" hostname="Joel" time="17.804">
+<testsuite name="edu.jsu.mcis.gamegogy.JSONReaderTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2017-04-19T17:12:12" hostname="Joel" time="7.456">
   <properties/>
-  <testcase name="testStudentListSizeIsCorrect" classname="edu.jsu.mcis.gamegogy.JSONReaderTest" time="1.568"/>
-  <testcase name="testGetCourseStringIsCorrect" classname="edu.jsu.mcis.gamegogy.JSONReaderTest" time="1.216"/>
-  <testcase name="testFirstStudent" classname="edu.jsu.mcis.gamegogy.JSONReaderTest" time="2.75"/>
-  <testcase name="testSlashIsNotAddedToURLWithSlash" classname="edu.jsu.mcis.gamegogy.JSONReaderTest" time="1.894"/>
-  <testcase name="testSlashIsAddedToURLWithoutSlash" classname="edu.jsu.mcis.gamegogy.JSONReaderTest" time="2.381"/>
-  <testcase name="testGetURL" classname="edu.jsu.mcis.gamegogy.JSONReaderTest" time="3.329"/>
-  <testcase name="testCourseListSizeIsCorrect" classname="edu.jsu.mcis.gamegogy.JSONReaderTest" time="2.384"/>
-  <testcase name="testCourseInfoLoadedCorrectly" classname="edu.jsu.mcis.gamegogy.JSONReaderTest" time="2.279"/>
+  <testcase name="testStudentListSizeIsCorrect" classname="edu.jsu.mcis.gamegogy.JSONReaderTest" time="0.92"/>
+  <testcase name="testGetCourseStringIsCorrect" classname="edu.jsu.mcis.gamegogy.JSONReaderTest" time="0.917"/>
+  <testcase name="testFirstStudent" classname="edu.jsu.mcis.gamegogy.JSONReaderTest" time="0.915"/>
+  <testcase name="testSlashIsNotAddedToURLWithSlash" classname="edu.jsu.mcis.gamegogy.JSONReaderTest" time="0.94"/>
+  <testcase name="testSlashIsAddedToURLWithoutSlash" classname="edu.jsu.mcis.gamegogy.JSONReaderTest" time="0.953"/>
+  <testcase name="testGetURL" classname="edu.jsu.mcis.gamegogy.JSONReaderTest" time="0.926"/>
+  <testcase name="testCourseListSizeIsCorrect" classname="edu.jsu.mcis.gamegogy.JSONReaderTest" time="0.949"/>
+  <testcase name="testCourseInfoLoadedCorrectly" classname="edu.jsu.mcis.gamegogy.JSONReaderTest" time="0.934"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[java.net.MalformedURLException: no protocol: hello/courselist
 	at java.net.URL.<init>(URL.java:593)
 	at java.net.URL.<init>(URL.java:490)
 	at java.net.URL.<init>(URL.java:439)
-	at edu.jsu.mcis.gamegogy.JSONReader.openConnection(JSONReader.java:111)
-	at edu.jsu.mcis.gamegogy.JSONReader.getCourseListJSON(JSONReader.java:237)
-	at edu.jsu.mcis.gamegogy.JSONReader.getCourseListCSV(JSONReader.java:261)
-	at edu.jsu.mcis.gamegogy.JSONReader.buildOnlineCourse(JSONReader.java:38)
-	at edu.jsu.mcis.gamegogy.JSONReader.<init>(JSONReader.java:30)
+	at edu.jsu.mcis.gamegogy.JSONReader.openConnection(JSONReader.java:110)
+	at edu.jsu.mcis.gamegogy.JSONReader.getCourseListJSON(JSONReader.java:236)
+	at edu.jsu.mcis.gamegogy.JSONReader.getCourseListCSV(JSONReader.java:260)
+	at edu.jsu.mcis.gamegogy.JSONReader.buildOnlineCourse(JSONReader.java:37)
+	at edu.jsu.mcis.gamegogy.JSONReader.<init>(JSONReader.java:29)
 	at edu.jsu.mcis.gamegogy.JSONReaderTest.testSlashIsNotAddedToURLWithSlash(JSONReaderTest.java:75)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
@@ -68,11 +68,11 @@ java.net.MalformedURLException: no protocol: hello/studentlist
 	at java.net.URL.<init>(URL.java:593)
 	at java.net.URL.<init>(URL.java:490)
 	at java.net.URL.<init>(URL.java:439)
-	at edu.jsu.mcis.gamegogy.JSONReader.openConnection(JSONReader.java:111)
-	at edu.jsu.mcis.gamegogy.JSONReader.getStudentListJSON(JSONReader.java:222)
-	at edu.jsu.mcis.gamegogy.JSONReader.getStudentListCSV(JSONReader.java:251)
-	at edu.jsu.mcis.gamegogy.JSONReader.buildOnlineStudent(JSONReader.java:96)
-	at edu.jsu.mcis.gamegogy.JSONReader.<init>(JSONReader.java:32)
+	at edu.jsu.mcis.gamegogy.JSONReader.openConnection(JSONReader.java:110)
+	at edu.jsu.mcis.gamegogy.JSONReader.getStudentListJSON(JSONReader.java:221)
+	at edu.jsu.mcis.gamegogy.JSONReader.getStudentListCSV(JSONReader.java:250)
+	at edu.jsu.mcis.gamegogy.JSONReader.buildOnlineStudent(JSONReader.java:95)
+	at edu.jsu.mcis.gamegogy.JSONReader.<init>(JSONReader.java:31)
 	at edu.jsu.mcis.gamegogy.JSONReaderTest.testSlashIsNotAddedToURLWithSlash(JSONReaderTest.java:75)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
@@ -122,11 +122,11 @@ java.net.MalformedURLException: no protocol: hello/courselist
 	at java.net.URL.<init>(URL.java:593)
 	at java.net.URL.<init>(URL.java:490)
 	at java.net.URL.<init>(URL.java:439)
-	at edu.jsu.mcis.gamegogy.JSONReader.openConnection(JSONReader.java:111)
-	at edu.jsu.mcis.gamegogy.JSONReader.getCourseListJSON(JSONReader.java:237)
-	at edu.jsu.mcis.gamegogy.JSONReader.getCourseListCSV(JSONReader.java:261)
-	at edu.jsu.mcis.gamegogy.JSONReader.buildOnlineCourse(JSONReader.java:38)
-	at edu.jsu.mcis.gamegogy.JSONReader.<init>(JSONReader.java:30)
+	at edu.jsu.mcis.gamegogy.JSONReader.openConnection(JSONReader.java:110)
+	at edu.jsu.mcis.gamegogy.JSONReader.getCourseListJSON(JSONReader.java:236)
+	at edu.jsu.mcis.gamegogy.JSONReader.getCourseListCSV(JSONReader.java:260)
+	at edu.jsu.mcis.gamegogy.JSONReader.buildOnlineCourse(JSONReader.java:37)
+	at edu.jsu.mcis.gamegogy.JSONReader.<init>(JSONReader.java:29)
 	at edu.jsu.mcis.gamegogy.JSONReaderTest.testSlashIsAddedToURLWithoutSlash(JSONReaderTest.java:69)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
@@ -176,11 +176,11 @@ java.net.MalformedURLException: no protocol: hello/studentlist
 	at java.net.URL.<init>(URL.java:593)
 	at java.net.URL.<init>(URL.java:490)
 	at java.net.URL.<init>(URL.java:439)
-	at edu.jsu.mcis.gamegogy.JSONReader.openConnection(JSONReader.java:111)
-	at edu.jsu.mcis.gamegogy.JSONReader.getStudentListJSON(JSONReader.java:222)
-	at edu.jsu.mcis.gamegogy.JSONReader.getStudentListCSV(JSONReader.java:251)
-	at edu.jsu.mcis.gamegogy.JSONReader.buildOnlineStudent(JSONReader.java:96)
-	at edu.jsu.mcis.gamegogy.JSONReader.<init>(JSONReader.java:32)
+	at edu.jsu.mcis.gamegogy.JSONReader.openConnection(JSONReader.java:110)
+	at edu.jsu.mcis.gamegogy.JSONReader.getStudentListJSON(JSONReader.java:221)
+	at edu.jsu.mcis.gamegogy.JSONReader.getStudentListCSV(JSONReader.java:250)
+	at edu.jsu.mcis.gamegogy.JSONReader.buildOnlineStudent(JSONReader.java:95)
+	at edu.jsu.mcis.gamegogy.JSONReader.<init>(JSONReader.java:31)
 	at edu.jsu.mcis.gamegogy.JSONReaderTest.testSlashIsAddedToURLWithoutSlash(JSONReaderTest.java:69)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)

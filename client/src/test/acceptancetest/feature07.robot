@@ -18,12 +18,12 @@
 
 
 | *Test Case*                      | *Action*                         | *Argument*                       | *Argument*       |
-| Test Default File Source         | Start Application                | edu.jsu.mcis.Main                |                  |
+| Test Default File Source         | Start Application                | edu.jsu.mcis.gamegogy.Main       |                  |
 |                                  | Select Window                    | Gamegogy                         |                  |
 |                                  | Menu Item Should Be Selected     | Source|Resource File             |                  |
 |                                  | Menu Item Should Not Be Selected | Web Service                      |                  |
 |                                  | Close Window                     | Gamegogy                         |                  |
-| Test Web Service Source          | Start Application                | edu.jsu.mcis.Main                |                  |
+| Test Web Service Source          | Start Application                | edu.jsu.mcis.gamegogy.Main       |                  |
 |                                  | Select Window                    | Gamegogy                         |                  |
 |                                  | ${courseId}=                     | Get Selected Item From Combo Box | courseComboBox   |
 |                                  | Should Be Equal                  | 99000                            | ${courseId}      |
@@ -45,7 +45,7 @@
 |                                  | ${columnName}=                   | Get Selected Item From Combo Box | columnComboBox   |
 |                                  | Should Be Equal                  | Total                            | ${columnName}    |
 |                                  | Close Window                     | Gamegogy                         |                  |
-| Test Reselected File Source      | Start Application                | edu.jsu.mcis.Main                |                  |
+| Test Reselected File Source      | Start Application                | edu.jsu.mcis.gamegogy.Main       |                  |
 |                                  | Select Window                    | Gamegogy                         |                  |
 |                                  | Select From Menu                 | Source|Web Service               |                  |
 |                                  | ${courseId}=                     | Get Selected Item From Combo Box | courseComboBox   |
