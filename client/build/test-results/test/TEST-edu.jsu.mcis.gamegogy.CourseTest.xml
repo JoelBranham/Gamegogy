@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="edu.jsu.mcis.gamegogy.CourseTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2017-04-19T17:12:02" hostname="Joel" time="0.007">
+<testsuite name="edu.jsu.mcis.gamegogy.CourseTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2017-04-20T00:41:00" hostname="Joel" time="0.003">
   <properties/>
   <testcase name="testAssignmentsAreCorrectlyAddedToAssignmentList" classname="edu.jsu.mcis.gamegogy.CourseTest" time="0.002"/>
   <testcase name="testGetAssignmentsReturnsArrayListofStrings" classname="edu.jsu.mcis.gamegogy.CourseTest" time="0.0"/>
-  <testcase name="testAddAssignment" classname="edu.jsu.mcis.gamegogy.CourseTest" time="0.001"/>
+  <testcase name="testAddAssignment" classname="edu.jsu.mcis.gamegogy.CourseTest" time="0.0"/>
   <testcase name="testToString" classname="edu.jsu.mcis.gamegogy.CourseTest" time="0.0"/>
   <testcase name="testCourseisInitalizedProperly" classname="edu.jsu.mcis.gamegogy.CourseTest" time="0.0"/>
   <testcase name="testCourseisInitializedProperly2" classname="edu.jsu.mcis.gamegogy.CourseTest" time="0.0"/>

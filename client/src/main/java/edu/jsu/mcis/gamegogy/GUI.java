@@ -12,6 +12,7 @@ public class GUI extends JFrame implements ActionListener, Observer{
 	private Leaderboard leaderboard;
 	
     private Database dataBase;
+	private String url;
 
 	private JMenuBar bar;
     private JMenuItem sourceMenu,helpMenu;
@@ -26,11 +27,17 @@ public class GUI extends JFrame implements ActionListener, Observer{
 	private Course currentCourse;
 	private Assignment currentAssignment;
 	private Student currentStudent;
+	
+	public GUI() throws IOException{
+		this("");
+	}
 
-    public GUI(Database dataBase) throws IOException{
+    public GUI(String url) throws IOException{
 
 		getContentPane().setBackground(Color.black);
-        this.dataBase = dataBase;
+		dataBase = (url == "") ? new Database(new CSVReader()) : new Database(new JSONReader(url));
+		this.url = url; 
+		
 		setPreferredSize(new Dimension(500, 700));
 		setLayout(null);
 		setTitle("Gamegogy");
@@ -247,7 +254,12 @@ public class GUI extends JFrame implements ActionListener, Observer{
             webButton.setSelected(true);
             offlineButton.setSelected(false);
             try{
-           		dataBase = new Database(new JSONReader("http://localhost:8080/gamegogy/"));
+				if (url.equals("")){
+					dataBase = new Database(new JSONReader("http://inspired.jsu.edu:7272/gamegogy"));
+				}
+				else{
+					dataBase = new Database(new JSONReader(url));
+				}
 			}
 			catch(IOException ex){
            		//JOptionPane.showMessageDialog(this,"Web Service Unavailable. Reverting to local Resource File.","Connection Error",JOptionPane.WARNING_MESSAGE);

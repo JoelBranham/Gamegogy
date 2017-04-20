@@ -79,16 +79,10 @@ public class MainTest{
 	
 	@Test
 	public void testWindowOpensOnRuntime() throws MalformedURLException, IOException{
-		Database testDatabase = new Database(new CSVReader());
 		boolean windowOpened = false;
 		String[] arg = {};
-		Main.main(arg);
 		try{
-			JFrame testWindow = new GUI(testDatabase);
-			testWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-			testWindow.setSize(new Dimension(300,300));
-			testWindow.setResizable(false);
-			testWindow.setVisible(true);
+			Main.main(arg);
 			windowOpened = true;
 		}
 		catch(IOException e){}

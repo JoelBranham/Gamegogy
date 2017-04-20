@@ -9,10 +9,10 @@ import java.net.MalformedURLException;
 
 public class Main {
 	
-    public static void main(String[] args) throws MalformedURLException, IOException {
+    public static void main(String[] args) throws IOException {
 		
         Database database = new Database(new CSVReader());
-		boolean useGUI = false;
+		JFrame win = null;
 		
         if (args.length == 2){
 			if(args[0].equals("course")){
@@ -30,24 +30,18 @@ public class Main {
 				System.out.println(listToString(database.getStudentList()));
 			}
 			else{
-				database = new Database(new JSONReader("http://localhost:8080/gamegogy/"));
-				useGUI = true;
+				win = new GUI(args[0]);
 			}
 		}
 		else if (args.length == 0){
-			useGUI = true;
+			win = new GUI();
 		}
-		if(useGUI){
-			try{
-				JFrame win = new GUI(database);
-				win.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				win.setSize(new Dimension(500,700));
-				win.setResizable(false);
-				win.setVisible(true);
-			}
-			catch(IOException i){}
+		if (win != null){
+			win.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			win.setSize(new Dimension(500,700));
+			win.setResizable(false);
+			win.setVisible(true);
 		}
-		
     }
 	
 	public static String listToString(List<String> list){

@@ -1,0 +1,1 @@
+java -jar service\build\libs\gamegogy-service-1.0.jar 

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="edu.jsu.mcis.gamegogy.LeaderboardTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2017-04-19T17:12:20" hostname="Joel" time="0.001">
+<testsuite name="edu.jsu.mcis.gamegogy.LeaderboardTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2017-04-20T00:42:32" hostname="Joel" time="0.004">
   <properties/>
-  <testcase name="testGetShapes" classname="edu.jsu.mcis.gamegogy.LeaderboardTest" time="0.001"/>
+  <testcase name="testGetShapes" classname="edu.jsu.mcis.gamegogy.LeaderboardTest" time="0.004"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

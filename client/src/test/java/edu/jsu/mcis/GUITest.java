@@ -16,11 +16,10 @@ public class GUITest{
 	@Test
 	public void testWindowOpensOnRuntime() throws MalformedURLException, IOException{
 		
-		Database testDatabase = new Database(new JSONReader("http://inspired.jsu.edu:7272/gamegogy/"));
 		boolean windowOpened = false;
 
 		try{
-			JFrame testWindow = new GUI(testDatabase);
+			JFrame testWindow = new GUI("http://inspired.jsu.edu:7272/gamegogy/");
 			testWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			testWindow.setSize(new Dimension(300,300));
 			testWindow.setResizable(false);

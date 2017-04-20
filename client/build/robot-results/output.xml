@@ -1,0 +1,1759 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.0 (Jython 2.7.0 on java1.8.0_121)" generated="20170419 19:42:34.031">
+<suite source="C:\Users\Joel Branham\Documents\SoftwareEngineering\GamegogySprint4\419\Gamegogy\client\src\test\acceptancetest" name="Acceptancetest" id="s1">
+<suite source="C:\Users\Joel Branham\Documents\SoftwareEngineering\GamegogySprint4\419\Gamegogy\client\src\test\acceptancetest\feature01.robot" name="Feature01" id="s1-s1">
+<test name="Test Gamegogy Load Student Data" id="s1-s1-t1">
+<kw library="keywords.GamegogyKeywords" name="Start Gamegogy CLI With Arguments">
+<arguments>
+<arg>student</arg>
+<arg>111128</arg>
+</arguments>
+<status endtime="20170419 19:42:34.142" starttime="20170419 19:42:34.133" status="PASS"></status>
+</kw>
+<kw library="keywords.GamegogyKeywords" name="Get Command Line Output">
+<assign>
+<var>${output}</var>
+</assign>
+<msg level="INFO" timestamp="20170419 19:42:34.144">${output} = [111128] Maritza Abbott mabbott@jsu.edu</msg>
+<status endtime="20170419 19:42:34.145" starttime="20170419 19:42:34.143" status="PASS"></status>
+</kw>
+<kw library="BuiltIn" name="Should Be Equal">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${f01stu_expected}</arg>
+<arg>${output}</arg>
+</arguments>
+<status endtime="20170419 19:42:34.147" starttime="20170419 19:42:34.145" status="PASS"></status>
+</kw>
+<status critical="yes" endtime="20170419 19:42:34.148" starttime="20170419 19:42:34.131" status="PASS"></status>
+</test>
+<test name="Test Gamegogy Load Course Data" id="s1-s1-t2">
+<kw library="keywords.GamegogyKeywords" name="Start Gamegogy CLI With Arguments">
+<arguments>
+<arg>course</arg>
+<arg>99018</arg>
+</arguments>
+<status endtime="20170419 19:42:34.160" starttime="20170419 19:42:34.151" status="PASS"></status>
+</kw>
+<kw library="keywords.GamegogyKeywords" name="Get Command Line Output">
+<assign>
+<var>${output}</var>
+</assign>
+<msg level="INFO" timestamp="20170419 19:42:34.162">${output} = [99018] Spring 2014 (16 students)</msg>
+<status endtime="20170419 19:42:34.162" starttime="20170419 19:42:34.160" status="PASS"></status>
+</kw>
+<kw library="BuiltIn" name="Should Be Equal">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${f01crs_expected}</arg>
+<arg>${output}</arg>
+</arguments>
+<status endtime="20170419 19:42:34.164" starttime="20170419 19:42:34.162" status="PASS"></status>
+</kw>
+<status critical="yes" endtime="20170419 19:42:34.165" starttime="20170419 19:42:34.149" status="PASS"></status>
+</test>
+<test name="Test Gamegogy With No Arguments" id="s1-s1-t3">
+<kw library="keywords.GamegogyKeywords" name="Start Gamegogy CLI With Arguments">
+<status endtime="20170419 19:42:34.210" starttime="20170419 19:42:34.168" status="PASS"></status>
+</kw>
+<kw library="keywords.GamegogyKeywords" name="Get Command Line Output">
+<assign>
+<var>${output}</var>
+</assign>
+<msg level="INFO" timestamp="20170419 19:42:34.212">${output} = </msg>
+<status endtime="20170419 19:42:34.213" starttime="20170419 19:42:34.211" status="PASS"></status>
+</kw>
+<kw library="BuiltIn" name="Should Be Equal">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${output}</arg>
+</arguments>
+<status endtime="20170419 19:42:34.216" starttime="20170419 19:42:34.214" status="PASS"></status>
+</kw>
+<status critical="yes" endtime="20170419 19:42:34.218" starttime="20170419 19:42:34.166" status="PASS"></status>
+</test>
+<status endtime="20170419 19:42:34.219" starttime="20170419 19:42:34.111" status="PASS"></status>
+</suite>
+<suite source="C:\Users\Joel Branham\Documents\SoftwareEngineering\GamegogySprint4\419\Gamegogy\client\src\test\acceptancetest\feature02.robot" name="Feature02" id="s1-s2">
+<test name="Test Gamegogy Load Student List" id="s1-s2-t1">
+<kw library="keywords.GamegogyKeywords" name="Start Gamegogy CLI With Arguments">
+<arguments>
+<arg>studentids</arg>
+</arguments>
+<status endtime="20170419 19:42:34.297" starttime="20170419 19:42:34.247" status="PASS"></status>
+</kw>
+<kw library="keywords.GamegogyKeywords" name="Get Command Line Output">
+<assign>
+<var>${output}</var>
+</assign>
+<msg level="INFO" timestamp="20170419 19:42:34.301">${output} = 111111
+111112
+111113
+111114
+111115
+111116
+111117
+111118
+111119
+111120
+111121
+111122
+111123
+111124
+111125
+111126
+111127
+111128
+111129
+111130
+111131
+111132
+111133
+111134
+111135
+111136
+111137
+111138
+1111...</msg>
+<status endtime="20170419 19:42:34.301" starttime="20170419 19:42:34.299" status="PASS"></status>
+</kw>
+<kw library="BuiltIn" name="Should Be Equal">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${f02stu_expected}</arg>
+<arg>${output}</arg>
+</arguments>
+<status endtime="20170419 19:42:34.304" starttime="20170419 19:42:34.302" status="PASS"></status>
+</kw>
+<status critical="yes" endtime="20170419 19:42:34.305" starttime="20170419 19:42:34.245" status="PASS"></status>
+</test>
+<test name="Test Gamegogy Load Course List" id="s1-s2-t2">
+<kw library="keywords.GamegogyKeywords" name="Start Gamegogy CLI With Arguments">
+<arguments>
+<arg>courseids</arg>
+</arguments>
+<status endtime="20170419 19:42:34.319" starttime="20170419 19:42:34.309" status="PASS"></status>
+</kw>
+<kw library="keywords.GamegogyKeywords" name="Get Command Line Output">
+<assign>
+<var>${output}</var>
+</assign>
+<msg level="INFO" timestamp="20170419 19:42:34.321">${output} = 99000
+99001
+99002
+99003
+99004
+99005
+99006
+99007
+99008
+99009
+99010
+99011
+99012
+99013
+99014
+99015
+99016
+99017
+99018
+99019
+99020
+99021
+99022
+99023
+99024</msg>
+<status endtime="20170419 19:42:34.321" starttime="20170419 19:42:34.319" status="PASS"></status>
+</kw>
+<kw library="BuiltIn" name="Should Be Equal">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${f02crs_expected}</arg>
+<arg>${output}</arg>
+</arguments>
+<status endtime="20170419 19:42:34.324" starttime="20170419 19:42:34.322" status="PASS"></status>
+</kw>
+<status critical="yes" endtime="20170419 19:42:34.325" starttime="20170419 19:42:34.307" status="PASS"></status>
+</test>
+<status endtime="20170419 19:42:34.326" starttime="20170419 19:42:34.221" status="PASS"></status>
+</suite>
+<suite source="C:\Users\Joel Branham\Documents\SoftwareEngineering\GamegogySprint4\419\Gamegogy\client\src\test\acceptancetest\feature03.robot" name="Feature03" id="s1-s3">
+<test name="Test Gamegogy Default Values" id="s1-s3-t1">
+<kw library="SwingLibrary" name="Start Application">
+<doc>Alias for `Launch Application` keyword</doc>
+<arguments>
+<arg>edu.jsu.mcis.gamegogy.Main</arg>
+</arguments>
+<status endtime="20170419 19:42:34.514" starttime="20170419 19:42:34.472" status="PASS"></status>
+</kw>
+<kw library="SwingLibrary" name="Select Window">
+<doc>Selects a window as current context and sets focus to it.</doc>
+<arguments>
+<arg>Gamegogy</arg>
+</arguments>
+<status endtime="20170419 19:42:34.523" starttime="20170419 19:42:34.515" status="PASS"></status>
+</kw>
+<kw library="SwingLibrary" name="Get Selected Item From Combo Box">
+<doc>Returns an item from a combobox.</doc>
+<arguments>
+<arg>courseComboBox</arg>
+</arguments>
+<assign>
+<var>${courseId}</var>
+</assign>
+<msg level="INFO" timestamp="20170419 19:42:34.741">${courseId} = 99000</msg>
+<status endtime="20170419 19:42:34.741" starttime="20170419 19:42:34.524" status="PASS"></status>
+</kw>
+<kw library="BuiltIn" name="Should Be Equal">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>99000</arg>
+<arg>${courseId}</arg>
+</arguments>
+<status endtime="20170419 19:42:34.743" starttime="20170419 19:42:34.742" status="PASS"></status>
+</kw>
+<kw library="SwingLibrary" name="Get Selected Item From Combo Box">
+<doc>Returns an item from a combobox.</doc>
+<arguments>
+<arg>columnComboBox</arg>
+</arguments>
+<assign>
+<var>${columnName}</var>
+</assign>
+<msg level="INFO" timestamp="20170419 19:42:34.983">${columnName} = Total</msg>
+<status endtime="20170419 19:42:34.984" starttime="20170419 19:42:34.744" status="PASS"></status>
+</kw>
+<kw library="BuiltIn" name="Should Be Equal">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>Total</arg>
+<arg>${columnName}</arg>
+</arguments>
+<status endtime="20170419 19:42:34.985" starttime="20170419 19:42:34.984" status="PASS"></status>
+</kw>
+<kw library="SwingLibrary" name="Label Text Should Be">
+<doc>Checks the equality of given text and the text displayed on a label.</doc>
+<arguments>
+<arg>courseTerm</arg>
+<arg>Spring 2013</arg>
+</arguments>
+<status endtime="20170419 19:42:34.988" starttime="20170419 19:42:34.986" status="PASS"></status>
+</kw>
+<kw library="SwingLibrary" name="Label Text Should Be">
+<doc>Checks the equality of given text and the text displayed on a label.</doc>
+<arguments>
+<arg>courseEnrollment</arg>
+<arg>11</arg>
+</arguments>
+<status endtime="20170419 19:42:34.990" starttime="20170419 19:42:34.988" status="PASS"></status>
+</kw>
+<kw library="SwingLibrary" name="Label Text Should Be">
+<doc>Checks the equality of given text and the text displayed on a label.</doc>
+<arguments>
+<arg>studentId</arg>
+<arg>111318</arg>
+</arguments>
+<status endtime="20170419 19:42:34.992" starttime="20170419 19:42:34.990" status="PASS"></status>
+</kw>
+<kw library="SwingLibrary" name="Label Text Should Be">
+<doc>Checks the equality of given text and the text displayed on a label.</doc>
+<arguments>
+<arg>studentName</arg>
+<arg>Cathleen Guzman</arg>
+</arguments>
+<status endtime="20170419 19:42:34.995" starttime="20170419 19:42:34.993" status="PASS"></status>
+</kw>
+<kw library="SwingLibrary" name="Label Text Should Be">
+<doc>Checks the equality of given text and the text displayed on a label.</doc>
+<arguments>
+<arg>studentEmail</arg>
+<arg>cguzman@jsu.edu</arg>
+</arguments>
+<status endtime="20170419 19:42:34.998" starttime="20170419 19:42:34.996" status="PASS"></status>
+</kw>
+<kw library="SwingLibrary" name="Label Text Should Be">
+<doc>Checks the equality of given text and the text displayed on a label.</doc>
+<arguments>
+<arg>studentScore</arg>
+<arg>925.0</arg>
+</arguments>
+<status endtime="20170419 19:42:35.000" starttime="20170419 19:42:34.998" status="PASS"></status>
+</kw>
+<kw library="SwingLibrary" name="Close Window">
+<doc>Closes a window.</doc>
+<arguments>
+<arg>Gamegogy</arg>
+</arguments>
+<status endtime="20170419 19:42:35.161" starttime="20170419 19:42:35.001" status="PASS"></status>
+</kw>
+<status critical="yes" endtime="20170419 19:42:35.162" starttime="20170419 19:42:34.470" status="PASS"></status>
+</test>
+<test name="Test Gamegogy Course Select" id="s1-s3-t2">
+<kw library="SwingLibrary" name="Start Application">
+<doc>Alias for `Launch Application` keyword</doc>
+<arguments>
+<arg>edu.jsu.mcis.gamegogy.Main</arg>
+</arguments>
+<status endtime="20170419 19:42:35.195" starttime="20170419 19:42:35.164" status="PASS"></status>
+</kw>
+<kw library="SwingLibrary" name="Select Window">
+<doc>Selects a window as current context and sets focus to it.</doc>
+<arguments>
+<arg>Gamegogy</arg>
+</arguments>
+<status endtime="20170419 19:42:35.206" starttime="20170419 19:42:35.196" status="PASS"></status>
+</kw>
+<kw library="SwingLibrary" name="Select From Combo Box">
+<doc>Selects an item from a combobox.</doc>
+<arguments>
+<arg>courseComboBox</arg>
+<arg>7</arg>
+</arguments>
+<status endtime="20170419 19:42:35.476" starttime="20170419 19:42:35.206" status="PASS"></status>
+</kw>
+<kw library="SwingLibrary" name="Get Selected Item From Combo Box">
+<doc>Returns an item from a combobox.</doc>
+<arguments>
+<arg>columnComboBox</arg>
+</arguments>
+<assign>
+<var>${columnName}</var>
+</assign>
+<msg level="INFO" timestamp="20170419 19:42:35.718">${columnName} = Total</msg>
+<status endtime="20170419 19:42:35.719" starttime="20170419 19:42:35.476" status="PASS"></status>
+</kw>
+<kw library="BuiltIn" name="Should Be Equal">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>Total</arg>
+<arg>${columnName}</arg>
+</arguments>
+<status endtime="20170419 19:42:35.720" starttime="20170419 19:42:35.719" status="PASS"></status>
+</kw>
+<kw library="SwingLibrary" name="Label Text Should Be">
+<doc>Checks the equality of given text and the text displayed on a label.</doc>
+<arguments>
+<arg>courseTerm</arg>
+<arg>Spring 2012</arg>
+</arguments>
+<status endtime="20170419 19:42:35.722" starttime="20170419 19:42:35.720" status="PASS"></status>
+</kw>
+<kw library="SwingLibrary" name="Label Text Should Be">
+<doc>Checks the equality of given text and the text displayed on a label.</doc>
+<arguments>
+<arg>courseEnrollment</arg>
+<arg>7</arg>
+</arguments>
+<status endtime="20170419 19:42:35.724" starttime="20170419 19:42:35.723" status="PASS"></status>
+</kw>
+<kw library="SwingLibrary" name="Label Text Should Be">
+<doc>Checks the equality of given text and the text displayed on a label.</doc>
+<arguments>
+<arg>studentId</arg>
+<arg>111382</arg>
+</arguments>
+<status endtime="20170419 19:42:35.727" starttime="20170419 19:42:35.725" status="PASS"></status>
+</kw>
+<kw library="SwingLibrary" name="Label Text Should Be">
+<doc>Checks the equality of given text and the text displayed on a label.</doc>
+<arguments>
+<arg>studentName</arg>
+<arg>Mauricio Harrington</arg>
+</arguments>
+<status endtime="20170419 19:42:35.729" starttime="20170419 19:42:35.728" status="PASS"></status>
+</kw>
+<kw library="SwingLibrary" name="Label Text Should Be">
+<doc>Checks the equality of given text and the text displayed on a label.</doc>
+<arguments>
+<arg>studentEmail</arg>
+<arg>mharrington@jsu.edu</arg>
+</arguments>
+<status endtime="20170419 19:42:35.732" starttime="20170419 19:42:35.730" status="PASS"></status>
+</kw>
+<kw library="SwingLibrary" name="Label Text Should Be">
+<doc>Checks the equality of given text and the text displayed on a label.</doc>
+<arguments>
+<arg>studentScore</arg>
+<arg>803.0</arg>
+</arguments>
+<status endtime="20170419 19:42:35.734" starttime="20170419 19:42:35.732" status="PASS"></status>
+</kw>
+<kw library="SwingLibrary" name="Close Window">
+<doc>Closes a window.</doc>
+<arguments>
+<arg>Gamegogy</arg>
+</arguments>
+<status endtime="20170419 19:42:35.894" starttime="20170419 19:42:35.735" status="PASS"></status>
+</kw>
+<status critical="yes" endtime="20170419 19:42:35.895" starttime="20170419 19:42:35.163" status="PASS"></status>
+</test>
+<test name="Test Gamegogy Column Select" id="s1-s3-t3">
+<kw library="SwingLibrary" name="Start Application">
+<doc>Alias for `Launch Application` keyword</doc>
+<arguments>
+<arg>edu.jsu.mcis.gamegogy.Main</arg>
+</arguments>
+<status endtime="20170419 19:42:35.927" starttime="20170419 19:42:35.897" status="PASS"></status>
+</kw>
+<kw library="SwingLibrary" name="Select Window">
+<doc>Selects a window as current context and sets focus to it.</doc>
+<arguments>
+<arg>Gamegogy</arg>
+</arguments>
+<status endtime="20170419 19:42:35.937" starttime="20170419 19:42:35.928" status="PASS"></status>
+</kw>
+<kw library="SwingLibrary" name="Select From Combo Box">
+<doc>Selects an item from a combobox.</doc>
+<arguments>
+<arg>courseComboBox</arg>
+<arg>9</arg>
+</arguments>
+<status endtime="20170419 19:42:36.222" starttime="20170419 19:42:35.938" status="PASS"></status>
+</kw>
+<kw library="SwingLibrary" name="Select From Combo Box">
+<doc>Selects an item from a combobox.</doc>
+<arguments>
+<arg>columnComboBox</arg>
+<arg>Assignment 7</arg>
+</arguments>
+<status endtime="20170419 19:42:36.728" starttime="20170419 19:42:36.222" status="PASS"></status>
+</kw>
+<kw library="SwingLibrary" name="Label Text Should Be">
+<doc>Checks the equality of given text and the text displayed on a label.</doc>
+<arguments>
+<arg>courseTerm</arg>
+<arg>Spring 2012</arg>
+</arguments>
+<status endtime="20170419 19:42:36.731" starttime="20170419 19:42:36.728" status="PASS"></status>
+</kw>
+<kw library="SwingLibrary" name="Label Text Should Be">
+<doc>Checks the equality of given text and the text displayed on a label.</doc>
+<arguments>
+<arg>courseEnrollment</arg>
+<arg>25</arg>
+</arguments>
+<status endtime="20170419 19:42:36.733" starttime="20170419 19:42:36.731" status="PASS"></status>
+</kw>
+<kw library="SwingLibrary" name="Label Text Should Be">
+<doc>Checks the equality of given text and the text displayed on a label.</doc>
+<arguments>
+<arg>studentId</arg>
+<arg>111122</arg>
+</arguments>
+<status endtime="20170419 19:42:36.736" starttime="20170419 19:42:36.733" status="PASS"></status>
+</kw>
+<kw library="SwingLibrary" name="Label Text Should Be">
+<doc>Checks the equality of given text and the text displayed on a label.</doc>
+<arguments>
+<arg>studentName</arg>
+<arg>Vance McClain</arg>
+</arguments>
+<status endtime="20170419 19:42:36.738" starttime="20170419 19:42:36.736" status="PASS"></status>
+</kw>
+<kw library="SwingLibrary" name="Label Text Should Be">
+<doc>Checks the equality of given text and the text displayed on a label.</doc>
+<arguments>
+<arg>studentEmail</arg>
+<arg>vmcclain@jsu.edu</arg>
+</arguments>
+<status endtime="20170419 19:42:36.740" starttime="20170419 19:42:36.738" status="PASS"></status>
+</kw>
+<kw library="SwingLibrary" name="Label Text Should Be">
+<doc>Checks the equality of given text and the text displayed on a label.</doc>
+<arguments>
+<arg>studentScore</arg>
+<arg>59.0</arg>
+</arguments>
+<status endtime="20170419 19:42:36.743" starttime="20170419 19:42:36.741" status="PASS"></status>
+</kw>
+<kw library="SwingLibrary" name="Close Window">
+<doc>Closes a window.</doc>
+<arguments>
+<arg>Gamegogy</arg>
+</arguments>
+<status endtime="20170419 19:42:36.910" starttime="20170419 19:42:36.743" status="PASS"></status>
+</kw>
+<status critical="yes" endtime="20170419 19:42:36.911" starttime="20170419 19:42:35.896" status="PASS"></status>
+</test>
+<status endtime="20170419 19:42:36.913" starttime="20170419 19:42:34.329" status="PASS"></status>
+</suite>
+<suite source="C:\Users\Joel Branham\Documents\SoftwareEngineering\GamegogySprint4\419\Gamegogy\client\src\test\acceptancetest\feature04.robot" name="Feature04" id="s1-s4">
+<test name="Test Click Leaderboard Lowest" id="s1-s4-t1">
+<kw library="SwingLibrary" name="Start Application">
+<doc>Alias for `Launch Application` keyword</doc>
+<arguments>
+<arg>edu.jsu.mcis.gamegogy.Main</arg>
+</arguments>
+<status endtime="20170419 19:42:36.965" starttime="20170419 19:42:36.935" status="PASS"></status>
+</kw>
+<kw library="SwingLibrary" name="Select Window">
+<doc>Selects a window as current context and sets focus to it.</doc>
+<arguments>
+<arg>Gamegogy</arg>
+</arguments>
+<status endtime="20170419 19:42:36.975" starttime="20170419 19:42:36.965" status="PASS"></status>
+</kw>
+<kw library="keywords.LeaderboardKeywords" name="Click Leaderboard Bar At Index">
+<arguments>
+<arg>10</arg>
+</arguments>
+<status endtime="20170419 19:42:36.982" starttime="20170419 19:42:36.976" status="PASS"></status>
+</kw>
+<kw library="SwingLibrary" name="Label Text Should Be">
+<doc>Checks the equality of given text and the text displayed on a label.</doc>
+<arguments>
+<arg>studentId</arg>
+<arg>111141</arg>
+</arguments>
+<status endtime="20170419 19:42:36.985" starttime="20170419 19:42:36.983" status="PASS"></status>
+</kw>
+<kw library="SwingLibrary" name="Label Text Should Be">
+<doc>Checks the equality of given text and the text displayed on a label.</doc>
+<arguments>
+<arg>studentName</arg>
+<arg>Forest Rasmussen</arg>
+</arguments>
+<status endtime="20170419 19:42:36.987" starttime="20170419 19:42:36.986" status="PASS"></status>
+</kw>
+<kw library="SwingLibrary" name="Label Text Should Be">
+<doc>Checks the equality of given text and the text displayed on a label.</doc>
+<arguments>
+<arg>studentEmail</arg>
+<arg>frasmussen@jsu.edu</arg>
+</arguments>
+<status endtime="20170419 19:42:36.990" starttime="20170419 19:42:36.988" status="PASS"></status>
+</kw>
+<kw library="SwingLibrary" name="Label Text Should Be">
+<doc>Checks the equality of given text and the text displayed on a label.</doc>
+<arguments>
+<arg>studentScore</arg>
+<arg>381.0</arg>
+</arguments>
+<status endtime="20170419 19:42:36.993" starttime="20170419 19:42:36.991" status="PASS"></status>
+</kw>
+<kw library="SwingLibrary" name="Close Window">
+<doc>Closes a window.</doc>
+<arguments>
+<arg>Gamegogy</arg>
+</arguments>
+<status endtime="20170419 19:42:37.155" starttime="20170419 19:42:36.993" status="PASS"></status>
+</kw>
+<status critical="yes" endtime="20170419 19:42:37.155" starttime="20170419 19:42:36.933" status="PASS"></status>
+</test>
+<test name="Test Click Leaderboard Highest" id="s1-s4-t2">
+<kw library="SwingLibrary" name="Start Application">
+<doc>Alias for `Launch Application` keyword</doc>
+<arguments>
+<arg>edu.jsu.mcis.gamegogy.Main</arg>
+</arguments>
+<status endtime="20170419 19:42:37.190" starttime="20170419 19:42:37.158" status="PASS"></status>
+</kw>
+<kw library="SwingLibrary" name="Select Window">
+<doc>Selects a window as current context and sets focus to it.</doc>
+<arguments>
+<arg>Gamegogy</arg>
+</arguments>
+<status endtime="20170419 19:42:37.200" starttime="20170419 19:42:37.191" status="PASS"></status>
+</kw>
+<kw library="keywords.LeaderboardKeywords" name="Click Leaderboard Bar At Index">
+<arguments>
+<arg>0</arg>
+</arguments>
+<status endtime="20170419 19:42:37.206" starttime="20170419 19:42:37.201" status="PASS"></status>
+</kw>
+<kw library="SwingLibrary" name="Label Text Should Be">
+<doc>Checks the equality of given text and the text displayed on a label.</doc>
+<arguments>
+<arg>studentId</arg>
+<arg>111318</arg>
+</arguments>
+<status endtime="20170419 19:42:37.209" starttime="20170419 19:42:37.207" status="PASS"></status>
+</kw>
+<kw library="SwingLibrary" name="Label Text Should Be">
+<doc>Checks the equality of given text and the text displayed on a label.</doc>
+<arguments>
+<arg>studentName</arg>
+<arg>Cathleen Guzman</arg>
+</arguments>
+<status endtime="20170419 19:42:37.211" starttime="20170419 19:42:37.209" status="PASS"></status>
+</kw>
+<kw library="SwingLibrary" name="Label Text Should Be">
+<doc>Checks the equality of given text and the text displayed on a label.</doc>
+<arguments>
+<arg>studentEmail</arg>
+<arg>cguzman@jsu.edu</arg>
+</arguments>
+<status endtime="20170419 19:42:37.213" starttime="20170419 19:42:37.211" status="PASS"></status>
+</kw>
+<kw library="SwingLibrary" name="Label Text Should Be">
+<doc>Checks the equality of given text and the text displayed on a label.</doc>
+<arguments>
+<arg>studentScore</arg>
+<arg>925.0</arg>
+</arguments>
+<status endtime="20170419 19:42:37.216" starttime="20170419 19:42:37.214" status="PASS"></status>
+</kw>
+<kw library="SwingLibrary" name="Close Window">
+<doc>Closes a window.</doc>
+<arguments>
+<arg>Gamegogy</arg>
+</arguments>
+<status endtime="20170419 19:42:37.372" starttime="20170419 19:42:37.216" status="PASS"></status>
+</kw>
+<status critical="yes" endtime="20170419 19:42:37.373" starttime="20170419 19:42:37.157" status="PASS"></status>
+</test>
+<test name="Test Click Leaderboard Middle" id="s1-s4-t3">
+<kw library="SwingLibrary" name="Start Application">
+<doc>Alias for `Launch Application` keyword</doc>
+<arguments>
+<arg>edu.jsu.mcis.gamegogy.Main</arg>
+</arguments>
+<status endtime="20170419 19:42:37.407" starttime="20170419 19:42:37.375" status="PASS"></status>
+</kw>
+<kw library="SwingLibrary" name="Select Window">
+<doc>Selects a window as current context and sets focus to it.</doc>
+<arguments>
+<arg>Gamegogy</arg>
+</arguments>
+<status endtime="20170419 19:42:37.418" starttime="20170419 19:42:37.408" status="PASS"></status>
+</kw>
+<kw library="keywords.LeaderboardKeywords" name="Click Leaderboard Bar At Index">
+<arguments>
+<arg>6</arg>
+</arguments>
+<status endtime="20170419 19:42:37.425" starttime="20170419 19:42:37.418" status="PASS"></status>
+</kw>
+<kw library="SwingLibrary" name="Label Text Should Be">
+<doc>Checks the equality of given text and the text displayed on a label.</doc>
+<arguments>
+<arg>studentId</arg>
+<arg>111335</arg>
+</arguments>
+<status endtime="20170419 19:42:37.429" starttime="20170419 19:42:37.426" status="PASS"></status>
+</kw>
+<kw library="SwingLibrary" name="Label Text Should Be">
+<doc>Checks the equality of given text and the text displayed on a label.</doc>
+<arguments>
+<arg>studentName</arg>
+<arg>Ira Richardson</arg>
+</arguments>
+<status endtime="20170419 19:42:37.431" starttime="20170419 19:42:37.429" status="PASS"></status>
+</kw>
+<kw library="SwingLibrary" name="Label Text Should Be">
+<doc>Checks the equality of given text and the text displayed on a label.</doc>
+<arguments>
+<arg>studentEmail</arg>
+<arg>irichardson@jsu.edu</arg>
+</arguments>
+<status endtime="20170419 19:42:37.434" starttime="20170419 19:42:37.432" status="PASS"></status>
+</kw>
+<kw library="SwingLibrary" name="Label Text Should Be">
+<doc>Checks the equality of given text and the text displayed on a label.</doc>
+<arguments>
+<arg>studentScore</arg>
+<arg>558.0</arg>
+</arguments>
+<status endtime="20170419 19:42:37.436" starttime="20170419 19:42:37.434" status="PASS"></status>
+</kw>
+<kw library="SwingLibrary" name="Close Window">
+<doc>Closes a window.</doc>
+<arguments>
+<arg>Gamegogy</arg>
+</arguments>
+<status endtime="20170419 19:42:37.595" starttime="20170419 19:42:37.437" status="PASS"></status>
+</kw>
+<status critical="yes" endtime="20170419 19:42:37.596" starttime="20170419 19:42:37.374" status="PASS"></status>
+</test>
+<status endtime="20170419 19:42:37.597" starttime="20170419 19:42:36.918" status="PASS"></status>
+</suite>
+<suite source="C:\Users\Joel Branham\Documents\SoftwareEngineering\GamegogySprint4\419\Gamegogy\client\src\test\acceptancetest\feature05.robot" name="Feature05" id="s1-s5">
+<test name="Test Gamegogy Default Values" id="s1-s5-t1">
+<kw library="SwingLibrary" name="Start Application">
+<doc>Alias for `Launch Application` keyword</doc>
+<arguments>
+<arg>edu.jsu.mcis.gamegogy.Main</arg>
+<arg>${service_url_with_slash}</arg>
+</arguments>
+<status endtime="20170419 19:42:44.685" starttime="20170419 19:42:37.609" status="PASS"></status>
+</kw>
+<kw library="SwingLibrary" name="Select Window">
+<doc>Selects a window as current context and sets focus to it.</doc>
+<arguments>
+<arg>Gamegogy</arg>
+</arguments>
+<status endtime="20170419 19:42:44.698" starttime="20170419 19:42:44.686" status="PASS"></status>
+</kw>
+<kw library="SwingLibrary" name="Get Selected Item From Combo Box">
+<doc>Returns an item from a combobox.</doc>
+<arguments>
+<arg>courseComboBox</arg>
+</arguments>
+<assign>
+<var>${courseId}</var>
+</assign>
+<msg level="INFO" timestamp="20170419 19:42:44.989">${courseId} = 99000</msg>
+<status endtime="20170419 19:42:44.990" starttime="20170419 19:42:44.698" status="PASS"></status>
+</kw>
+<kw library="BuiltIn" name="Should Be Equal">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>99000</arg>
+<arg>${courseId}</arg>
+</arguments>
+<status endtime="20170419 19:42:44.992" starttime="20170419 19:42:44.990" status="PASS"></status>
+</kw>
+<kw library="SwingLibrary" name="Get Selected Item From Combo Box">
+<doc>Returns an item from a combobox.</doc>
+<arguments>
+<arg>columnComboBox</arg>
+</arguments>
+<assign>
+<var>${columnName}</var>
+</assign>
+<msg level="INFO" timestamp="20170419 19:42:45.211">${columnName} = Total</msg>
+<status endtime="20170419 19:42:45.211" starttime="20170419 19:42:44.992" status="PASS"></status>
+</kw>
+<kw library="BuiltIn" name="Should Be Equal">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>Total</arg>
+<arg>${columnName}</arg>
+</arguments>
+<status endtime="20170419 19:42:45.213" starttime="20170419 19:42:45.212" status="PASS"></status>
+</kw>
+<kw library="SwingLibrary" name="Label Text Should Be">
+<doc>Checks the equality of given text and the text displayed on a label.</doc>
+<arguments>
+<arg>courseTerm</arg>
+<arg>Spring 2013</arg>
+</arguments>
+<status endtime="20170419 19:42:45.215" starttime="20170419 19:42:45.214" status="PASS"></status>
+</kw>
+<kw library="SwingLibrary" name="Label Text Should Be">
+<doc>Checks the equality of given text and the text displayed on a label.</doc>
+<arguments>
+<arg>courseEnrollment</arg>
+<arg>11</arg>
+</arguments>
+<status endtime="20170419 19:42:45.218" starttime="20170419 19:42:45.216" status="PASS"></status>
+</kw>
+<kw library="SwingLibrary" name="Label Text Should Be">
+<doc>Checks the equality of given text and the text displayed on a label.</doc>
+<arguments>
+<arg>studentId</arg>
+<arg>111318</arg>
+</arguments>
+<status endtime="20170419 19:42:45.220" starttime="20170419 19:42:45.218" status="PASS"></status>
+</kw>
+<kw library="SwingLibrary" name="Label Text Should Be">
+<doc>Checks the equality of given text and the text displayed on a label.</doc>
+<arguments>
+<arg>studentName</arg>
+<arg>Cathleen Guzman</arg>
+</arguments>
+<status endtime="20170419 19:42:45.222" starttime="20170419 19:42:45.220" status="PASS"></status>
+</kw>
+<kw library="SwingLibrary" name="Label Text Should Be">
+<doc>Checks the equality of given text and the text displayed on a label.</doc>
+<arguments>
+<arg>studentEmail</arg>
+<arg>cguzman@jsu.edu</arg>
+</arguments>
+<status endtime="20170419 19:42:45.225" starttime="20170419 19:42:45.223" status="PASS"></status>
+</kw>
+<kw library="SwingLibrary" name="Label Text Should Be">
+<doc>Checks the equality of given text and the text displayed on a label.</doc>
+<arguments>
+<arg>studentScore</arg>
+<arg>925.0</arg>
+</arguments>
+<status endtime="20170419 19:42:45.227" starttime="20170419 19:42:45.225" status="PASS"></status>
+</kw>
+<kw library="SwingLibrary" name="Close Window">
+<doc>Closes a window.</doc>
+<arguments>
+<arg>Gamegogy</arg>
+</arguments>
+<status endtime="20170419 19:42:45.385" starttime="20170419 19:42:45.228" status="PASS"></status>
+</kw>
+<status critical="yes" endtime="20170419 19:42:45.386" starttime="20170419 19:42:37.608" status="PASS"></status>
+</test>
+<test name="Test Gamegogy Course Select" id="s1-s5-t2">
+<kw library="SwingLibrary" name="Start Application">
+<doc>Alias for `Launch Application` keyword</doc>
+<arguments>
+<arg>edu.jsu.mcis.gamegogy.Main</arg>
+<arg>${service_url_no_slash}</arg>
+</arguments>
+<status endtime="20170419 19:42:49.174" starttime="20170419 19:42:45.389" status="PASS"></status>
+</kw>
+<kw library="SwingLibrary" name="Select Window">
+<doc>Selects a window as current context and sets focus to it.</doc>
+<arguments>
+<arg>Gamegogy</arg>
+</arguments>
+<status endtime="20170419 19:42:49.185" starttime="20170419 19:42:49.174" status="PASS"></status>
+</kw>
+<kw library="SwingLibrary" name="Select From Combo Box">
+<doc>Selects an item from a combobox.</doc>
+<arguments>
+<arg>courseComboBox</arg>
+<arg>7</arg>
+</arguments>
+<status endtime="20170419 19:42:49.458" starttime="20170419 19:42:49.185" status="PASS"></status>
+</kw>
+<kw library="SwingLibrary" name="Get Selected Item From Combo Box">
+<doc>Returns an item from a combobox.</doc>
+<arguments>
+<arg>columnComboBox</arg>
+</arguments>
+<assign>
+<var>${columnName}</var>
+</assign>
+<msg level="INFO" timestamp="20170419 19:42:49.679">${columnName} = Total</msg>
+<status endtime="20170419 19:42:49.679" starttime="20170419 19:42:49.458" status="PASS"></status>
+</kw>
+<kw library="BuiltIn" name="Should Be Equal">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>Total</arg>
+<arg>${columnName}</arg>
+</arguments>
+<status endtime="20170419 19:42:49.681" starttime="20170419 19:42:49.680" status="PASS"></status>
+</kw>
+<kw library="SwingLibrary" name="Label Text Should Be">
+<doc>Checks the equality of given text and the text displayed on a label.</doc>
+<arguments>
+<arg>courseTerm</arg>
+<arg>Spring 2012</arg>
+</arguments>
+<status endtime="20170419 19:42:49.683" starttime="20170419 19:42:49.681" status="PASS"></status>
+</kw>
+<kw library="SwingLibrary" name="Label Text Should Be">
+<doc>Checks the equality of given text and the text displayed on a label.</doc>
+<arguments>
+<arg>courseEnrollment</arg>
+<arg>7</arg>
+</arguments>
+<status endtime="20170419 19:42:49.686" starttime="20170419 19:42:49.684" status="PASS"></status>
+</kw>
+<kw library="SwingLibrary" name="Label Text Should Be">
+<doc>Checks the equality of given text and the text displayed on a label.</doc>
+<arguments>
+<arg>studentId</arg>
+<arg>111382</arg>
+</arguments>
+<status endtime="20170419 19:42:49.688" starttime="20170419 19:42:49.686" status="PASS"></status>
+</kw>
+<kw library="SwingLibrary" name="Label Text Should Be">
+<doc>Checks the equality of given text and the text displayed on a label.</doc>
+<arguments>
+<arg>studentName</arg>
+<arg>Mauricio Harrington</arg>
+</arguments>
+<status endtime="20170419 19:42:49.690" starttime="20170419 19:42:49.688" status="PASS"></status>
+</kw>
+<kw library="SwingLibrary" name="Label Text Should Be">
+<doc>Checks the equality of given text and the text displayed on a label.</doc>
+<arguments>
+<arg>studentEmail</arg>
+<arg>mharrington@jsu.edu</arg>
+</arguments>
+<status endtime="20170419 19:42:49.692" starttime="20170419 19:42:49.690" status="PASS"></status>
+</kw>
+<kw library="SwingLibrary" name="Label Text Should Be">
+<doc>Checks the equality of given text and the text displayed on a label.</doc>
+<arguments>
+<arg>studentScore</arg>
+<arg>803.0</arg>
+</arguments>
+<status endtime="20170419 19:42:49.695" starttime="20170419 19:42:49.693" status="PASS"></status>
+</kw>
+<kw library="SwingLibrary" name="Close Window">
+<doc>Closes a window.</doc>
+<arguments>
+<arg>Gamegogy</arg>
+</arguments>
+<status endtime="20170419 19:42:49.856" starttime="20170419 19:42:49.696" status="PASS"></status>
+</kw>
+<status critical="yes" endtime="20170419 19:42:49.856" starttime="20170419 19:42:45.388" status="PASS"></status>
+</test>
+<test name="Test Gamegogy Column Select" id="s1-s5-t3">
+<kw library="SwingLibrary" name="Start Application">
+<doc>Alias for `Launch Application` keyword</doc>
+<arguments>
+<arg>edu.jsu.mcis.gamegogy.Main</arg>
+<arg>${service_url_with_slash}</arg>
+</arguments>
+<status endtime="20170419 19:42:53.451" starttime="20170419 19:42:49.858" status="PASS"></status>
+</kw>
+<kw library="SwingLibrary" name="Select Window">
+<doc>Selects a window as current context and sets focus to it.</doc>
+<arguments>
+<arg>Gamegogy</arg>
+</arguments>
+<status endtime="20170419 19:42:53.461" starttime="20170419 19:42:53.452" status="PASS"></status>
+</kw>
+<kw library="SwingLibrary" name="Select From Combo Box">
+<doc>Selects an item from a combobox.</doc>
+<arguments>
+<arg>courseComboBox</arg>
+<arg>9</arg>
+</arguments>
+<status endtime="20170419 19:42:53.745" starttime="20170419 19:42:53.462" status="PASS"></status>
+</kw>
+<kw library="SwingLibrary" name="Select From Combo Box">
+<doc>Selects an item from a combobox.</doc>
+<arguments>
+<arg>columnComboBox</arg>
+<arg>Assignment 7</arg>
+</arguments>
+<status endtime="20170419 19:42:54.243" starttime="20170419 19:42:53.745" status="PASS"></status>
+</kw>
+<kw library="SwingLibrary" name="Label Text Should Be">
+<doc>Checks the equality of given text and the text displayed on a label.</doc>
+<arguments>
+<arg>courseTerm</arg>
+<arg>Spring 2012</arg>
+</arguments>
+<status endtime="20170419 19:42:54.246" starttime="20170419 19:42:54.244" status="PASS"></status>
+</kw>
+<kw library="SwingLibrary" name="Label Text Should Be">
+<doc>Checks the equality of given text and the text displayed on a label.</doc>
+<arguments>
+<arg>courseEnrollment</arg>
+<arg>25</arg>
+</arguments>
+<status endtime="20170419 19:42:54.248" starttime="20170419 19:42:54.246" status="PASS"></status>
+</kw>
+<kw library="SwingLibrary" name="Label Text Should Be">
+<doc>Checks the equality of given text and the text displayed on a label.</doc>
+<arguments>
+<arg>studentId</arg>
+<arg>111122</arg>
+</arguments>
+<status endtime="20170419 19:42:54.250" starttime="20170419 19:42:54.248" status="PASS"></status>
+</kw>
+<kw library="SwingLibrary" name="Label Text Should Be">
+<doc>Checks the equality of given text and the text displayed on a label.</doc>
+<arguments>
+<arg>studentName</arg>
+<arg>Vance McClain</arg>
+</arguments>
+<status endtime="20170419 19:42:54.253" starttime="20170419 19:42:54.250" status="PASS"></status>
+</kw>
+<kw library="SwingLibrary" name="Label Text Should Be">
+<doc>Checks the equality of given text and the text displayed on a label.</doc>
+<arguments>
+<arg>studentEmail</arg>
+<arg>vmcclain@jsu.edu</arg>
+</arguments>
+<status endtime="20170419 19:42:54.256" starttime="20170419 19:42:54.253" status="PASS"></status>
+</kw>
+<kw library="SwingLibrary" name="Label Text Should Be">
+<doc>Checks the equality of given text and the text displayed on a label.</doc>
+<arguments>
+<arg>studentScore</arg>
+<arg>59.0</arg>
+</arguments>
+<status endtime="20170419 19:42:54.258" starttime="20170419 19:42:54.256" status="PASS"></status>
+</kw>
+<kw library="SwingLibrary" name="Close Window">
+<doc>Closes a window.</doc>
+<arguments>
+<arg>Gamegogy</arg>
+</arguments>
+<status endtime="20170419 19:42:54.419" starttime="20170419 19:42:54.259" status="PASS"></status>
+</kw>
+<status critical="yes" endtime="20170419 19:42:54.419" starttime="20170419 19:42:49.857" status="PASS"></status>
+</test>
+<status endtime="20170419 19:42:54.422" starttime="20170419 19:42:37.600" status="PASS"></status>
+</suite>
+<suite source="C:\Users\Joel Branham\Documents\SoftwareEngineering\GamegogySprint4\419\Gamegogy\client\src\test\acceptancetest\feature06.robot" name="Feature06" id="s1-s6">
+<test name="Test Default File Source" id="s1-s6-t1">
+<kw library="SwingLibrary" name="Start Application">
+<doc>Alias for `Launch Application` keyword</doc>
+<arguments>
+<arg>edu.jsu.mcis.gamegogy.Main</arg>
+</arguments>
+<status endtime="20170419 19:42:54.491" starttime="20170419 19:42:54.461" status="PASS"></status>
+</kw>
+<kw library="SwingLibrary" name="Select Window">
+<doc>Selects a window as current context and sets focus to it.</doc>
+<arguments>
+<arg>Gamegogy</arg>
+</arguments>
+<status endtime="20170419 19:42:54.501" starttime="20170419 19:42:54.491" status="PASS"></status>
+</kw>
+<kw name="Menu Item Should Be Selected">
+<arguments>
+<arg>Source|Resource File</arg>
+</arguments>
+<kw name="Is Menu Item Selected">
+<arguments>
+<arg>${menuText}</arg>
+</arguments>
+<assign>
+<var>${selected}</var>
+</assign>
+<kw library="String" name="Split String">
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<arguments>
+<arg>${menuText}</arg>
+<arg>\|</arg>
+</arguments>
+<assign>
+<var>@{menus}</var>
+</assign>
+<msg level="INFO" timestamp="20170419 19:42:54.508">@{menus} = [ Source | Resource File ]</msg>
+<status endtime="20170419 19:42:54.508" starttime="20170419 19:42:54.505" status="PASS"></status>
+</kw>
+<kw library="Collections" name="Remove From List">
+<doc>Removes and returns the value specified with an ``index`` from ``list``.</doc>
+<arguments>
+<arg>${menus}</arg>
+<arg>-1</arg>
+</arguments>
+<assign>
+<var>${lastItem}</var>
+</assign>
+<msg level="INFO" timestamp="20170419 19:42:54.509">${lastItem} = Resource File</msg>
+<status endtime="20170419 19:42:54.509" starttime="20170419 19:42:54.508" status="PASS"></status>
+</kw>
+<kw type="for" name="${menu} IN [ @{menus} ]">
+<kw type="foritem" name="${menu} = Source">
+<kw library="SwingLibrary" name="Select From Menu">
+<doc>Selects an item from the menu of the currently selected window.</doc>
+<arguments>
+<arg>${menu}</arg>
+</arguments>
+<status endtime="20170419 19:42:54.946" starttime="20170419 19:42:54.510" status="PASS"></status>
+</kw>
+<status endtime="20170419 19:42:54.947" starttime="20170419 19:42:54.510" status="PASS"></status>
+</kw>
+<status endtime="20170419 19:42:54.948" starttime="20170419 19:42:54.510" status="PASS"></status>
+</kw>
+<kw library="keywords.MenuItemKeywords" name="Radio Button Menu Item Is Selected">
+<arguments>
+<arg>${lastItem}</arg>
+</arguments>
+<assign>
+<var>${selected}</var>
+</assign>
+<msg level="INFO" timestamp="20170419 19:42:54.952">${selected} = True</msg>
+<status endtime="20170419 19:42:54.952" starttime="20170419 19:42:54.948" status="PASS"></status>
+</kw>
+<msg level="INFO" timestamp="20170419 19:42:54.953">${selected} = True</msg>
+<status endtime="20170419 19:42:54.953" starttime="20170419 19:42:54.503" status="PASS"></status>
+</kw>
+<kw library="BuiltIn" name="Should Be True">
+<doc>Fails if the given condition is not true.</doc>
+<arguments>
+<arg>${selected}</arg>
+</arguments>
+<status endtime="20170419 19:42:54.954" starttime="20170419 19:42:54.953" status="PASS"></status>
+</kw>
+<status endtime="20170419 19:42:54.955" starttime="20170419 19:42:54.501" status="PASS"></status>
+</kw>
+<kw name="Menu Item Should Not Be Selected">
+<arguments>
+<arg>Web Service</arg>
+</arguments>
+<kw name="Is Menu Item Selected">
+<arguments>
+<arg>${menuText}</arg>
+</arguments>
+<assign>
+<var>${selected}</var>
+</assign>
+<kw library="String" name="Split String">
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<arguments>
+<arg>${menuText}</arg>
+<arg>\|</arg>
+</arguments>
+<assign>
+<var>@{menus}</var>
+</assign>
+<msg level="INFO" timestamp="20170419 19:42:54.958">@{menus} = [ Web Service ]</msg>
+<status endtime="20170419 19:42:54.959" starttime="20170419 19:42:54.957" status="PASS"></status>
+</kw>
+<kw library="Collections" name="Remove From List">
+<doc>Removes and returns the value specified with an ``index`` from ``list``.</doc>
+<arguments>
+<arg>${menus}</arg>
+<arg>-1</arg>
+</arguments>
+<assign>
+<var>${lastItem}</var>
+</assign>
+<msg level="INFO" timestamp="20170419 19:42:54.960">${lastItem} = Web Service</msg>
+<status endtime="20170419 19:42:54.960" starttime="20170419 19:42:54.959" status="PASS"></status>
+</kw>
+<kw type="for" name="${menu} IN [ @{menus} ]">
+<status endtime="20170419 19:42:54.961" starttime="20170419 19:42:54.960" status="PASS"></status>
+</kw>
+<kw library="keywords.MenuItemKeywords" name="Radio Button Menu Item Is Selected">
+<arguments>
+<arg>${lastItem}</arg>
+</arguments>
+<assign>
+<var>${selected}</var>
+</assign>
+<msg level="INFO" timestamp="20170419 19:42:54.963">${selected} = False</msg>
+<status endtime="20170419 19:42:54.963" starttime="20170419 19:42:54.961" status="PASS"></status>
+</kw>
+<msg level="INFO" timestamp="20170419 19:42:54.964">${selected} = False</msg>
+<status endtime="20170419 19:42:54.964" starttime="20170419 19:42:54.956" status="PASS"></status>
+</kw>
+<kw library="BuiltIn" name="Should Not Be True">
+<doc>Fails if the given condition is true.</doc>
+<arguments>
+<arg>${selected}</arg>
+</arguments>
+<status endtime="20170419 19:42:54.966" starttime="20170419 19:42:54.965" status="PASS"></status>
+</kw>
+<status endtime="20170419 19:42:54.966" starttime="20170419 19:42:54.955" status="PASS"></status>
+</kw>
+<kw library="SwingLibrary" name="Close Window">
+<doc>Closes a window.</doc>
+<arguments>
+<arg>Gamegogy</arg>
+</arguments>
+<status endtime="20170419 19:42:55.126" starttime="20170419 19:42:54.967" status="PASS"></status>
+</kw>
+<status critical="yes" endtime="20170419 19:42:55.127" starttime="20170419 19:42:54.460" status="PASS"></status>
+</test>
+<test name="Test Web Service Source" id="s1-s6-t2">
+<kw library="SwingLibrary" name="Start Application">
+<doc>Alias for `Launch Application` keyword</doc>
+<arguments>
+<arg>edu.jsu.mcis.gamegogy.Main</arg>
+</arguments>
+<status endtime="20170419 19:42:55.187" starttime="20170419 19:42:55.129" status="PASS"></status>
+</kw>
+<kw library="SwingLibrary" name="Select Window">
+<doc>Selects a window as current context and sets focus to it.</doc>
+<arguments>
+<arg>Gamegogy</arg>
+</arguments>
+<status endtime="20170419 19:42:55.198" starttime="20170419 19:42:55.188" status="PASS"></status>
+</kw>
+<kw library="SwingLibrary" name="Get Selected Item From Combo Box">
+<doc>Returns an item from a combobox.</doc>
+<arguments>
+<arg>courseComboBox</arg>
+</arguments>
+<assign>
+<var>${courseId}</var>
+</assign>
+<msg level="INFO" timestamp="20170419 19:42:55.439">${courseId} = 99000</msg>
+<status endtime="20170419 19:42:55.440" starttime="20170419 19:42:55.199" status="PASS"></status>
+</kw>
+<kw library="BuiltIn" name="Should Be Equal">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>99000</arg>
+<arg>${courseId}</arg>
+</arguments>
+<status endtime="20170419 19:42:55.441" starttime="20170419 19:42:55.440" status="PASS"></status>
+</kw>
+<kw library="SwingLibrary" name="Get Selected Item From Combo Box">
+<doc>Returns an item from a combobox.</doc>
+<arguments>
+<arg>columnComboBox</arg>
+</arguments>
+<assign>
+<var>${columnName}</var>
+</assign>
+<msg level="INFO" timestamp="20170419 19:42:55.683">${columnName} = Total</msg>
+<status endtime="20170419 19:42:55.684" starttime="20170419 19:42:55.441" status="PASS"></status>
+</kw>
+<kw library="BuiltIn" name="Should Be Equal">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>Total</arg>
+<arg>${columnName}</arg>
+</arguments>
+<status endtime="20170419 19:42:55.685" starttime="20170419 19:42:55.684" status="PASS"></status>
+</kw>
+<kw library="SwingLibrary" name="Select From Combo Box">
+<doc>Selects an item from a combobox.</doc>
+<arguments>
+<arg>courseComboBox</arg>
+<arg>9</arg>
+</arguments>
+<status endtime="20170419 19:42:55.969" starttime="20170419 19:42:55.685" status="PASS"></status>
+</kw>
+<kw library="SwingLibrary" name="Select From Combo Box">
+<doc>Selects an item from a combobox.</doc>
+<arguments>
+<arg>columnComboBox</arg>
+<arg>Assignment 7</arg>
+</arguments>
+<status endtime="20170419 19:42:56.479" starttime="20170419 19:42:55.969" status="PASS"></status>
+</kw>
+<kw library="SwingLibrary" name="Label Text Should Be">
+<doc>Checks the equality of given text and the text displayed on a label.</doc>
+<arguments>
+<arg>courseTerm</arg>
+<arg>Spring 2012</arg>
+</arguments>
+<status endtime="20170419 19:42:56.481" starttime="20170419 19:42:56.479" status="PASS"></status>
+</kw>
+<kw library="SwingLibrary" name="Label Text Should Be">
+<doc>Checks the equality of given text and the text displayed on a label.</doc>
+<arguments>
+<arg>courseEnrollment</arg>
+<arg>25</arg>
+</arguments>
+<status endtime="20170419 19:42:56.483" starttime="20170419 19:42:56.481" status="PASS"></status>
+</kw>
+<kw library="SwingLibrary" name="Label Text Should Be">
+<doc>Checks the equality of given text and the text displayed on a label.</doc>
+<arguments>
+<arg>studentId</arg>
+<arg>111122</arg>
+</arguments>
+<status endtime="20170419 19:42:56.486" starttime="20170419 19:42:56.484" status="PASS"></status>
+</kw>
+<kw library="SwingLibrary" name="Label Text Should Be">
+<doc>Checks the equality of given text and the text displayed on a label.</doc>
+<arguments>
+<arg>studentName</arg>
+<arg>Vance McClain</arg>
+</arguments>
+<status endtime="20170419 19:42:56.488" starttime="20170419 19:42:56.486" status="PASS"></status>
+</kw>
+<kw library="SwingLibrary" name="Label Text Should Be">
+<doc>Checks the equality of given text and the text displayed on a label.</doc>
+<arguments>
+<arg>studentEmail</arg>
+<arg>vmcclain@jsu.edu</arg>
+</arguments>
+<status endtime="20170419 19:42:56.491" starttime="20170419 19:42:56.488" status="PASS"></status>
+</kw>
+<kw library="SwingLibrary" name="Label Text Should Be">
+<doc>Checks the equality of given text and the text displayed on a label.</doc>
+<arguments>
+<arg>studentScore</arg>
+<arg>59.0</arg>
+</arguments>
+<status endtime="20170419 19:42:56.493" starttime="20170419 19:42:56.491" status="PASS"></status>
+</kw>
+<kw library="SwingLibrary" name="Select From Menu">
+<doc>Selects an item from the menu of the currently selected window.</doc>
+<arguments>
+<arg>Source|Web Service</arg>
+</arguments>
+<status endtime="20170419 19:42:56.999" starttime="20170419 19:42:56.493" status="PASS"></status>
+</kw>
+<kw name="Menu Item Should Not Be Selected">
+<arguments>
+<arg>Source|Resource File</arg>
+</arguments>
+<kw name="Is Menu Item Selected">
+<arguments>
+<arg>${menuText}</arg>
+</arguments>
+<assign>
+<var>${selected}</var>
+</assign>
+<kw library="String" name="Split String">
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<arguments>
+<arg>${menuText}</arg>
+<arg>\|</arg>
+</arguments>
+<assign>
+<var>@{menus}</var>
+</assign>
+<msg level="INFO" timestamp="20170419 19:42:57.004">@{menus} = [ Source | Resource File ]</msg>
+<status endtime="20170419 19:42:57.005" starttime="20170419 19:42:57.003" status="PASS"></status>
+</kw>
+<kw library="Collections" name="Remove From List">
+<doc>Removes and returns the value specified with an ``index`` from ``list``.</doc>
+<arguments>
+<arg>${menus}</arg>
+<arg>-1</arg>
+</arguments>
+<assign>
+<var>${lastItem}</var>
+</assign>
+<msg level="INFO" timestamp="20170419 19:42:57.006">${lastItem} = Resource File</msg>
+<status endtime="20170419 19:42:57.006" starttime="20170419 19:42:57.005" status="PASS"></status>
+</kw>
+<kw type="for" name="${menu} IN [ @{menus} ]">
+<kw type="foritem" name="${menu} = Source">
+<kw library="SwingLibrary" name="Select From Menu">
+<doc>Selects an item from the menu of the currently selected window.</doc>
+<arguments>
+<arg>${menu}</arg>
+</arguments>
+<status endtime="20170419 19:43:02.449" starttime="20170419 19:42:57.007" status="PASS"></status>
+</kw>
+<status endtime="20170419 19:43:02.450" starttime="20170419 19:42:57.007" status="PASS"></status>
+</kw>
+<status endtime="20170419 19:43:02.450" starttime="20170419 19:42:57.007" status="PASS"></status>
+</kw>
+<kw library="keywords.MenuItemKeywords" name="Radio Button Menu Item Is Selected">
+<arguments>
+<arg>${lastItem}</arg>
+</arguments>
+<assign>
+<var>${selected}</var>
+</assign>
+<msg level="INFO" timestamp="20170419 19:43:02.454">${selected} = False</msg>
+<status endtime="20170419 19:43:02.455" starttime="20170419 19:43:02.451" status="PASS"></status>
+</kw>
+<msg level="INFO" timestamp="20170419 19:43:02.455">${selected} = False</msg>
+<status endtime="20170419 19:43:02.455" starttime="20170419 19:42:57.002" status="PASS"></status>
+</kw>
+<kw library="BuiltIn" name="Should Not Be True">
+<doc>Fails if the given condition is true.</doc>
+<arguments>
+<arg>${selected}</arg>
+</arguments>
+<status endtime="20170419 19:43:02.457" starttime="20170419 19:43:02.456" status="PASS"></status>
+</kw>
+<status endtime="20170419 19:43:02.457" starttime="20170419 19:42:57.001" status="PASS"></status>
+</kw>
+<kw name="Menu Item Should Be Selected">
+<arguments>
+<arg>Web Service</arg>
+</arguments>
+<kw name="Is Menu Item Selected">
+<arguments>
+<arg>${menuText}</arg>
+</arguments>
+<assign>
+<var>${selected}</var>
+</assign>
+<kw library="String" name="Split String">
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<arguments>
+<arg>${menuText}</arg>
+<arg>\|</arg>
+</arguments>
+<assign>
+<var>@{menus}</var>
+</assign>
+<msg level="INFO" timestamp="20170419 19:43:02.461">@{menus} = [ Web Service ]</msg>
+<status endtime="20170419 19:43:02.461" starttime="20170419 19:43:02.459" status="PASS"></status>
+</kw>
+<kw library="Collections" name="Remove From List">
+<doc>Removes and returns the value specified with an ``index`` from ``list``.</doc>
+<arguments>
+<arg>${menus}</arg>
+<arg>-1</arg>
+</arguments>
+<assign>
+<var>${lastItem}</var>
+</assign>
+<msg level="INFO" timestamp="20170419 19:43:02.462">${lastItem} = Web Service</msg>
+<status endtime="20170419 19:43:02.462" starttime="20170419 19:43:02.461" status="PASS"></status>
+</kw>
+<kw type="for" name="${menu} IN [ @{menus} ]">
+<status endtime="20170419 19:43:02.463" starttime="20170419 19:43:02.463" status="PASS"></status>
+</kw>
+<kw library="keywords.MenuItemKeywords" name="Radio Button Menu Item Is Selected">
+<arguments>
+<arg>${lastItem}</arg>
+</arguments>
+<assign>
+<var>${selected}</var>
+</assign>
+<msg level="INFO" timestamp="20170419 19:43:02.465">${selected} = True</msg>
+<status endtime="20170419 19:43:02.465" starttime="20170419 19:43:02.463" status="PASS"></status>
+</kw>
+<msg level="INFO" timestamp="20170419 19:43:02.466">${selected} = True</msg>
+<status endtime="20170419 19:43:02.466" starttime="20170419 19:43:02.459" status="PASS"></status>
+</kw>
+<kw library="BuiltIn" name="Should Be True">
+<doc>Fails if the given condition is not true.</doc>
+<arguments>
+<arg>${selected}</arg>
+</arguments>
+<status endtime="20170419 19:43:02.468" starttime="20170419 19:43:02.467" status="PASS"></status>
+</kw>
+<status endtime="20170419 19:43:02.468" starttime="20170419 19:43:02.458" status="PASS"></status>
+</kw>
+<kw library="SwingLibrary" name="Get Selected Item From Combo Box">
+<doc>Returns an item from a combobox.</doc>
+<arguments>
+<arg>courseComboBox</arg>
+</arguments>
+<assign>
+<var>${courseId}</var>
+</assign>
+<msg level="INFO" timestamp="20170419 19:43:02.709">${courseId} = 99000</msg>
+<status endtime="20170419 19:43:02.709" starttime="20170419 19:43:02.469" status="PASS"></status>
+</kw>
+<kw library="BuiltIn" name="Should Be Equal">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>99000</arg>
+<arg>${courseId}</arg>
+</arguments>
+<status endtime="20170419 19:43:02.711" starttime="20170419 19:43:02.710" status="PASS"></status>
+</kw>
+<kw library="SwingLibrary" name="Get Selected Item From Combo Box">
+<doc>Returns an item from a combobox.</doc>
+<arguments>
+<arg>columnComboBox</arg>
+</arguments>
+<assign>
+<var>${columnName}</var>
+</assign>
+<msg level="INFO" timestamp="20170419 19:43:02.947">${columnName} = Total</msg>
+<status endtime="20170419 19:43:02.948" starttime="20170419 19:43:02.711" status="PASS"></status>
+</kw>
+<kw library="BuiltIn" name="Should Be Equal">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>Total</arg>
+<arg>${columnName}</arg>
+</arguments>
+<status endtime="20170419 19:43:02.949" starttime="20170419 19:43:02.948" status="PASS"></status>
+</kw>
+<kw library="SwingLibrary" name="Close Window">
+<doc>Closes a window.</doc>
+<arguments>
+<arg>Gamegogy</arg>
+</arguments>
+<status endtime="20170419 19:43:03.122" starttime="20170419 19:43:02.949" status="PASS"></status>
+</kw>
+<status critical="yes" endtime="20170419 19:43:03.122" starttime="20170419 19:42:55.128" status="PASS"></status>
+</test>
+<test name="Test Reselected File Source" id="s1-s6-t3">
+<kw library="SwingLibrary" name="Start Application">
+<doc>Alias for `Launch Application` keyword</doc>
+<arguments>
+<arg>edu.jsu.mcis.gamegogy.Main</arg>
+</arguments>
+<status endtime="20170419 19:43:03.153" starttime="20170419 19:43:03.125" status="PASS"></status>
+</kw>
+<kw library="SwingLibrary" name="Select Window">
+<doc>Selects a window as current context and sets focus to it.</doc>
+<arguments>
+<arg>Gamegogy</arg>
+</arguments>
+<status endtime="20170419 19:43:03.163" starttime="20170419 19:43:03.153" status="PASS"></status>
+</kw>
+<kw library="SwingLibrary" name="Select From Menu">
+<doc>Selects an item from the menu of the currently selected window.</doc>
+<arguments>
+<arg>Source|Web Service</arg>
+</arguments>
+<status endtime="20170419 19:43:03.651" starttime="20170419 19:43:03.163" status="PASS"></status>
+</kw>
+<kw library="SwingLibrary" name="Get Selected Item From Combo Box">
+<doc>Returns an item from a combobox.</doc>
+<arguments>
+<arg>courseComboBox</arg>
+</arguments>
+<assign>
+<var>${courseId}</var>
+</assign>
+<msg level="INFO" timestamp="20170419 19:43:04.985">${courseId} = 99000</msg>
+<status endtime="20170419 19:43:04.985" starttime="20170419 19:43:03.652" status="PASS"></status>
+</kw>
+<kw library="BuiltIn" name="Should Be Equal">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>99000</arg>
+<arg>${courseId}</arg>
+</arguments>
+<status endtime="20170419 19:43:04.987" starttime="20170419 19:43:04.986" status="PASS"></status>
+</kw>
+<kw library="SwingLibrary" name="Get Selected Item From Combo Box">
+<doc>Returns an item from a combobox.</doc>
+<arguments>
+<arg>columnComboBox</arg>
+</arguments>
+<assign>
+<var>${columnName}</var>
+</assign>
+<msg level="INFO" timestamp="20170419 19:43:05.208">${columnName} = Total</msg>
+<status endtime="20170419 19:43:05.208" starttime="20170419 19:43:04.988" status="PASS"></status>
+</kw>
+<kw library="BuiltIn" name="Should Be Equal">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>Total</arg>
+<arg>${columnName}</arg>
+</arguments>
+<status endtime="20170419 19:43:05.210" starttime="20170419 19:43:05.209" status="PASS"></status>
+</kw>
+<kw library="SwingLibrary" name="Select From Combo Box">
+<doc>Selects an item from a combobox.</doc>
+<arguments>
+<arg>courseComboBox</arg>
+<arg>9</arg>
+</arguments>
+<status endtime="20170419 19:43:05.482" starttime="20170419 19:43:05.210" status="PASS"></status>
+</kw>
+<kw library="SwingLibrary" name="Select From Combo Box">
+<doc>Selects an item from a combobox.</doc>
+<arguments>
+<arg>columnComboBox</arg>
+<arg>Assignment 7</arg>
+</arguments>
+<status endtime="20170419 19:43:05.976" starttime="20170419 19:43:05.482" status="PASS"></status>
+</kw>
+<kw library="SwingLibrary" name="Label Text Should Be">
+<doc>Checks the equality of given text and the text displayed on a label.</doc>
+<arguments>
+<arg>courseTerm</arg>
+<arg>Spring 2012</arg>
+</arguments>
+<status endtime="20170419 19:43:05.978" starttime="20170419 19:43:05.976" status="PASS"></status>
+</kw>
+<kw library="SwingLibrary" name="Label Text Should Be">
+<doc>Checks the equality of given text and the text displayed on a label.</doc>
+<arguments>
+<arg>courseEnrollment</arg>
+<arg>25</arg>
+</arguments>
+<status endtime="20170419 19:43:05.981" starttime="20170419 19:43:05.979" status="PASS"></status>
+</kw>
+<kw library="SwingLibrary" name="Label Text Should Be">
+<doc>Checks the equality of given text and the text displayed on a label.</doc>
+<arguments>
+<arg>studentId</arg>
+<arg>111122</arg>
+</arguments>
+<status endtime="20170419 19:43:05.983" starttime="20170419 19:43:05.981" status="PASS"></status>
+</kw>
+<kw library="SwingLibrary" name="Label Text Should Be">
+<doc>Checks the equality of given text and the text displayed on a label.</doc>
+<arguments>
+<arg>studentName</arg>
+<arg>Vance McClain</arg>
+</arguments>
+<status endtime="20170419 19:43:05.985" starttime="20170419 19:43:05.983" status="PASS"></status>
+</kw>
+<kw library="SwingLibrary" name="Label Text Should Be">
+<doc>Checks the equality of given text and the text displayed on a label.</doc>
+<arguments>
+<arg>studentEmail</arg>
+<arg>vmcclain@jsu.edu</arg>
+</arguments>
+<status endtime="20170419 19:43:05.987" starttime="20170419 19:43:05.985" status="PASS"></status>
+</kw>
+<kw library="SwingLibrary" name="Label Text Should Be">
+<doc>Checks the equality of given text and the text displayed on a label.</doc>
+<arguments>
+<arg>studentScore</arg>
+<arg>59.0</arg>
+</arguments>
+<status endtime="20170419 19:43:05.989" starttime="20170419 19:43:05.988" status="PASS"></status>
+</kw>
+<kw library="SwingLibrary" name="Select From Menu">
+<doc>Selects an item from the menu of the currently selected window.</doc>
+<arguments>
+<arg>Source|Resource File</arg>
+</arguments>
+<status endtime="20170419 19:43:06.495" starttime="20170419 19:43:05.989" status="PASS"></status>
+</kw>
+<kw name="Menu Item Should Be Selected">
+<arguments>
+<arg>Source|Resource File</arg>
+</arguments>
+<kw name="Is Menu Item Selected">
+<arguments>
+<arg>${menuText}</arg>
+</arguments>
+<assign>
+<var>${selected}</var>
+</assign>
+<kw library="String" name="Split String">
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<arguments>
+<arg>${menuText}</arg>
+<arg>\|</arg>
+</arguments>
+<assign>
+<var>@{menus}</var>
+</assign>
+<msg level="INFO" timestamp="20170419 19:43:06.499">@{menus} = [ Source | Resource File ]</msg>
+<status endtime="20170419 19:43:06.500" starttime="20170419 19:43:06.498" status="PASS"></status>
+</kw>
+<kw library="Collections" name="Remove From List">
+<doc>Removes and returns the value specified with an ``index`` from ``list``.</doc>
+<arguments>
+<arg>${menus}</arg>
+<arg>-1</arg>
+</arguments>
+<assign>
+<var>${lastItem}</var>
+</assign>
+<msg level="INFO" timestamp="20170419 19:43:06.501">${lastItem} = Resource File</msg>
+<status endtime="20170419 19:43:06.501" starttime="20170419 19:43:06.500" status="PASS"></status>
+</kw>
+<kw type="for" name="${menu} IN [ @{menus} ]">
+<kw type="foritem" name="${menu} = Source">
+<kw library="SwingLibrary" name="Select From Menu">
+<doc>Selects an item from the menu of the currently selected window.</doc>
+<arguments>
+<arg>${menu}</arg>
+</arguments>
+<status endtime="20170419 19:43:06.944" starttime="20170419 19:43:06.502" status="PASS"></status>
+</kw>
+<status endtime="20170419 19:43:06.944" starttime="20170419 19:43:06.502" status="PASS"></status>
+</kw>
+<status endtime="20170419 19:43:06.944" starttime="20170419 19:43:06.501" status="PASS"></status>
+</kw>
+<kw library="keywords.MenuItemKeywords" name="Radio Button Menu Item Is Selected">
+<arguments>
+<arg>${lastItem}</arg>
+</arguments>
+<assign>
+<var>${selected}</var>
+</assign>
+<msg level="INFO" timestamp="20170419 19:43:06.947">${selected} = True</msg>
+<status endtime="20170419 19:43:06.948" starttime="20170419 19:43:06.945" status="PASS"></status>
+</kw>
+<msg level="INFO" timestamp="20170419 19:43:06.948">${selected} = True</msg>
+<status endtime="20170419 19:43:06.949" starttime="20170419 19:43:06.497" status="PASS"></status>
+</kw>
+<kw library="BuiltIn" name="Should Be True">
+<doc>Fails if the given condition is not true.</doc>
+<arguments>
+<arg>${selected}</arg>
+</arguments>
+<status endtime="20170419 19:43:06.950" starttime="20170419 19:43:06.949" status="PASS"></status>
+</kw>
+<status endtime="20170419 19:43:06.950" starttime="20170419 19:43:06.496" status="PASS"></status>
+</kw>
+<kw name="Menu Item Should Not Be Selected">
+<arguments>
+<arg>Web Service</arg>
+</arguments>
+<kw name="Is Menu Item Selected">
+<arguments>
+<arg>${menuText}</arg>
+</arguments>
+<assign>
+<var>${selected}</var>
+</assign>
+<kw library="String" name="Split String">
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<arguments>
+<arg>${menuText}</arg>
+<arg>\|</arg>
+</arguments>
+<assign>
+<var>@{menus}</var>
+</assign>
+<msg level="INFO" timestamp="20170419 19:43:06.954">@{menus} = [ Web Service ]</msg>
+<status endtime="20170419 19:43:06.954" starttime="20170419 19:43:06.952" status="PASS"></status>
+</kw>
+<kw library="Collections" name="Remove From List">
+<doc>Removes and returns the value specified with an ``index`` from ``list``.</doc>
+<arguments>
+<arg>${menus}</arg>
+<arg>-1</arg>
+</arguments>
+<assign>
+<var>${lastItem}</var>
+</assign>
+<msg level="INFO" timestamp="20170419 19:43:06.954">${lastItem} = Web Service</msg>
+<status endtime="20170419 19:43:06.954" starttime="20170419 19:43:06.954" status="PASS"></status>
+</kw>
+<kw type="for" name="${menu} IN [ @{menus} ]">
+<status endtime="20170419 19:43:06.955" starttime="20170419 19:43:06.955" status="PASS"></status>
+</kw>
+<kw library="keywords.MenuItemKeywords" name="Radio Button Menu Item Is Selected">
+<arguments>
+<arg>${lastItem}</arg>
+</arguments>
+<assign>
+<var>${selected}</var>
+</assign>
+<msg level="INFO" timestamp="20170419 19:43:06.957">${selected} = False</msg>
+<status endtime="20170419 19:43:06.957" starttime="20170419 19:43:06.955" status="PASS"></status>
+</kw>
+<msg level="INFO" timestamp="20170419 19:43:06.958">${selected} = False</msg>
+<status endtime="20170419 19:43:06.958" starttime="20170419 19:43:06.951" status="PASS"></status>
+</kw>
+<kw library="BuiltIn" name="Should Not Be True">
+<doc>Fails if the given condition is true.</doc>
+<arguments>
+<arg>${selected}</arg>
+</arguments>
+<status endtime="20170419 19:43:06.959" starttime="20170419 19:43:06.958" status="PASS"></status>
+</kw>
+<status endtime="20170419 19:43:06.960" starttime="20170419 19:43:06.950" status="PASS"></status>
+</kw>
+<kw library="SwingLibrary" name="Get Selected Item From Combo Box">
+<doc>Returns an item from a combobox.</doc>
+<arguments>
+<arg>courseComboBox</arg>
+</arguments>
+<assign>
+<var>${courseId}</var>
+</assign>
+<msg level="INFO" timestamp="20170419 19:43:07.199">${courseId} = 99000</msg>
+<status endtime="20170419 19:43:07.199" starttime="20170419 19:43:06.960" status="PASS"></status>
+</kw>
+<kw library="BuiltIn" name="Should Be Equal">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>99000</arg>
+<arg>${courseId}</arg>
+</arguments>
+<status endtime="20170419 19:43:07.201" starttime="20170419 19:43:07.200" status="PASS"></status>
+</kw>
+<kw library="SwingLibrary" name="Get Selected Item From Combo Box">
+<doc>Returns an item from a combobox.</doc>
+<arguments>
+<arg>columnComboBox</arg>
+</arguments>
+<assign>
+<var>${columnName}</var>
+</assign>
+<msg level="INFO" timestamp="20170419 19:43:07.442">${columnName} = Total</msg>
+<status endtime="20170419 19:43:07.442" starttime="20170419 19:43:07.201" status="PASS"></status>
+</kw>
+<kw library="BuiltIn" name="Should Be Equal">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>Total</arg>
+<arg>${columnName}</arg>
+</arguments>
+<status endtime="20170419 19:43:07.444" starttime="20170419 19:43:07.443" status="PASS"></status>
+</kw>
+<kw library="SwingLibrary" name="Close Window">
+<doc>Closes a window.</doc>
+<arguments>
+<arg>Gamegogy</arg>
+</arguments>
+<status endtime="20170419 19:43:07.621" starttime="20170419 19:43:07.444" status="PASS"></status>
+</kw>
+<status critical="yes" endtime="20170419 19:43:07.621" starttime="20170419 19:43:03.123" status="PASS"></status>
+</test>
+<status endtime="20170419 19:43:07.624" starttime="20170419 19:42:54.427" status="PASS"></status>
+</suite>
+<status endtime="20170419 19:43:07.631" starttime="20170419 19:42:34.036" status="PASS"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="17" fail="0">Critical Tests</stat>
+<stat pass="17" fail="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="17" fail="0" name="Acceptancetest" id="s1">Acceptancetest</stat>
+<stat pass="3" fail="0" name="Feature01" id="s1-s1">Acceptancetest.Feature01</stat>
+<stat pass="2" fail="0" name="Feature02" id="s1-s2">Acceptancetest.Feature02</stat>
+<stat pass="3" fail="0" name="Feature03" id="s1-s3">Acceptancetest.Feature03</stat>
+<stat pass="3" fail="0" name="Feature04" id="s1-s4">Acceptancetest.Feature04</stat>
+<stat pass="3" fail="0" name="Feature05" id="s1-s5">Acceptancetest.Feature05</stat>
+<stat pass="3" fail="0" name="Feature06" id="s1-s6">Acceptancetest.Feature06</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
