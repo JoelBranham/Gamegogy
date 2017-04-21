@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="edu.jsu.mcis.gamegogy.DatabaseTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2017-04-20T00:41:00" hostname="Joel" time="64.125">
+<testsuite name="edu.jsu.mcis.gamegogy.DatabaseTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2017-04-21T00:27:12" hostname="Joel" time="22.812">
   <properties/>
-  <testcase name="testInvalidKeyThrowsStudentException" classname="edu.jsu.mcis.gamegogy.DatabaseTest" time="17.083"/>
-  <testcase name="testInvalidKeyThrowsCourseException" classname="edu.jsu.mcis.gamegogy.DatabaseTest" time="4.599"/>
-  <testcase name="testStudents" classname="edu.jsu.mcis.gamegogy.DatabaseTest" time="8.166"/>
-  <testcase name="testGetStudentStrings" classname="edu.jsu.mcis.gamegogy.DatabaseTest" time="4.703"/>
-  <testcase name="testAddCourseInfo1" classname="edu.jsu.mcis.gamegogy.DatabaseTest" time="7.824"/>
-  <testcase name="testAddCourseInfo2" classname="edu.jsu.mcis.gamegogy.DatabaseTest" time="4.947"/>
-  <testcase name="testCourses" classname="edu.jsu.mcis.gamegogy.DatabaseTest" time="7.364"/>
-  <testcase name="testOnlineDatabase" classname="edu.jsu.mcis.gamegogy.DatabaseTest" time="4.687"/>
-  <testcase name="testGetCourseStrings" classname="edu.jsu.mcis.gamegogy.DatabaseTest" time="4.751"/>
+  <testcase name="testInvalidKeyThrowsStudentException" classname="edu.jsu.mcis.gamegogy.DatabaseTest" time="4.734"/>
+  <testcase name="testInvalidKeyThrowsCourseException" classname="edu.jsu.mcis.gamegogy.DatabaseTest" time="2.25"/>
+  <testcase name="testStudents" classname="edu.jsu.mcis.gamegogy.DatabaseTest" time="2.233"/>
+  <testcase name="testGetStudentStrings" classname="edu.jsu.mcis.gamegogy.DatabaseTest" time="1.917"/>
+  <testcase name="testAddCourseInfo1" classname="edu.jsu.mcis.gamegogy.DatabaseTest" time="2.012"/>
+  <testcase name="testAddCourseInfo2" classname="edu.jsu.mcis.gamegogy.DatabaseTest" time="1.924"/>
+  <testcase name="testCourses" classname="edu.jsu.mcis.gamegogy.DatabaseTest" time="2.937"/>
+  <testcase name="testOnlineDatabase" classname="edu.jsu.mcis.gamegogy.DatabaseTest" time="2.738"/>
+  <testcase name="testGetCourseStrings" classname="edu.jsu.mcis.gamegogy.DatabaseTest" time="2.064"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

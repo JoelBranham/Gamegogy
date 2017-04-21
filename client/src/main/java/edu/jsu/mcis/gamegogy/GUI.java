@@ -255,7 +255,7 @@ public class GUI extends JFrame implements ActionListener, Observer{
             offlineButton.setSelected(false);
             try{
 				if (url.equals("")){
-					dataBase = new Database(new JSONReader("http://inspired.jsu.edu:7272/gamegogy"));
+					dataBase = new Database(new JSONReader("http://localhost:8080/gamegogy"));
 				}
 				else{
 					dataBase = new Database(new JSONReader(url));

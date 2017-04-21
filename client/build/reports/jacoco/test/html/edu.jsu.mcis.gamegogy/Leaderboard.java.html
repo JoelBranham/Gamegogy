@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Leaderboard.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">client</a> &gt; <a href="index.source.html" class="el_package">edu.jsu.mcis.gamegogy</a> &gt; <span class="el_source">Leaderboard.java</span></div><h1>Leaderboard.java</h1><pre class="source lang-java linenums">package edu.jsu.mcis.gamegogy;
+
+import java.awt.*;
+import java.awt.event.*;
+import java.awt.geom.*;
+import javax.swing.*;
+import java.util.*;
+
+public class Leaderboard extends JPanel implements MouseListener{
+	
+	private LeaderBar[] bars;
+	private Assignment assignment;
+	private int numBars, myWidth, myHeight;
+	private LeaderboardObserver leaderboardObserver;
+	private float fontSize;
+	
+<span class="fc" id="L17">	public Leaderboard(int width, int height, Assignment assignment){</span>
+<span class="fc" id="L18">		myWidth = width;</span>
+<span class="fc" id="L19">		myHeight = height;</span>
+<span class="fc" id="L20">		leaderboardObserver = new LeaderboardObserver();</span>
+<span class="fc" id="L21">		bars = new LeaderBar[numBars];</span>
+<span class="fc" id="L22">		setAssignment(assignment);</span>
+<span class="fc" id="L23">		addMouseListener(this);</span>
+<span class="fc" id="L24">		setLayout(null);</span>
+<span class="fc" id="L25">		bars[0].setColor(Color.red);</span>
+<span class="fc" id="L26">		repaint();</span>
+<span class="fc" id="L27">	}</span>
+
+
+	public void setAssignment(Assignment assignment){
+<span class="pc bpc" id="L31" title="1 of 2 branches missed.">		for (int i=0; i&lt;bars.length; i++){</span>
+<span class="nc" id="L32">			bars[i].setLabelText(&quot;&quot;);</span>
+		}
+		
+	
+<span class="fc" id="L36">		this.assignment = assignment;</span>
+<span class="fc" id="L37">		numBars = assignment.getScores().size();</span>
+<span class="fc" id="L38">		bars = new LeaderBar[numBars];</span>
+<span class="fc bfc" id="L39" title="All 2 branches covered.">		for (int i = 0; i &lt; bars.length; i++){</span>
+<span class="fc" id="L40">			bars[i] = new LeaderBar(calculateScaleFactor(i), myWidth * 2/3, myHeight / numBars / 2);</span>
+<span class="fc" id="L41">			bars[i].offsetPoints(0, (i + 1) * myHeight / (numBars + 1));</span>
+<span class="fc" id="L42">			bars[i].setLabelBounds(myWidth - 75, (i + 1) * myHeight / (numBars + 1), 30, myHeight / numBars / 2);</span>
+<span class="fc" id="L43">			bars[i].setLabelText(assignment.getScores().get(i)+ &quot;&quot;);</span>
+<span class="fc" id="L44">			fontSize = 140.0f/(float) numBars;</span>
+<span class="fc bfc" id="L45" title="All 2 branches covered.">			if(numBars &lt; 10){</span>
+<span class="fc" id="L46">				fontSize = 15.0f;</span>
+			}
+<span class="fc" id="L48">			bars[i].getLabel().setFont(bars[i].getLabel().getFont().deriveFont(fontSize));</span>
+<span class="fc" id="L49">			add(bars[i].getLabel());</span>
+		}
+<span class="fc" id="L51">		bars[0].setColor(Color.red);</span>
+<span class="fc" id="L52">		repaint();</span>
+<span class="fc" id="L53">	}</span>
+	
+	private double calculateScaleFactor(int index){
+<span class="fc" id="L56">		return (double)(assignment.getScores().get(index)) / (double) (assignment.getTopScore());</span>
+	}
+
+	@Override
+	public void paintComponent(Graphics g) {
+<span class="fc" id="L61">		super.paintComponent(g);</span>
+<span class="fc" id="L62">		Graphics2D g2d = (Graphics2D)g;</span>
+<span class="fc bfc" id="L63" title="All 2 branches covered.">		for (int i = 0; i &lt; bars.length; i++){</span>
+<span class="fc" id="L64">			g2d.setColor(bars[i].getColor());</span>
+<span class="fc" id="L65">			g2d.draw(bars[i].getShape());</span>
+<span class="fc" id="L66">			g2d.fill(bars[i].getShape()); 	</span>
+		}
+<span class="fc" id="L68">	}</span>
+	
+	public Shape[] getShapes(){
+<span class="fc" id="L71">		Shape[] shapes = new Shape[bars.length];</span>
+<span class="fc bfc" id="L72" title="All 2 branches covered.">		for (int i = 0; i &lt; bars.length; i++){</span>
+<span class="fc" id="L73">			shapes[i] = bars[i].getShape();</span>
+		}
+<span class="fc" id="L75">		return shapes;</span>
+	}
+	
+	public void mouseClicked(MouseEvent event) { 
+<span class="nc bnc" id="L79" title="All 2 branches missed.">		for (int i = 0; i &lt; bars.length; i++){</span>
+<span class="nc bnc" id="L80" title="All 2 branches missed.">			if (bars[i].getShape().getBounds().contains(event.getX(), event.getY())){</span>
+<span class="nc" id="L81">				leaderboardObserver.update(assignment.getStudents().get(i), assignment.getScores().get(i));</span>
+<span class="nc" id="L82">				bars[i].setColor(Color.red);</span>
+			}
+			else {
+<span class="nc" id="L85">				bars[i].setColor(Color.black);</span>
+			}
+		}
+<span class="nc" id="L88">		repaint();</span>
+<span class="nc" id="L89">	}</span>
+	
+	public void addAnObserver(Observer observer){
+<span class="fc" id="L92">		leaderboardObserver.addObserver(observer);</span>
+<span class="fc" id="L93">	}</span>
+	
+<span class="nc" id="L95">	public void mousePressed(MouseEvent event) {}</span>
+<span class="nc" id="L96">	public void mouseReleased(MouseEvent event) {}</span>
+<span class="nc" id="L97">	public void mouseEntered(MouseEvent event) {}</span>
+<span class="nc" id="L98">	public void mouseExited(MouseEvent event) {}</span>
+	
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.8.201612092310</span></div></body></html>

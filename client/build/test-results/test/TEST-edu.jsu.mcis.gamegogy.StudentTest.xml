@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="edu.jsu.mcis.gamegogy.StudentTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2017-04-20T00:42:32" hostname="Joel" time="0.001">
+<testsuite name="edu.jsu.mcis.gamegogy.StudentTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2017-04-21T00:27:58" hostname="Joel" time="0.0">
   <properties/>
-  <testcase name="testToString" classname="edu.jsu.mcis.gamegogy.StudentTest" time="0.001"/>
+  <testcase name="testToString" classname="edu.jsu.mcis.gamegogy.StudentTest" time="0.0"/>
   <testcase name="testStudentIsInitalizedProperly" classname="edu.jsu.mcis.gamegogy.StudentTest" time="0.0"/>
   <testcase name="testStudentIsInitializedProperly2" classname="edu.jsu.mcis.gamegogy.StudentTest" time="0.0"/>
   <system-out><![CDATA[]]></system-out>

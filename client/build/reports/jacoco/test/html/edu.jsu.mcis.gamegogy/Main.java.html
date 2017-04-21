@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Main.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">client</a> &gt; <a href="index.source.html" class="el_package">edu.jsu.mcis.gamegogy</a> &gt; <span class="el_source">Main.java</span></div><h1>Main.java</h1><pre class="source lang-java linenums">package edu.jsu.mcis.gamegogy;
+
+import java.io.*;
+import java.util.*;
+import javax.swing.*;
+import java.awt.*;
+import java.util.List;
+import java.net.MalformedURLException;
+
+<span class="nc" id="L10">public class Main {</span>
+	
+    public static void main(String[] args) throws IOException {
+		
+<span class="fc" id="L14">        Database database = new Database(new CSVReader());</span>
+<span class="fc" id="L15">		JFrame win = null;</span>
+		
+<span class="fc bfc" id="L17" title="All 2 branches covered.">        if (args.length == 2){</span>
+<span class="fc bfc" id="L18" title="All 2 branches covered.">			if(args[0].equals(&quot;course&quot;)){</span>
+<span class="fc" id="L19">				System.out.println(database.getCourse(args[1]));</span>
+			} 
+<span class="pc bpc" id="L21" title="1 of 2 branches missed.">			else if(args[0].equals(&quot;student&quot;)){</span>
+<span class="fc" id="L22">				System.out.println(database.getStudent(args[1]));</span>
+			}
+		}
+<span class="fc bfc" id="L25" title="All 2 branches covered.">		else if (args.length == 1){</span>
+<span class="fc bfc" id="L26" title="All 2 branches covered.">			if (args[0].equals(&quot;courseids&quot;)){</span>
+<span class="fc" id="L27">				System.out.println(listToString(database.getCourseList()));</span>
+			}
+<span class="pc bpc" id="L29" title="1 of 2 branches missed.">			else if (args[0].equals(&quot;studentids&quot;)){</span>
+<span class="fc" id="L30">				System.out.println(listToString(database.getStudentList()));</span>
+			}
+			else{
+<span class="nc" id="L33">				win = new GUI(args[0]);</span>
+			}
+		}
+<span class="pc bpc" id="L36" title="1 of 2 branches missed.">		else if (args.length == 0){</span>
+<span class="fc" id="L37">			win = new GUI();</span>
+		}
+<span class="fc bfc" id="L39" title="All 2 branches covered.">		if (win != null){</span>
+<span class="fc" id="L40">			win.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);</span>
+<span class="fc" id="L41">			win.setSize(new Dimension(500,700));</span>
+<span class="fc" id="L42">			win.setResizable(false);</span>
+<span class="fc" id="L43">			win.setVisible(true);</span>
+		}
+<span class="fc" id="L45">    }</span>
+	
+	public static String listToString(List&lt;String&gt; list){
+<span class="fc" id="L48">		String string = &quot;&quot;;</span>
+<span class="fc bfc" id="L49" title="All 2 branches covered.">		for (String s: list){</span>
+<span class="fc" id="L50">			string += (s + &quot;\n&quot;);</span>
+<span class="fc" id="L51">		}</span>
+<span class="fc" id="L52">		return string;</span>
+	}
+	
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.8.201612092310</span></div></body></html>

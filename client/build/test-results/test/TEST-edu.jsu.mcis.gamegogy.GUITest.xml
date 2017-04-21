@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="edu.jsu.mcis.gamegogy.GUITest" tests="2" skipped="0" failures="0" errors="0" timestamp="2017-04-20T00:42:04" hostname="Joel" time="2.407">
+<testsuite name="edu.jsu.mcis.gamegogy.GUITest" tests="2" skipped="0" failures="0" errors="0" timestamp="2017-04-21T00:27:34" hostname="Joel" time="2.009">
   <properties/>
-  <testcase name="testWindowOpensOnRuntime" classname="edu.jsu.mcis.gamegogy.GUITest" time="2.406"/>
+  <testcase name="testWindowOpensOnRuntime" classname="edu.jsu.mcis.gamegogy.GUITest" time="2.009"/>
   <testcase name="testHelpUrlExsist" classname="edu.jsu.mcis.gamegogy.GUITest" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>

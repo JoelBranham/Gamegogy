@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Course.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">client</a> &gt; <a href="index.source.html" class="el_package">edu.jsu.mcis.gamegogy</a> &gt; <span class="el_source">Course.java</span></div><h1>Course.java</h1><pre class="source lang-java linenums">package edu.jsu.mcis.gamegogy;
+
+import java.util.*;
+
+public class Course{
+
+	private String id,term,year;
+	private int size;
+	private Map&lt;String, Assignment&gt; assignment; 
+	private CourseGrades grades;
+
+<span class="fc" id="L12">	public Course(String i, String y, int s, String t){</span>
+<span class="fc" id="L13">		id = i;</span>
+<span class="fc" id="L14">		term = t;</span>
+<span class="fc" id="L15">		year = y;</span>
+<span class="fc" id="L16">		size = s;</span>
+<span class="fc" id="L17">		assignment = new HashMap&lt;String, Assignment&gt;();</span>
+<span class="fc" id="L18">		grades = new CourseGrades();</span>
+<span class="fc" id="L19">	}</span>
+	
+	public void addAssignment(Assignment a){
+<span class="fc" id="L22">		assignment.put(a.getName(), a);</span>
+<span class="fc" id="L23">		grades.addAssignment(a.getName());</span>
+<span class="fc" id="L24">		grades.setStudents(a.getUnsortedStudents());</span>
+<span class="fc" id="L25">	}</span>
+
+	public void addData(List&lt;Float&gt; list){
+<span class="fc" id="L28">		grades.addData(list);</span>
+<span class="fc" id="L29">	}</span>
+	
+	public String getId(){
+<span class="fc" id="L32">		return id;</span>
+	}
+
+	public String getTerm(){
+<span class="fc" id="L36">		return term;</span>
+	}
+	
+	public String getYear(){
+<span class="fc" id="L40">		return year;</span>
+	}
+	
+	public int getSize(){
+<span class="fc" id="L44">		return size;</span>
+	}
+	
+	public String toString(){
+<span class="fc" id="L48">		return &quot;[&quot; + id + &quot;] &quot; + term + &quot; &quot; + year + &quot; (&quot; + size + &quot; students)&quot;;</span>
+	}
+	
+	public CourseGrades getGrades(){
+<span class="fc" id="L52">		return grades;</span>
+	}
+	
+	public Assignment getAssignment(String name){ 
+<span class="fc bfc" id="L56" title="All 2 branches covered.">		if (assignment.containsKey(name)){</span>
+<span class="fc" id="L57">			return assignment.get(name);</span>
+		}
+<span class="fc" id="L59">		throw new AssignmentException(); </span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.8.201612092310</span></div></body></html>

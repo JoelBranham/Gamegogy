@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="edu.jsu.mcis.gamegogy.MainTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2017-04-20T00:42:32" hostname="Joel" time="0.114">
+<testsuite name="edu.jsu.mcis.gamegogy.MainTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2017-04-21T00:27:58" hostname="Joel" time="0.097">
   <properties/>
-  <testcase name="testInvalidStudentArgsThrowsStudentException" classname="edu.jsu.mcis.gamegogy.MainTest" time="0.013"/>
-  <testcase name="testInvalidCourseArgsThrowsCourseException" classname="edu.jsu.mcis.gamegogy.MainTest" time="0.011"/>
-  <testcase name="testWindowOpensOnRuntime" classname="edu.jsu.mcis.gamegogy.MainTest" time="0.045"/>
+  <testcase name="testInvalidStudentArgsThrowsStudentException" classname="edu.jsu.mcis.gamegogy.MainTest" time="0.008"/>
+  <testcase name="testInvalidCourseArgsThrowsCourseException" classname="edu.jsu.mcis.gamegogy.MainTest" time="0.007"/>
+  <testcase name="testWindowOpensOnRuntime" classname="edu.jsu.mcis.gamegogy.MainTest" time="0.03"/>
   <testcase name="testCorrectStudentArgsYieldCorrectOutput" classname="edu.jsu.mcis.gamegogy.MainTest" time="0.016"/>
-  <testcase name="testCorrectCourseArgsYieldCorrectOutput" classname="edu.jsu.mcis.gamegogy.MainTest" time="0.008"/>
+  <testcase name="testCorrectCourseArgsYieldCorrectOutput" classname="edu.jsu.mcis.gamegogy.MainTest" time="0.017"/>
   <testcase name="testCorrectSingleArgYieldsCorrectOutput1" classname="edu.jsu.mcis.gamegogy.MainTest" time="0.009"/>
   <testcase name="testCorrectSingleArgYieldsCorrectOutput2" classname="edu.jsu.mcis.gamegogy.MainTest" time="0.009"/>
   <system-out><![CDATA[]]></system-out>

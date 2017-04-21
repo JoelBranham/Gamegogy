@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>GUI.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">client</a> &gt; <a href="index.source.html" class="el_package">edu.jsu.mcis.gamegogy</a> &gt; <span class="el_source">GUI.java</span></div><h1>GUI.java</h1><pre class="source lang-java linenums">package edu.jsu.mcis.gamegogy;
+
+import java.awt.*;
+import java.awt.event.*;
+import java.io.File;
+import java.io.IOException;
+import javax.swing.*;
+import java.util.*;
+
+public class GUI extends JFrame implements ActionListener, Observer{
+	
+	private Leaderboard leaderboard;
+	
+    private Database dataBase;
+	private String url;
+
+	private JMenuBar bar;
+    private JMenuItem sourceMenu,helpMenu;
+	private JMenuItem helpButton;
+    private JRadioButtonMenuItem offlineButton;
+    private JRadioButtonMenuItem webButton;
+
+	private JLabel course, column, term, enrollment, id, name, email, score, line, leader;
+	private JLabel courseEnrollment, courseTerm, studentId, studentName, studentEmail, studentScore;
+	private JComboBox&lt;String&gt; courseComboBox, columnComboBox;
+
+	private Course currentCourse;
+	private Assignment currentAssignment;
+	private Student currentStudent;
+	
+	public GUI() throws IOException{
+<span class="fc" id="L32">		this(&quot;&quot;);</span>
+<span class="fc" id="L33">	}</span>
+
+<span class="fc" id="L35">    public GUI(String url) throws IOException{</span>
+
+<span class="fc" id="L37">		getContentPane().setBackground(Color.black);</span>
+<span class="fc bfc" id="L38" title="All 2 branches covered.">		dataBase = (url == &quot;&quot;) ? new Database(new CSVReader()) : new Database(new JSONReader(url));</span>
+<span class="fc" id="L39">		this.url = url; </span>
+		
+<span class="fc" id="L41">		setPreferredSize(new Dimension(500, 700));</span>
+<span class="fc" id="L42">		setLayout(null);</span>
+<span class="fc" id="L43">		setTitle(&quot;Gamegogy&quot;);</span>
+		
+<span class="fc" id="L45">		JLabel course = new JLabel(&quot;Course&quot;);</span>
+<span class="fc" id="L46">		course.setFont(new Font(&quot;AR Julian&quot;, Font.PLAIN, 13));</span>
+<span class="fc" id="L47">		course.setForeground(Color.white);</span>
+<span class="fc" id="L48">		course.setBounds(50,10,50,32);</span>
+<span class="fc" id="L49">		add(course);</span>
+		
+<span class="fc" id="L51">		Object[] objArray = dataBase.getCourseList().toArray();</span>
+<span class="fc" id="L52">		String[] courseStrings = new String[objArray.length];</span>
+<span class="fc bfc" id="L53" title="All 2 branches covered.">		for (int i = 0; i &lt; objArray.length; i++){</span>
+<span class="fc" id="L54">			courseStrings[i] = (String) objArray[i];</span>
+		}
+<span class="fc" id="L56">		courseComboBox = new JComboBox&lt;String&gt;(courseStrings);</span>
+<span class="fc" id="L57">		courseComboBox.setBounds(100,16,75,24);</span>
+<span class="fc" id="L58">		courseComboBox.addActionListener(this);</span>
+<span class="fc" id="L59">		courseComboBox.setName(&quot;courseComboBox&quot;);</span>
+<span class="fc" id="L60">		add(courseComboBox);</span>
+		
+<span class="fc" id="L62">		JLabel column = new JLabel(&quot;Column&quot;);</span>
+<span class="fc" id="L63">		column.setFont(new Font(&quot;AR Julian&quot;, Font.PLAIN, 13));</span>
+<span class="fc" id="L64">		column.setForeground(Color.white);</span>
+<span class="fc" id="L65">		column.setBounds(250,10,50,32);</span>
+<span class="fc" id="L66">		add(column);</span>
+		
+<span class="fc" id="L68">		columnComboBox = new JComboBox&lt;String&gt;();</span>
+<span class="fc" id="L69">		columnComboBox.setBounds(300,16,110,24);</span>
+<span class="fc" id="L70">		columnComboBox.addActionListener(this);</span>
+<span class="fc" id="L71">		columnComboBox.setName(&quot;columnComboBox&quot;);</span>
+<span class="fc" id="L72">		add(columnComboBox);</span>
+
+<span class="fc" id="L74">		term = new JLabel(&quot;Term:&quot;);</span>
+<span class="fc" id="L75">		term.setFont(new Font(&quot;AR Julian&quot;, Font.PLAIN, 13));</span>
+<span class="fc" id="L76">		term.setForeground(Color.white);</span>
+<span class="fc" id="L77">		term.setBounds(50,180,50,32);</span>
+<span class="fc" id="L78">		add(term);</span>
+		
+<span class="fc" id="L80">		courseTerm = new JLabel();</span>
+<span class="fc" id="L81">		courseTerm.setName(&quot;courseTerm&quot;);</span>
+<span class="fc" id="L82">		courseTerm.setFont(new Font(&quot;AR Julian&quot;, Font.PLAIN, 13));</span>
+<span class="fc" id="L83">		courseTerm.setForeground(Color.white);</span>
+<span class="fc" id="L84">		courseTerm.setBounds(90,180,150,32);</span>
+<span class="fc" id="L85">		add(courseTerm);</span>
+		
+<span class="fc" id="L87">		enrollment = new JLabel(&quot;Enrollment:&quot;);</span>
+<span class="fc" id="L88">		enrollment.setFont(new Font(&quot;AR Julian&quot;, Font.PLAIN, 13));</span>
+<span class="fc" id="L89">		enrollment.setForeground(Color.white);</span>
+<span class="fc" id="L90">		enrollment.setBounds(250,180,100,32);</span>
+<span class="fc" id="L91">		add(enrollment);</span>
+		
+<span class="fc" id="L93">		courseEnrollment = new JLabel();</span>
+<span class="fc" id="L94">		courseEnrollment.setName(&quot;courseEnrollment&quot;);</span>
+<span class="fc" id="L95">		courseEnrollment.setFont(new Font(&quot;AR Julian&quot;, Font.PLAIN, 13));</span>
+<span class="fc" id="L96">		courseEnrollment.setForeground(Color.white);</span>
+<span class="fc" id="L97">		courseEnrollment.setBounds(325,180,50,32);</span>
+<span class="fc" id="L98">		add(courseEnrollment);</span>
+		
+		
+<span class="fc" id="L101">		String s = &quot;&quot;;</span>
+<span class="fc bfc" id="L102" title="All 2 branches covered.">		for(int i = 0; i &lt; 125; i++){</span>
+<span class="fc" id="L103">			s += &quot;-&quot;;</span>
+		}
+<span class="fc" id="L105">		line = new JLabel(s);</span>
+<span class="fc" id="L106">		line.setBounds(0,525,500,32);</span>
+<span class="fc" id="L107">		add(line);</span>
+		
+<span class="fc" id="L109">		id = new JLabel(&quot;ID:&quot;);</span>
+<span class="fc" id="L110">		id.setFont(new Font(&quot;AR Julian&quot;, Font.PLAIN, 13));</span>
+<span class="fc" id="L111">		id.setForeground(Color.white);</span>
+<span class="fc" id="L112">		id.setBounds(50,565,50,25);</span>
+<span class="fc" id="L113">		add(id);</span>
+		
+<span class="fc" id="L115">        studentId = new JLabel();</span>
+<span class="fc" id="L116">        studentId.setBounds(100,565,400,25);</span>
+<span class="fc" id="L117">		studentId.setFont(new Font(&quot;AR Julian&quot;, Font.PLAIN, 13));</span>
+<span class="fc" id="L118">		studentId.setForeground(Color.white);</span>
+<span class="fc" id="L119">		studentId.setName(&quot;studentId&quot;);</span>
+<span class="fc" id="L120">		add(studentId);</span>
+		
+<span class="fc" id="L122">		name = new JLabel(&quot;Name:&quot;);</span>
+<span class="fc" id="L123">		name.setFont(new Font(&quot;AR Julian&quot;, Font.PLAIN, 13));</span>
+<span class="fc" id="L124">		name.setForeground(Color.white);</span>
+<span class="fc" id="L125">		name.setBounds(50,585,50,25);</span>
+<span class="fc" id="L126">		add(name);</span>
+		
+<span class="fc" id="L128">		studentName = new JLabel();</span>
+<span class="fc" id="L129">        studentName.setBounds(100,585,500,25);</span>
+<span class="fc" id="L130">		studentName.setName(&quot;studentName&quot;);</span>
+<span class="fc" id="L131">		studentName.setFont(new Font(&quot;AR Julian&quot;, Font.PLAIN, 13));</span>
+<span class="fc" id="L132">		studentName.setForeground(Color.white);</span>
+<span class="fc" id="L133">		add(studentName);</span>
+					
+<span class="fc" id="L135">		email = new JLabel(&quot;Email:&quot;);</span>
+<span class="fc" id="L136">		email.setFont(new Font(&quot;AR Julian&quot;, Font.PLAIN, 13));</span>
+<span class="fc" id="L137">		email.setForeground(Color.white);</span>
+<span class="fc" id="L138">		email.setBounds(50,605,50,25);</span>
+<span class="fc" id="L139">		add(email);</span>
+		
+<span class="fc" id="L141">		studentEmail = new JLabel();</span>
+<span class="fc" id="L142">		studentEmail.setFont(new Font(&quot;AR Julian&quot;, Font.PLAIN, 13));</span>
+<span class="fc" id="L143">		studentEmail.setForeground(Color.white);</span>
+<span class="fc" id="L144">        studentEmail.setBounds(100,605,500,25);</span>
+<span class="fc" id="L145">		studentEmail.setName(&quot;studentEmail&quot;);</span>
+<span class="fc" id="L146">		add(studentEmail);</span>
+	
+<span class="fc" id="L148">		score = new JLabel(&quot;Score:&quot;);</span>
+<span class="fc" id="L149">		score.setFont(new Font(&quot;AR Julian&quot;, Font.PLAIN, 13));</span>
+<span class="fc" id="L150">		score.setForeground(Color.white);</span>
+<span class="fc" id="L151">		score.setBounds(50,625,50,25);</span>
+<span class="fc" id="L152">		add(score);</span>
+		
+<span class="fc" id="L154">		studentScore = new JLabel();</span>
+<span class="fc" id="L155">        studentScore.setBounds(100,625,150,25);</span>
+<span class="fc" id="L156">		studentScore.setName(&quot;studentScore&quot;);</span>
+<span class="fc" id="L157">		studentScore.setFont(new Font(&quot;AR Julian&quot;, Font.PLAIN, 13));</span>
+<span class="fc" id="L158">		studentScore.setForeground(Color.white);</span>
+<span class="fc" id="L159">		add(studentScore);</span>
+		
+<span class="fc" id="L161">		updateAfterCourseChange();</span>
+<span class="fc" id="L162">		updateAfterAssignmentChange();</span>
+
+<span class="fc" id="L164">		leaderboard = new Leaderboard(400, 300, currentAssignment);</span>
+<span class="fc" id="L165">		leaderboard.setBounds(50, 240, 400, 300);</span>
+<span class="fc" id="L166">		add(leaderboard);</span>
+<span class="fc" id="L167">		leaderboard.addAnObserver(this);</span>
+
+
+<span class="fc" id="L170">		bar = new JMenuBar();</span>
+<span class="fc" id="L171">        sourceMenu = new JMenu(&quot;Source&quot;);</span>
+<span class="fc" id="L172">		helpButton = new JMenuItem(&quot;Help Documentation&quot;);</span>
+
+
+<span class="fc" id="L175">		helpButton.addActionListener(this);</span>
+<span class="fc" id="L176">		helpMenu = new JMenu(&quot;Help&quot;);</span>
+<span class="fc" id="L177">		helpMenu.add(helpButton);</span>
+
+<span class="fc" id="L179">        offlineButton = new JRadioButtonMenuItem(&quot;Resource File&quot;);</span>
+<span class="fc" id="L180">        webButton = new JRadioButtonMenuItem(&quot;Web Service&quot;);</span>
+<span class="fc" id="L181">        offlineButton.setSelected(true);</span>
+<span class="fc" id="L182">        webButton.setSelected(false);</span>
+<span class="fc" id="L183">		offlineButton.addActionListener(this);</span>
+<span class="fc" id="L184">        sourceMenu.add(offlineButton);</span>
+<span class="fc" id="L185">        webButton.addActionListener(this);</span>
+<span class="fc" id="L186">        sourceMenu.add(webButton);</span>
+<span class="fc" id="L187">        bar.add(sourceMenu);</span>
+
+<span class="fc" id="L189">		bar.add(helpMenu);</span>
+<span class="fc" id="L190">		setJMenuBar(bar);</span>
+
+<span class="fc" id="L192">    }</span>
+	
+	public void updateAfterCourseChange(){
+<span class="fc" id="L195">		String currentCourseString = (String) courseComboBox.getSelectedItem();</span>
+<span class="fc" id="L196">		currentCourse = dataBase.getCourse(currentCourseString);</span>
+<span class="fc" id="L197">		Object[] obArray = currentCourse.getGrades().getColHeaders().toArray();</span>
+<span class="fc" id="L198">		String[] assignments = new String[obArray.length];</span>
+<span class="fc bfc" id="L199" title="All 2 branches covered.">		for (int i = 0; i &lt; obArray.length; i++){</span>
+<span class="fc" id="L200">			assignments[i] = (String) obArray[i];</span>
+		}
+<span class="fc" id="L202">		columnComboBox.setModel(new DefaultComboBoxModel&lt;String&gt;(assignments));</span>
+<span class="fc" id="L203">		updateAfterAssignmentChange();</span>
+<span class="fc" id="L204">	}</span>
+	
+	public void updateAfterAssignmentChange(){
+<span class="fc" id="L207">		String currentAssignmentString = (String) columnComboBox.getSelectedItem();</span>
+<span class="fc" id="L208">		currentAssignment = currentCourse.getAssignment(currentAssignmentString);</span>
+<span class="fc" id="L209">		courseTerm.setText(currentCourse.getTerm() + &quot; &quot; + currentCourse.getYear());</span>
+<span class="fc" id="L210">		courseEnrollment.setText(currentCourse.getSize() + &quot;&quot;);</span>
+<span class="fc" id="L211">		updateStudentInfo(currentAssignment.getTopStudentID(),currentAssignment.getTopScore());</span>
+<span class="fc" id="L212">	}</span>
+	
+	private void updateStudentInfo(String id, int score){
+<span class="fc" id="L215">		currentStudent = dataBase.getStudent(id);</span>
+<span class="fc" id="L216">		studentId.setText(currentStudent.getId() + &quot;&quot;);</span>
+<span class="fc" id="L217">		studentName.setText(currentStudent.getFirst() + &quot; &quot; + currentStudent.getLast());</span>
+<span class="fc" id="L218">		studentEmail.setText(currentStudent.getEmail() + &quot;@jsu.edu&quot;);</span>
+<span class="fc" id="L219">		studentScore.setText(score + &quot;.0&quot;);</span>
+<span class="fc" id="L220">	}</span>
+	
+    public void update(Observable o, Object arg) {	
+<span class="nc" id="L223">		Scanner s = new Scanner((String) arg).useDelimiter(&quot;:&quot;);</span>
+<span class="nc" id="L224">		updateStudentInfo(s.next(),s.nextInt());</span>
+<span class="nc" id="L225">	}</span>
+	
+    public void actionPerformed(ActionEvent event) {
+<span class="nc bnc" id="L228" title="All 2 branches missed.">		if (event.getActionCommand().equals(&quot;Help Documentation&quot;))</span>
+		{
+<span class="nc" id="L230">			Runtime time = Runtime.getRuntime();</span>
+<span class="nc" id="L231">			String url = &quot;src\\main\\resources\\Gamegogy help\\Publication1.htm&quot;;</span>
+
+<span class="nc" id="L233">			File htmlFile = new File(url);</span>
+			try{
+<span class="nc" id="L235">			Desktop.getDesktop().browse(htmlFile.toURI());</span>
+
+
+			
+
+				
+			}
+<span class="nc" id="L242">			catch 	(Exception e)</span>
+			{
+
+<span class="nc" id="L245">			}</span>
+<span class="nc" id="L246">		}</span>
+<span class="nc bnc" id="L247" title="All 2 branches missed.">		else if(event.getActionCommand().equals(&quot;Resource File&quot;)){</span>
+<span class="nc" id="L248">            webButton.setSelected(false);</span>
+<span class="nc" id="L249">            offlineButton.setSelected(true);</span>
+<span class="nc" id="L250">           	dataBase = new Database(new CSVReader());</span>
+<span class="nc" id="L251">           	setGUIIndex();</span>
+        }
+<span class="nc bnc" id="L253" title="All 2 branches missed.">		else if(event.getActionCommand().equals(&quot;Web Service&quot;)){</span>
+<span class="nc" id="L254">            webButton.setSelected(true);</span>
+<span class="nc" id="L255">            offlineButton.setSelected(false);</span>
+            try{
+<span class="nc bnc" id="L257" title="All 2 branches missed.">				if (url.equals(&quot;&quot;)){</span>
+<span class="nc" id="L258">					dataBase = new Database(new JSONReader(&quot;http://localhost:8080/gamegogy&quot;));</span>
+				}
+				else{
+<span class="nc" id="L261">					dataBase = new Database(new JSONReader(url));</span>
+				}
+			}
+<span class="nc" id="L264">			catch(IOException ex){</span>
+           		//JOptionPane.showMessageDialog(this,&quot;Web Service Unavailable. Reverting to local Resource File.&quot;,&quot;Connection Error&quot;,JOptionPane.WARNING_MESSAGE);
+<span class="nc" id="L266">           		dataBase = new Database(new CSVReader());</span>
+<span class="nc" id="L267">			}</span>
+<span class="nc" id="L268">			setGUIIndex();</span>
+        }
+<span class="nc bnc" id="L270" title="All 2 branches missed.">		else if (courseComboBox == event.getSource()){</span>
+<span class="nc" id="L271">			updateAfterCourseChange();</span>
+		}
+<span class="nc bnc" id="L273" title="All 2 branches missed.">		else if (columnComboBox == event.getSource()){</span>
+<span class="nc" id="L274">			updateAfterAssignmentChange();</span>
+		}
+<span class="nc" id="L276">		leaderboard.setAssignment(currentAssignment);</span>
+<span class="nc" id="L277">    }</span>
+
+    public void setGUIIndex(){
+<span class="nc" id="L280">	   courseComboBox.setSelectedIndex(0);</span>
+<span class="nc" id="L281">	   columnComboBox.setSelectedIndex(0);</span>
+<span class="nc" id="L282">	   updateAfterAssignmentChange();</span>
+<span class="nc" id="L283">	   updateAfterCourseChange();</span>
+<span class="nc" id="L284">    }</span>
+	
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.8.201612092310</span></div></body></html>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>LeaderboardKeywords.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">client</a> &gt; <a href="index.source.html" class="el_package">keywords</a> &gt; <span class="el_source">LeaderboardKeywords.java</span></div><h1>LeaderboardKeywords.java</h1><pre class="source lang-java linenums">package keywords;
+
+import org.robotframework.javalib.annotation.RobotKeyword;
+import org.robotframework.javalib.annotation.RobotKeywords;
+import org.robotframework.javalib.annotation.ArgumentNames;
+import org.robotframework.swing.context.Context;
+
+import org.netbeans.jemmy.operators.JComponentOperator;
+import org.netbeans.jemmy.operators.ContainerOperator;
+import org.netbeans.jemmy.ComponentChooser;
+
+import java.awt.Component;
+import java.awt.Shape;
+import java.awt.Rectangle;
+
+import edu.jsu.mcis.gamegogy.*;
+
+<span class="nc" id="L18">public class LeaderboardKeywords {</span>
+
+    @RobotKeyword(&quot;Clicks the leaderboard bar given by index.\n&quot;)
+    @ArgumentNames({&quot;index&quot;})
+    public void clickLeaderboardBarAtIndex(int index) {
+<span class="nc" id="L23">        ContainerOperator context = (ContainerOperator) Context.getContext();</span>
+<span class="nc" id="L24">        ComponentChooser chooser = new LeaderboardChooser();</span>
+<span class="nc" id="L25">        JComponentOperator operator = new JComponentOperator(context, chooser);</span>
+<span class="nc" id="L26">        Leaderboard leaderboard = (Leaderboard)operator.getSource();</span>
+<span class="nc" id="L27">        Shape[] shapes = leaderboard.getShapes();</span>
+<span class="nc bnc" id="L28" title="All 4 branches missed.">        if(index &gt;= 0 &amp;&amp; index &lt; shapes.length) {</span>
+<span class="nc" id="L29">            Rectangle bounds = shapes[index].getBounds();</span>
+<span class="nc" id="L30">            operator.clickMouse(bounds.x + bounds.width / 2, bounds.y + bounds.height / 2, 1);</span>
+        }
+<span class="nc" id="L32">    }</span>
+
+    class LeaderboardChooser implements ComponentChooser {
+<span class="nc" id="L35">        public LeaderboardChooser() {}</span>
+        public boolean checkComponent(Component comp) {
+<span class="nc" id="L37">            return (comp instanceof Leaderboard);</span>
+        }
+        public String getDescription() {
+<span class="nc" id="L40">            return &quot;Any Leaderboard&quot;;</span>
+        }
+    }  
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.8.201612092310</span></div></body></html>
