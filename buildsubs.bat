@@ -2,5 +2,5 @@ cd .\service
 START gradle clean build
 cd ..
 cd .\client
-START gradle clean build uberjar jacocotestreport
+START gradle build uberjar jacocotestreport
 cd ..

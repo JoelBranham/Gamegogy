@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="edu.jsu.mcis.gamegogy.JSONReaderTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2017-04-21T00:27:36" hostname="Joel" time="21.228">
+<testsuite name="edu.jsu.mcis.gamegogy.JSONReaderTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2017-04-21T03:22:29" hostname="Joel" time="10.19">
   <properties/>
-  <testcase name="testStudentListSizeIsCorrect" classname="edu.jsu.mcis.gamegogy.JSONReaderTest" time="2.58"/>
-  <testcase name="testGetCourseStringIsCorrect" classname="edu.jsu.mcis.gamegogy.JSONReaderTest" time="2.428"/>
-  <testcase name="testFirstStudent" classname="edu.jsu.mcis.gamegogy.JSONReaderTest" time="2.692"/>
-  <testcase name="testSlashIsNotAddedToURLWithSlash" classname="edu.jsu.mcis.gamegogy.JSONReaderTest" time="1.975"/>
-  <testcase name="testSlashIsAddedToURLWithoutSlash" classname="edu.jsu.mcis.gamegogy.JSONReaderTest" time="3.133"/>
-  <testcase name="testGetURL" classname="edu.jsu.mcis.gamegogy.JSONReaderTest" time="3.138"/>
-  <testcase name="testCourseListSizeIsCorrect" classname="edu.jsu.mcis.gamegogy.JSONReaderTest" time="2.427"/>
-  <testcase name="testCourseInfoLoadedCorrectly" classname="edu.jsu.mcis.gamegogy.JSONReaderTest" time="2.855"/>
+  <testcase name="testStudentListSizeIsCorrect" classname="edu.jsu.mcis.gamegogy.JSONReaderTest" time="1.144"/>
+  <testcase name="testGetCourseStringIsCorrect" classname="edu.jsu.mcis.gamegogy.JSONReaderTest" time="1.392"/>
+  <testcase name="testFirstStudent" classname="edu.jsu.mcis.gamegogy.JSONReaderTest" time="1.199"/>
+  <testcase name="testSlashIsNotAddedToURLWithSlash" classname="edu.jsu.mcis.gamegogy.JSONReaderTest" time="1.267"/>
+  <testcase name="testSlashIsAddedToURLWithoutSlash" classname="edu.jsu.mcis.gamegogy.JSONReaderTest" time="1.154"/>
+  <testcase name="testGetURL" classname="edu.jsu.mcis.gamegogy.JSONReaderTest" time="1.188"/>
+  <testcase name="testCourseListSizeIsCorrect" classname="edu.jsu.mcis.gamegogy.JSONReaderTest" time="1.491"/>
+  <testcase name="testCourseInfoLoadedCorrectly" classname="edu.jsu.mcis.gamegogy.JSONReaderTest" time="1.353"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[java.net.MalformedURLException: no protocol: hello/courselist
 	at java.net.URL.<init>(URL.java:593)

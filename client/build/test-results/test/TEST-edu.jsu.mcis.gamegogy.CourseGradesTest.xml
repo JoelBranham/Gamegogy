@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="edu.jsu.mcis.gamegogy.CourseGradesTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2017-04-21T03:22:16" hostname="Joel" time="0.0">
+  <properties/>
+  <testcase name="testConstructor" classname="edu.jsu.mcis.gamegogy.CourseGradesTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

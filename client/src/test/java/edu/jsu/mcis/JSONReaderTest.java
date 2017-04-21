@@ -75,4 +75,5 @@ public class JSONReaderTest{
 		JSONReader reader2 = new JSONReader("hello/");
 		assertEquals("hello/", reader2.getURL());
 	}
+
 }

@@ -17,7 +17,7 @@ public class JSONReader implements DataReader{
 	private InputStream is;
 	private URLConnection con;
 	
-<span class="fc" id="L20">    public JSONReader(String URL) throws MalformedURLException, IOException {</span>
+<span class="fc" id="L20">    public JSONReader(String URL) throws IOException {</span>
 <span class="fc" id="L21">		studentList = new ArrayList&lt;Student&gt;();</span>
 <span class="fc" id="L22">		courseList = new ArrayList&lt;Course&gt;();</span>
 		
@@ -48,7 +48,7 @@ public class JSONReader implements DataReader{
 <span class="fc" id="L48">        catch(IOException e) {e.printStackTrace();}		</span>
 <span class="fc" id="L49">    }</span>
 	
-	private void addOnlineCourseInfo() throws MalformedURLException, IOException{
+	private void addOnlineCourseInfo(){
 <span class="fc bfc" id="L52" title="All 2 branches covered.">		for (String s: getCourseString()){</span>
 <span class="fc" id="L53">			String courseID = s;</span>
 			try{
@@ -106,14 +106,14 @@ public class JSONReader implements DataReader{
 <span class="fc" id="L106">        catch(IOException e) {e.printStackTrace();}</span>
 <span class="fc" id="L107">    }</span>
 	
-	private void openConnection(String URLExtension) throws MalformedURLException, IOException{
+	private void openConnection(String URLExtension) throws IOException{
 <span class="fc" id="L110">        URL url = new URL(URLName + URLExtension);</span>
 <span class="fc" id="L111">        con = url.openConnection();</span>
 <span class="fc" id="L112">        is = con.getInputStream();</span>
 <span class="fc" id="L113">        br = new BufferedReader(new InputStreamReader(is));	</span>
 <span class="fc" id="L114">	}</span>
 	
-    private String getStudentFromJSON(int id) throws MalformedURLException, IOException{
+    private String getStudentFromJSON(int id) throws IOException{
 <span class="fc" id="L117">        String ID = String.valueOf(id);</span>
 <span class="fc" id="L118">		openConnection(&quot;student/&quot; + ID);</span>
         
@@ -126,7 +126,7 @@ public class JSONReader implements DataReader{
 <span class="fc" id="L126">        return returnString;</span>
     }
 	
-     private String getBasicCourseInfo(int id) throws MalformedURLException, IOException {
+     private String getBasicCourseInfo(int id) throws IOException {
 
 <span class="fc" id="L131">        openConnection(&quot;course/&quot; + String.valueOf(id));</span>
 <span class="fc" id="L132">		StringBuffer jsonContents = new StringBuffer();</span>
@@ -154,7 +154,7 @@ public class JSONReader implements DataReader{
 <span class="nc" id="L154">		catch(ParseException p){return &quot;&quot;;}</span>
     }
 	
-    private String getDetailedCourseInfo(int id) throws MalformedURLException, IOException {
+    private String getDetailedCourseInfo(int id) throws IOException {
 
 <span class="fc" id="L159">        openConnection(&quot;course/&quot; + String.valueOf(id));</span>
 <span class="fc" id="L160">		StringBuffer jsonContents = new StringBuffer();</span>
@@ -215,7 +215,7 @@ public class JSONReader implements DataReader{
 <span class="nc" id="L215">		catch(ParseException p){ return &quot;&quot;;}</span>
     }
 
-     private List&lt;String&gt; getStudentListJSON() throws MalformedURLException, IOException{
+     private List&lt;String&gt; getStudentListJSON() throws IOException{
 <span class="fc" id="L219">        List&lt;String&gt; list = new ArrayList&lt;&gt;();</span>
 <span class="fc" id="L220">        String myLine = &quot;&quot;;</span>
 <span class="fc" id="L221">        openConnection(&quot;studentlist&quot;);</span>
@@ -231,7 +231,7 @@ public class JSONReader implements DataReader{
 <span class="fc" id="L231">        return list;</span>
     }
 	
-     private List&lt;String&gt; getCourseListJSON() throws MalformedURLException, IOException {
+     private List&lt;String&gt; getCourseListJSON() throws IOException {
 <span class="fc" id="L235">        List&lt;String&gt; list = new ArrayList&lt;&gt;();</span>
 <span class="fc" id="L236">        openConnection(&quot;courselist&quot;);</span>
 
@@ -245,7 +245,7 @@ public class JSONReader implements DataReader{
 <span class="fc" id="L245">        return list;</span>
     }
 	
-	private String getStudentListCSV() throws MalformedURLException, IOException{
+	private String getStudentListCSV() throws IOException{
 <span class="fc" id="L249">		String s = &quot;\&quot;ID\&quot;,\&quot;First\&quot;,\&quot;Last\&quot;,\&quot;Email\&quot;\n&quot;;</span>
 <span class="fc" id="L250">		List&lt;String&gt; list = getStudentListJSON();</span>
 <span class="fc bfc" id="L251" title="All 2 branches covered.">		for (int i = 0; i &lt; list.size(); i++){</span>
@@ -255,7 +255,7 @@ public class JSONReader implements DataReader{
 <span class="fc" id="L255">		return s;</span>
 	}
 	
-	private String getCourseListCSV() throws MalformedURLException, IOException{
+	private String getCourseListCSV() throws IOException{
 <span class="fc" id="L259">		String s = &quot;\&quot;ID\&quot;,\&quot;Term\&quot;,\&quot;Year\&quot;,\&quot;Size\&quot;\n&quot;;</span>
 <span class="fc" id="L260">		List&lt;String&gt; list = getCourseListJSON();</span>
 <span class="fc bfc" id="L261" title="All 2 branches covered.">		for (int i = 0; i &lt; list.size(); i++){</span>

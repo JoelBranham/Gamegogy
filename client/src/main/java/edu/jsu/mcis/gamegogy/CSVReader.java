@@ -75,8 +75,7 @@ public class CSVReader implements DataReader{
 
 				for (int i = 0; i < courseList.size(); i++){
 					if (courseList.get(i).getId() == courseID){
-						courseList.remove(i);
-						courseList.add(c);
+						courseList.set(i, c);
 					} 
 				}
 			}

@@ -17,7 +17,7 @@ public class JSONReader implements DataReader{
 	private InputStream is;
 	private URLConnection con;
 	
-    public JSONReader(String URL) throws MalformedURLException, IOException {
+    public JSONReader(String URL) throws IOException {
 		studentList = new ArrayList<Student>();
 		courseList = new ArrayList<Course>();
 		
@@ -48,7 +48,7 @@ public class JSONReader implements DataReader{
         catch(IOException e) {e.printStackTrace();}		
     }
 	
-	private void addOnlineCourseInfo() throws MalformedURLException, IOException{
+	private void addOnlineCourseInfo(){
 		for (String s: getCourseString()){
 			String courseID = s;
 			try{
@@ -106,14 +106,14 @@ public class JSONReader implements DataReader{
         catch(IOException e) {e.printStackTrace();}
     }
 	
-	private void openConnection(String URLExtension) throws MalformedURLException, IOException{
+	private void openConnection(String URLExtension) throws IOException{
         URL url = new URL(URLName + URLExtension);
         con = url.openConnection();
         is = con.getInputStream();
         br = new BufferedReader(new InputStreamReader(is));	
 	}
 	
-    private String getStudentFromJSON(int id) throws MalformedURLException, IOException{
+    private String getStudentFromJSON(int id) throws IOException{
         String ID = String.valueOf(id);
 		openConnection("student/" + ID);
         
@@ -126,7 +126,7 @@ public class JSONReader implements DataReader{
         return returnString;
     }
 	
-     private String getBasicCourseInfo(int id) throws MalformedURLException, IOException {
+     private String getBasicCourseInfo(int id) throws IOException {
 
         openConnection("course/" + String.valueOf(id));
 		StringBuffer jsonContents = new StringBuffer();
@@ -154,7 +154,7 @@ public class JSONReader implements DataReader{
 		catch(ParseException p){return "";}
     }
 	
-    private String getDetailedCourseInfo(int id) throws MalformedURLException, IOException {
+    private String getDetailedCourseInfo(int id) throws IOException {
 
         openConnection("course/" + String.valueOf(id));
 		StringBuffer jsonContents = new StringBuffer();
@@ -215,7 +215,7 @@ public class JSONReader implements DataReader{
 		catch(ParseException p){ return "";}
     }
 
-     private List<String> getStudentListJSON() throws MalformedURLException, IOException{
+     private List<String> getStudentListJSON() throws IOException{
         List<String> list = new ArrayList<>();
         String myLine = "";
         openConnection("studentlist");
@@ -231,7 +231,7 @@ public class JSONReader implements DataReader{
         return list;
     }
 	
-     private List<String> getCourseListJSON() throws MalformedURLException, IOException {
+     private List<String> getCourseListJSON() throws IOException {
         List<String> list = new ArrayList<>();
         openConnection("courselist");
 
@@ -245,7 +245,7 @@ public class JSONReader implements DataReader{
         return list;
     }
 	
-	private String getStudentListCSV() throws MalformedURLException, IOException{
+	private String getStudentListCSV() throws IOException{
 		String s = "\"ID\",\"First\",\"Last\",\"Email\"\n";
 		List<String> list = getStudentListJSON();
 		for (int i = 0; i < list.size(); i++){
@@ -255,7 +255,7 @@ public class JSONReader implements DataReader{
 		return s;
 	}
 	
-	private String getCourseListCSV() throws MalformedURLException, IOException{
+	private String getCourseListCSV() throws IOException{
 		String s = "\"ID\",\"Term\",\"Year\",\"Size\"\n";
 		List<String> list = getCourseListJSON();
 		for (int i = 0; i < list.size(); i++){
